@@ -9,11 +9,15 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var remainingHealth: SKLabelNode?
+    
 
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
-        
+
+        initializeUI()
+      
         // Runs this action forever
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -27,6 +31,13 @@ class GameScene: SKScene {
     
     func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return random() * (max - min) + min
+    }
+    
+    func initializeUI() {
+        if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
+            //let newHealth = Int(currentHealth.text!)! - 50
+            remainingHealth = currentHealth
+        }
     }
     
     // Spawns an enemy
@@ -65,7 +76,9 @@ class GameScene: SKScene {
             let touchLocation = touch.location(in: self)
             let touchedNode = self.atPoint(touchLocation)
             
-            touchedNode.removeFromParent()
+            if(touchedNode.name == "fly") {
+                touchedNode.removeFromParent()
+            }
         }
     }
     
