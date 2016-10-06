@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     var remainingHealth: SKLabelNode?
+    var loseMessage: SKLabelNode?
     
 
     // Triggers once we move into the game scene
@@ -38,6 +39,9 @@ class GameScene: SKScene {
         if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
             remainingHealth = currentHealth
         }
+        if let message = childNode(withName: "loseMessage") as? SKLabelNode {
+            loseMessage = message
+        }
     }
     
     // Spawns an enemy
@@ -63,9 +67,7 @@ class GameScene: SKScene {
         enemy.run(SKAction.scale(by: 3, duration: 2), completion: {
             // Despawn enemy and take damage
             enemy.removeFromParent()
-            let newHealth: Int = Int(self.remainingHealth!.text!)! - 10
-            self.remainingHealth?.text = String(newHealth)
-
+            self.takeDamage(amount:10)
         })
  /*
         enemy.run(
@@ -74,6 +76,17 @@ class GameScene: SKScene {
  */
     }
     
+    func takeDamage(amount: Int) {
+        let newHealth: Int = Int(self.remainingHealth!.text!)! - amount
+        self.remainingHealth?.text = String(newHealth)
+        // Check if player lost
+        if(newHealth <= 0) {
+            // Player loses!
+            self.removeAllActions()
+            loseMessage?.isHidden = false
+        }
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
             
