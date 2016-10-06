@@ -34,8 +34,8 @@ class GameScene: SKScene {
     }
     
     func initializeUI() {
+        // Makes sure that the node is found and is not null
         if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
-            //let newHealth = Int(currentHealth.text!)! - 50
             remainingHealth = currentHealth
         }
     }
@@ -57,12 +57,16 @@ class GameScene: SKScene {
             y += enemy.size.height * 3/2
         }
         enemy.position = CGPoint(x: x, y: y)
-        
         addChild(enemy)
+        
         // Enemy flies toward player.
-        enemy.run(
-            SKAction.scale(by: 3, duration: 2)
-        )
+        enemy.run(SKAction.scale(by: 3, duration: 2), completion: {
+            // Despawn enemy and take damage
+            enemy.removeFromParent()
+            let newHealth: Int = Int(self.remainingHealth!.text!)! - 10
+            self.remainingHealth?.text = String(newHealth)
+
+        })
  /*
         enemy.run(
             SKAction.move(to: CGPoint(x: frame.size.width/2, y: frame.size.height/2), duration: 4)

@@ -19,17 +19,12 @@ class GameViewController: UIViewController {
         let skView = self.view as! SKView
         if skView.scene == nil {
             let scene = GameScene(fileNamed: "GameScene.sks")
-           // let scene = GameScene(size:skView.frame.size)
             skView.showsFPS = true
             skView.showsNodeCount = true
             skView.showsPhysics = true
             skView.ignoresSiblingOrder = true
             scene?.scaleMode = .aspectFill
-            //scene.backgroundColor = UIColor.blue
-            
-
             skView.presentScene(scene)
-            
         }
     }
     override var prefersStatusBarHidden : Bool {
