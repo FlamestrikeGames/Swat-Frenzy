@@ -18,7 +18,7 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(spawnEnemy),
-                SKAction.wait(forDuration: 3.0)])))
+                SKAction.wait(forDuration: 6.0)])))
     }
     
     func random() -> CGFloat {
@@ -44,12 +44,11 @@ class GameScene: SKScene {
         
         // Enemy flies toward player.
         enemy.run(
-            SKAction.scale(by: 2, duration: 3)
+            SKAction.scale(by: 15, duration: 4)
         )
-    }
-    
-    // When enemy is killed
-    func destroyEnemy() {
         
+        enemy.run(
+            SKAction.move(to: CGPoint(x: frame.size.width/2, y: frame.size.height/2), duration: 4)
+        )
     }
 }
