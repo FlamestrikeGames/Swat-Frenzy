@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106611DA5CE43006F314A /* AppDelegate.swift */; };
+		66B106641DA5CE43006F314A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* ViewController.swift */; };
+		66B106671DA5CE43006F314A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B106651DA5CE43006F314A /* Main.storyboard */; };
+		66B1066A1DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */; };
+		66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066B1DA5CE43006F314A /* Assets.xcassets */; };
+		66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */; };
+		66B1067A1DA5CE43006F314A /* Swarm_FrenzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */; };
+		66B106851DA5CE43006F314A /* Swarm_FrenzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66B106761DA5CE43006F314A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B106561DA5CE42006F314A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B1065D1DA5CE42006F314A;
+			remoteInfo = "Swarm Frenzy";
+		};
+		66B106811DA5CE43006F314A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B106561DA5CE42006F314A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B1065D1DA5CE42006F314A;
+			remoteInfo = "Swarm Frenzy";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swarm Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B106611DA5CE43006F314A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66B106631DA5CE43006F314A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66B106661DA5CE43006F314A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swarm_Frenzy.xcdatamodel; sourceTree = "<group>"; };
+		66B1066B1DA5CE43006F314A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66B1066E1DA5CE43006F314A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66B106701DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swarm FrenzyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swarm_FrenzyTests.swift; sourceTree = "<group>"; };
+		66B1067B1DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swarm FrenzyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swarm_FrenzyUITests.swift; sourceTree = "<group>"; };
+		66B106861DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66B1065B1DA5CE42006F314A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B106721DA5CE43006F314A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B1067D1DA5CE43006F314A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66B106551DA5CE42006F314A = {
+			isa = PBXGroup;
+			children = (
+				66B106601DA5CE43006F314A /* Swarm Frenzy */,
+				66B106781DA5CE43006F314A /* Swarm FrenzyTests */,
+				66B106831DA5CE43006F314A /* Swarm FrenzyUITests */,
+				66B1065F1DA5CE43006F314A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66B1065F1DA5CE43006F314A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */,
+				66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */,
+				66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66B106601DA5CE43006F314A /* Swarm Frenzy */ = {
+			isa = PBXGroup;
+			children = (
+				66B106611DA5CE43006F314A /* AppDelegate.swift */,
+				66B106631DA5CE43006F314A /* ViewController.swift */,
+				66B106651DA5CE43006F314A /* Main.storyboard */,
+				66B1066B1DA5CE43006F314A /* Assets.xcassets */,
+				66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */,
+				66B106701DA5CE43006F314A /* Info.plist */,
+				66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */,
+			);
+			path = "Swarm Frenzy";
+			sourceTree = "<group>";
+		};
+		66B106781DA5CE43006F314A /* Swarm FrenzyTests */ = {
+			isa = PBXGroup;
+			children = (
+				66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */,
+				66B1067B1DA5CE43006F314A /* Info.plist */,
+			);
+			path = "Swarm FrenzyTests";
+			sourceTree = "<group>";
+		};
+		66B106831DA5CE43006F314A /* Swarm FrenzyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */,
+				66B106861DA5CE43006F314A /* Info.plist */,
+			);
+			path = "Swarm FrenzyUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66B1065D1DA5CE42006F314A /* Swarm Frenzy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm Frenzy" */;
+			buildPhases = (
+				66B1065A1DA5CE42006F314A /* Sources */,
+				66B1065B1DA5CE42006F314A /* Frameworks */,
+				66B1065C1DA5CE42006F314A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swarm Frenzy";
+			productName = "Swarm Frenzy";
+			productReference = 66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66B106741DA5CE43006F314A /* Swarm FrenzyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyTests" */;
+			buildPhases = (
+				66B106711DA5CE43006F314A /* Sources */,
+				66B106721DA5CE43006F314A /* Frameworks */,
+				66B106731DA5CE43006F314A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66B106771DA5CE43006F314A /* PBXTargetDependency */,
+			);
+			name = "Swarm FrenzyTests";
+			productName = "Swarm FrenzyTests";
+			productReference = 66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		66B1067F1DA5CE43006F314A /* Swarm FrenzyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyUITests" */;
+			buildPhases = (
+				66B1067C1DA5CE43006F314A /* Sources */,
+				66B1067D1DA5CE43006F314A /* Frameworks */,
+				66B1067E1DA5CE43006F314A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66B106821DA5CE43006F314A /* PBXTargetDependency */,
+			);
+			name = "Swarm FrenzyUITests";
+			productName = "Swarm FrenzyUITests";
+			productReference = 66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66B106561DA5CE42006F314A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = FlamestrikeGames;
+				TargetAttributes = {
+					66B1065D1DA5CE42006F314A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					66B106741DA5CE43006F314A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66B1065D1DA5CE42006F314A;
+					};
+					66B1067F1DA5CE43006F314A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66B1065D1DA5CE42006F314A;
+					};
+				};
+			};
+			buildConfigurationList = 66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swarm Frenzy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66B106551DA5CE42006F314A;
+			productRefGroup = 66B1065F1DA5CE43006F314A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66B1065D1DA5CE42006F314A /* Swarm Frenzy */,
+				66B106741DA5CE43006F314A /* Swarm FrenzyTests */,
+				66B1067F1DA5CE43006F314A /* Swarm FrenzyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66B1065C1DA5CE42006F314A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */,
+				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
+				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B106731DA5CE43006F314A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B1067E1DA5CE43006F314A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66B1065A1DA5CE42006F314A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66B1066A1DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld in Sources */,
+				66B106641DA5CE43006F314A /* ViewController.swift in Sources */,
+				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B106711DA5CE43006F314A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66B1067A1DA5CE43006F314A /* Swarm_FrenzyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B1067C1DA5CE43006F314A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66B106851DA5CE43006F314A /* Swarm_FrenzyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66B106771DA5CE43006F314A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66B1065D1DA5CE42006F314A /* Swarm Frenzy */;
+			targetProxy = 66B106761DA5CE43006F314A /* PBXContainerItemProxy */;
+		};
+		66B106821DA5CE43006F314A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66B1065D1DA5CE42006F314A /* Swarm Frenzy */;
+			targetProxy = 66B106811DA5CE43006F314A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66B106651DA5CE43006F314A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66B106661DA5CE43006F314A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66B1066E1DA5CE43006F314A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66B106871DA5CE43006F314A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66B106881DA5CE43006F314A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66B1068A1DA5CE43006F314A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Swarm Frenzy/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-Frenzy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		66B1068B1DA5CE43006F314A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Swarm Frenzy/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-Frenzy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		66B1068D1DA5CE43006F314A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Swarm FrenzyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swarm Frenzy.app/Swarm Frenzy";
+			};
+			name = Debug;
+		};
+		66B1068E1DA5CE43006F314A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Swarm FrenzyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swarm Frenzy.app/Swarm Frenzy";
+			};
+			name = Release;
+		};
+		66B106901DA5CE43006F314A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Swarm FrenzyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Swarm Frenzy";
+			};
+			name = Debug;
+		};
+		66B106911DA5CE43006F314A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Swarm FrenzyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Swarm Frenzy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swarm Frenzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66B106871DA5CE43006F314A /* Debug */,
+				66B106881DA5CE43006F314A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm Frenzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66B1068A1DA5CE43006F314A /* Debug */,
+				66B1068B1DA5CE43006F314A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66B1068D1DA5CE43006F314A /* Debug */,
+				66B1068E1DA5CE43006F314A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66B106901DA5CE43006F314A /* Debug */,
+				66B106911DA5CE43006F314A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */,
+			);
+			currentVersion = 66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */;
+			path = Swarm_Frenzy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 66B106561DA5CE42006F314A /* Project object */;
+}
