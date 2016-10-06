@@ -15,6 +15,9 @@
 		66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */; };
 		66B1067A1DA5CE43006F314A /* Swarm_FrenzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */; };
 		66B106851DA5CE43006F314A /* Swarm_FrenzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */; };
+		66B106931DA5DBDC006F314A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106921DA5DBDC006F314A /* GameScene.swift */; };
+		66B106971DA5DE85006F314A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66B106961DA5DE85006F314A /* GameScene.sks */; };
+		66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106981DA5DEC2006F314A /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swarm FrenzyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swarm_FrenzyUITests.swift; sourceTree = "<group>"; };
 		66B106861DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66B106921DA5DBDC006F314A /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		66B106961DA5DE85006F314A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../GameScene.sks; sourceTree = "<group>"; };
+		66B106981DA5DEC2006F314A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 			children = (
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				66B106631DA5CE43006F314A /* ViewController.swift */,
+				66B106961DA5DE85006F314A /* GameScene.sks */,
+				66B106921DA5DBDC006F314A /* GameScene.swift */,
+				66B106981DA5DEC2006F314A /* GameViewController.swift */,
 				66B106651DA5CE43006F314A /* Main.storyboard */,
 				66B1066B1DA5CE43006F314A /* Assets.xcassets */,
 				66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */,
@@ -235,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B106971DA5DE85006F314A /* GameScene.sks in Resources */,
 				66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
@@ -262,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld in Sources */,
 				66B106641DA5CE43006F314A /* ViewController.swift in Sources */,
+				66B106931DA5DBDC006F314A /* GameScene.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
