@@ -9,12 +9,12 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    // 1
-    // 1 - Create the sprite
-    //let player = SKSpriteNode(imageNamed:"spacemonkey_fly02")
+
+    // triggers once we move into the game scene
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         
+        // runs this action forever
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(spawnEnemy),
@@ -29,19 +29,14 @@ class GameScene: SKScene {
         return random() * (max - min) + min
     }
     
-    
-
     // Spawns an enemy
     func spawnEnemy() {
-        // 2
-        let enemy = SKSpriteNode(imageNamed: "fly")
-        // 3
-        enemy.name = "fly"
-        // 4
-        enemy.position = CGPoint(x: frame.size.width * random(min: 0, max: 1), y: frame.size.height * random(min: 0, max: 1))
-        // 5
-        addChild(enemy)
         
+        let enemy = SKSpriteNode(imageNamed: "fly")
+        enemy.name = "fly"
+        enemy.position = CGPoint(x: frame.size.width * random(min: 0, max: 1), y: frame.size.height * random(min: 0, max: 1))
+        
+        addChild(enemy)
         // Enemy flies toward player.
         enemy.run(
             SKAction.scale(by: 2, duration: 3)
