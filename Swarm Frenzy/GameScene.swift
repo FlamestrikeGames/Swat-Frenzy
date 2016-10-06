@@ -12,7 +12,14 @@ class GameScene: SKScene {
     // 1
     // 1 - Create the sprite
     //let player = SKSpriteNode(imageNamed:"spacemonkey_fly02")
-    
+    override func didMove(to view: SKView) {
+        backgroundColor = SKColor.black
+        
+        run(SKAction.repeatForever(
+            SKAction.sequence([
+                SKAction.run(spawnEnemy),
+                SKAction.wait(forDuration: 1.0)])))
+    }
     
     func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
@@ -29,7 +36,7 @@ class GameScene: SKScene {
         // 3
         enemy.name = "fly"
         // 4
-        enemy.position = CGPoint(x: frame.size.width/2, y: frame.size.height * random(min: 0, max: 1))
+        enemy.position = CGPoint(x: frame.size.width * random(min: 0, max: 1), y: frame.size.height * random(min: 0, max: 1))
         // 5
         addChild(enemy)
     }
