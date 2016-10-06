@@ -18,7 +18,7 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(spawnEnemy),
-                SKAction.wait(forDuration: 1.0)])))
+                SKAction.wait(forDuration: 3.0)])))
     }
     
     func random() -> CGFloat {
@@ -30,6 +30,8 @@ class GameScene: SKScene {
     }
     
     
+
+    // Spawns an enemy
     func spawnEnemy() {
         // 2
         let enemy = SKSpriteNode(imageNamed: "fly")
@@ -39,5 +41,15 @@ class GameScene: SKScene {
         enemy.position = CGPoint(x: frame.size.width * random(min: 0, max: 1), y: frame.size.height * random(min: 0, max: 1))
         // 5
         addChild(enemy)
+        
+        // Enemy flies toward player.
+        enemy.run(
+            SKAction.scale(by: 2, duration: 3)
+        )
+    }
+    
+    // When enemy is killed
+    func destroyEnemy() {
+        
     }
 }
