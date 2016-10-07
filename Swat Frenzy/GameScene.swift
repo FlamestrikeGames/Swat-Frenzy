@@ -70,7 +70,7 @@ class GameScene: SKScene {
         addChild(enemy)
         
         // Enemy flies toward player.
-        enemy.run(SKAction.scale(by: 3, duration: 2), completion: {
+        enemy.run(SKAction.scale(by: 4, duration: 2), completion: {
             // Despawn enemy and take damage
             enemy.removeFromParent()
             self.takeDamage(amount:50)
@@ -124,10 +124,11 @@ class GameScene: SKScene {
         let touch = touches.first! as UITouch
         let location = touch.location(in: self)
         
-        for enemy : SKNode in children {
-            if enemy.frame.contains(location)
-            {
-                enemy.removeFromParent()
+        for node : SKNode in children {
+            if let enemy = node as? SKSpriteNode {
+                if enemy.frame.contains(location) {
+                    enemy.removeFromParent()
+                }
             }
         }
     }
