@@ -113,22 +113,14 @@ class GameScene: SKScene {
         let touchLocation = firstTouch.location(in: self)
         weaponPosition = touchLocation
         presentWeaponAtPosition(position: weaponPosition)
-        
+/*
         for touch: AnyObject in touches {
             
             let touchLocation = touch.location(in: self)
             let touchedNode = self.atPoint(touchLocation)
-            
-            if(touchedNode.name == "fly") {
-                enemiesToKill -= 1
-                enemiesLeft?.text = String(enemiesToKill)
-                touchedNode.removeFromParent()
-                if(enemiesToKill == 0) {
-                    // You Win!
-                    gameOver(won: true)
-                }
-            }
+
         }
+*/
     }
     
     // For swipes
@@ -162,6 +154,7 @@ class GameScene: SKScene {
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.red)
+        weapon?.name = "weapon"
         self.addChild(weapon!)
         isWeaponDisplayed = true
     }
