@@ -97,9 +97,10 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         /* For weapon animation. */
-        let any_object = touches.first! as UITouch
-        let touchLocation = any_object.location(in: self)
-        presentWeaponAtPosition(position: touchLocation)
+        let firstTouch = touches.first! as UITouch
+        let touchLocation = firstTouch.location(in: self)
+        weaponPosition = touchLocation
+        presentWeaponAtPosition(position: weaponLocation)
         
         for touch: AnyObject in touches {
             
@@ -135,8 +136,8 @@ class GameScene: SKScene {
     }
     
     // Initializes weapon at touch location
-    func presentWeaponAtPosition(position:CGPoint) {
-        weapon = SWBlade(position: position, target: self, color: UIColor.white)
+    func presentWeaponAtPosition(position: CGPoint) {
+        weapon = SWBlade(position: position, target: self, color: UIColor.red)
         self.addChild(weapon!)
         isWeaponDisplayed = true
     }
