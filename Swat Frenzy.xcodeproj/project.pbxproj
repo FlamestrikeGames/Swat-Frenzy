@@ -10,11 +10,11 @@
 		66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106611DA5CE43006F314A /* AppDelegate.swift */; };
 		66B106641DA5CE43006F314A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* ViewController.swift */; };
 		66B106671DA5CE43006F314A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B106651DA5CE43006F314A /* Main.storyboard */; };
-		66B1066A1DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */; };
+		66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B106681DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld */; };
 		66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066B1DA5CE43006F314A /* Assets.xcassets */; };
 		66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */; };
-		66B1067A1DA5CE43006F314A /* Swarm_FrenzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */; };
-		66B106851DA5CE43006F314A /* Swarm_FrenzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */; };
+		66B1067A1DA5CE43006F314A /* Swat_FrenzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106791DA5CE43006F314A /* Swat_FrenzyTests.swift */; };
+		66B106851DA5CE43006F314A /* Swat_FrenzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106841DA5CE43006F314A /* Swat_FrenzyUITests.swift */; };
 		66B106931DA5DBDC006F314A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106921DA5DBDC006F314A /* GameScene.swift */; };
 		66B106971DA5DE85006F314A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66B106961DA5DE85006F314A /* GameScene.sks */; };
 		66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106981DA5DEC2006F314A /* GameViewController.swift */; };
@@ -26,31 +26,31 @@
 			containerPortal = 66B106561DA5CE42006F314A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 66B1065D1DA5CE42006F314A;
-			remoteInfo = "Swarm Frenzy";
+			remoteInfo = "Swat Frenzy";
 		};
 		66B106811DA5CE43006F314A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66B106561DA5CE42006F314A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 66B1065D1DA5CE42006F314A;
-			remoteInfo = "Swarm Frenzy";
+			remoteInfo = "Swat Frenzy";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swarm Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B1065E1DA5CE43006F314A /* Swat Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swat Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B106611DA5CE43006F314A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B106631DA5CE43006F314A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66B106661DA5CE43006F314A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swarm_Frenzy.xcdatamodel; sourceTree = "<group>"; };
+		66B106691DA5CE43006F314A /* Swat_Frenzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swat_Frenzy.xcdatamodel; sourceTree = "<group>"; };
 		66B1066B1DA5CE43006F314A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66B1066E1DA5CE43006F314A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66B106701DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swarm FrenzyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swarm_FrenzyTests.swift; sourceTree = "<group>"; };
+		66B106751DA5CE43006F314A /* Swat FrenzyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swat FrenzyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B106791DA5CE43006F314A /* Swat_FrenzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swat_FrenzyTests.swift; sourceTree = "<group>"; };
 		66B1067B1DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swarm FrenzyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swarm_FrenzyUITests.swift; sourceTree = "<group>"; };
+		66B106801DA5CE43006F314A /* Swat FrenzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swat FrenzyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B106841DA5CE43006F314A /* Swat_FrenzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swat_FrenzyUITests.swift; sourceTree = "<group>"; };
 		66B106861DA5CE43006F314A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B106921DA5DBDC006F314A /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		66B106961DA5DE85006F314A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../GameScene.sks; sourceTree = "<group>"; };
@@ -85,9 +85,9 @@
 		66B106551DA5CE42006F314A = {
 			isa = PBXGroup;
 			children = (
-				66B106601DA5CE43006F314A /* Swarm Frenzy */,
-				66B106781DA5CE43006F314A /* Swarm FrenzyTests */,
-				66B106831DA5CE43006F314A /* Swarm FrenzyUITests */,
+				66B106601DA5CE43006F314A /* Swat Frenzy */,
+				66B106781DA5CE43006F314A /* Swat FrenzyTests */,
+				66B106831DA5CE43006F314A /* SwatFrenzyUITests */,
 				66B1065F1DA5CE43006F314A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,14 +95,14 @@
 		66B1065F1DA5CE43006F314A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */,
-				66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */,
-				66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */,
+				66B1065E1DA5CE43006F314A /* Swat Frenzy.app */,
+				66B106751DA5CE43006F314A /* Swat FrenzyTests.xctest */,
+				66B106801DA5CE43006F314A /* Swat FrenzyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66B106601DA5CE43006F314A /* Swarm Frenzy */ = {
+		66B106601DA5CE43006F314A /* Swat Frenzy */ = {
 			isa = PBXGroup;
 			children = (
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
@@ -114,35 +114,38 @@
 				66B1066B1DA5CE43006F314A /* Assets.xcassets */,
 				66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */,
 				66B106701DA5CE43006F314A /* Info.plist */,
-				66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */,
+				66B106681DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld */,
 			);
-			path = "Swarm Frenzy";
+			name = "Swat Frenzy";
+			path = "Swat Frenzy";
 			sourceTree = "<group>";
 		};
-		66B106781DA5CE43006F314A /* Swarm FrenzyTests */ = {
+		66B106781DA5CE43006F314A /* Swat FrenzyTests */ = {
 			isa = PBXGroup;
 			children = (
-				66B106791DA5CE43006F314A /* Swarm_FrenzyTests.swift */,
+				66B106791DA5CE43006F314A /* Swat_FrenzyTests.swift */,
 				66B1067B1DA5CE43006F314A /* Info.plist */,
 			);
-			path = "Swarm FrenzyTests";
+			name = "Swat FrenzyTests";
+			path = "Swat FrenzyTests";
 			sourceTree = "<group>";
 		};
-		66B106831DA5CE43006F314A /* Swarm FrenzyUITests */ = {
+		66B106831DA5CE43006F314A /* SwatFrenzyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				66B106841DA5CE43006F314A /* Swarm_FrenzyUITests.swift */,
+				66B106841DA5CE43006F314A /* Swat_FrenzyUITests.swift */,
 				66B106861DA5CE43006F314A /* Info.plist */,
 			);
-			path = "Swarm FrenzyUITests";
+			name = SwatFrenzyUITests;
+			path = "Swat FrenzyUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66B1065D1DA5CE42006F314A /* Swarm Frenzy */ = {
+		66B1065D1DA5CE42006F314A /* Swat Frenzy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm Frenzy" */;
+			buildConfigurationList = 66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat Frenzy" */;
 			buildPhases = (
 				66B1065A1DA5CE42006F314A /* Sources */,
 				66B1065B1DA5CE42006F314A /* Frameworks */,
@@ -152,14 +155,14 @@
 			);
 			dependencies = (
 			);
-			name = "Swarm Frenzy";
-			productName = "Swarm Frenzy";
-			productReference = 66B1065E1DA5CE43006F314A /* Swarm Frenzy.app */;
+			name = "Swat Frenzy";
+			productName = "Swat Frenzy";
+			productReference = 66B1065E1DA5CE43006F314A /* Swat Frenzy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66B106741DA5CE43006F314A /* Swarm FrenzyTests */ = {
+		66B106741DA5CE43006F314A /* Swat FrenzyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyTests" */;
+			buildConfigurationList = 66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat FrenzyTests" */;
 			buildPhases = (
 				66B106711DA5CE43006F314A /* Sources */,
 				66B106721DA5CE43006F314A /* Frameworks */,
@@ -170,14 +173,14 @@
 			dependencies = (
 				66B106771DA5CE43006F314A /* PBXTargetDependency */,
 			);
-			name = "Swarm FrenzyTests";
-			productName = "Swarm FrenzyTests";
-			productReference = 66B106751DA5CE43006F314A /* Swarm FrenzyTests.xctest */;
+			name = "Swat FrenzyTests";
+			productName = "Swat FrenzyTests";
+			productReference = 66B106751DA5CE43006F314A /* Swat FrenzyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		66B1067F1DA5CE43006F314A /* Swarm FrenzyUITests */ = {
+		66B1067F1DA5CE43006F314A /* Swat FrenzyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyUITests" */;
+			buildConfigurationList = 66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat FrenzyUITests" */;
 			buildPhases = (
 				66B1067C1DA5CE43006F314A /* Sources */,
 				66B1067D1DA5CE43006F314A /* Frameworks */,
@@ -188,9 +191,9 @@
 			dependencies = (
 				66B106821DA5CE43006F314A /* PBXTargetDependency */,
 			);
-			name = "Swarm FrenzyUITests";
-			productName = "Swarm FrenzyUITests";
-			productReference = 66B106801DA5CE43006F314A /* Swarm FrenzyUITests.xctest */;
+			name = "Swat FrenzyUITests";
+			productName = "Swat FrenzyUITests";
+			productReference = 66B106801DA5CE43006F314A /* Swat FrenzyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +222,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swarm Frenzy" */;
+			buildConfigurationList = 66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swat Frenzy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,9 +235,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66B1065D1DA5CE42006F314A /* Swarm Frenzy */,
-				66B106741DA5CE43006F314A /* Swarm FrenzyTests */,
-				66B1067F1DA5CE43006F314A /* Swarm FrenzyUITests */,
+				66B1065D1DA5CE42006F314A /* Swat Frenzy */,
+				66B106741DA5CE43006F314A /* Swat FrenzyTests */,
+				66B1067F1DA5CE43006F314A /* Swat FrenzyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,7 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */,
-				66B1066A1DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld in Sources */,
+				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
 				66B106641DA5CE43006F314A /* ViewController.swift in Sources */,
 				66B106931DA5DBDC006F314A /* GameScene.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
@@ -284,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66B1067A1DA5CE43006F314A /* Swarm_FrenzyTests.swift in Sources */,
+				66B1067A1DA5CE43006F314A /* Swat_FrenzyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66B106851DA5CE43006F314A /* Swarm_FrenzyUITests.swift in Sources */,
+				66B106851DA5CE43006F314A /* Swat_FrenzyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,12 +304,12 @@
 /* Begin PBXTargetDependency section */
 		66B106771DA5CE43006F314A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66B1065D1DA5CE42006F314A /* Swarm Frenzy */;
+			target = 66B1065D1DA5CE42006F314A /* Swat Frenzy */;
 			targetProxy = 66B106761DA5CE43006F314A /* PBXContainerItemProxy */;
 		};
 		66B106821DA5CE43006F314A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66B1065D1DA5CE42006F314A /* Swarm Frenzy */;
+			target = 66B1065D1DA5CE42006F314A /* Swat Frenzy */;
 			targetProxy = 66B106811DA5CE43006F314A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,10 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Swarm Frenzy/Info.plist";
+				INFOPLIST_FILE = "Swat Frenzy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-Frenzy";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-Frenzy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,10 +447,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Swarm Frenzy/Info.plist";
+				INFOPLIST_FILE = "Swat Frenzy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-Frenzy";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-Frenzy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,12 +462,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Swarm FrenzyTests/Info.plist";
+				INFOPLIST_FILE = "Swat FrenzyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-FrenzyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swarm Frenzy.app/Swarm Frenzy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swat Frenzy.app/Swat Frenzy";
 			};
 			name = Debug;
 		};
@@ -473,12 +476,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Swarm FrenzyTests/Info.plist";
+				INFOPLIST_FILE = "Swat FrenzyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-FrenzyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swarm Frenzy.app/Swarm Frenzy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swat Frenzy.app/Swat Frenzy";
 			};
 			name = Release;
 		};
@@ -486,12 +489,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "Swarm FrenzyUITests/Info.plist";
+				INFOPLIST_FILE = "Swat FrenzyUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-FrenzyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Swarm Frenzy";
+				TEST_TARGET_NAME = "Swat Frenzy";
 			};
 			name = Debug;
 		};
@@ -499,19 +502,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "Swarm FrenzyUITests/Info.plist";
+				INFOPLIST_FILE = "Swat FrenzyUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swarm-FrenzyUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "FSG.Swat-FrenzyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Swarm Frenzy";
+				TEST_TARGET_NAME = "Swat Frenzy";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swarm Frenzy" */ = {
+		66B106591DA5CE42006F314A /* Build configuration list for PBXProject "Swat Frenzy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66B106871DA5CE43006F314A /* Debug */,
@@ -520,40 +523,43 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm Frenzy" */ = {
+		66B106891DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat Frenzy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66B1068A1DA5CE43006F314A /* Debug */,
 				66B1068B1DA5CE43006F314A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyTests" */ = {
+		66B1068C1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat FrenzyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66B1068D1DA5CE43006F314A /* Debug */,
 				66B1068E1DA5CE43006F314A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swarm FrenzyUITests" */ = {
+		66B1068F1DA5CE43006F314A /* Build configuration list for PBXNativeTarget "Swat FrenzyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66B106901DA5CE43006F314A /* Debug */,
 				66B106911DA5CE43006F314A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		66B106681DA5CE43006F314A /* Swarm_Frenzy.xcdatamodeld */ = {
+		66B106681DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */,
+				66B106691DA5CE43006F314A /* Swat_Frenzy.xcdatamodel */,
 			);
-			currentVersion = 66B106691DA5CE43006F314A /* Swarm_Frenzy.xcdatamodel */;
-			path = Swarm_Frenzy.xcdatamodeld;
+			currentVersion = 66B106691DA5CE43006F314A /* Swat_Frenzy.xcdatamodel */;
+			path = Swat_Frenzy.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
