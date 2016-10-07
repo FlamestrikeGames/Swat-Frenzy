@@ -12,12 +12,13 @@ class GameScene: SKScene {
     var remainingHealth: SKLabelNode?
     var loseMessage: SKLabelNode?
     
-    // This optional variable will help us to easily access our blade
-    var weapon:SWBlade?
+    // This optional variable will help us to easily access our weapon
+    var weapon: SWBlade?
     
     // This will help us to update the position of the blade
     // Set the initial value to 0
     var weaponPosition = CGPoint.zero
+    var isWeaponDisplayed = false;
    
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
@@ -137,10 +138,12 @@ class GameScene: SKScene {
     func presentWeaponAtPosition(position:CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.white)
         self.addChild(weapon!)
+        isWeaponDisplayed = true
     }
     
     // This will help us to remove our blade and reset the delta value
     func removeWeapon() {
+        isWeaponDisplayed = false
         weapon!.removeFromParent()
     }
     
@@ -155,7 +158,7 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: CFTimeInterval) {
         // If the weapon is available (When user touches screen)
-        if weapon != nil {
+        if weapon != nil && isWeaponDisplayed {
             // Update the weapon position
             weapon!.position = CGPoint(x: weaponPosition.x, y:weaponPosition.y)
         }
