@@ -10,7 +10,7 @@
 		6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */ = {isa = PBXBuildFile; fileRef = 6683670E1DA72FDE00521D03 /* SWBlade-master */; };
 		668367111DA7337000521D03 /* SWBlade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668367101DA7337000521D03 /* SWBlade.swift */; };
 		66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106611DA5CE43006F314A /* AppDelegate.swift */; };
-		66B106641DA5CE43006F314A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* ViewController.swift */; };
+		66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* TitleScreenViewController.swift */; };
 		66B106671DA5CE43006F314A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B106651DA5CE43006F314A /* Main.storyboard */; };
 		66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B106681DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld */; };
 		66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B1066B1DA5CE43006F314A /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		66B106931DA5DBDC006F314A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106921DA5DBDC006F314A /* GameScene.swift */; };
 		66B106971DA5DE85006F314A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66B106961DA5DE85006F314A /* GameScene.sks */; };
 		66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106981DA5DEC2006F314A /* GameViewController.swift */; };
+		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,7 @@
 		668367101DA7337000521D03 /* SWBlade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWBlade.swift; sourceTree = "<group>"; };
 		66B1065E1DA5CE43006F314A /* Swat Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swat Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B106611DA5CE43006F314A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66B106631DA5CE43006F314A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66B106631DA5CE43006F314A /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
 		66B106661DA5CE43006F314A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66B106691DA5CE43006F314A /* Swat_Frenzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swat_Frenzy.xcdatamodel; sourceTree = "<group>"; };
 		66B1066B1DA5CE43006F314A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		66B106921DA5DBDC006F314A /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		66B106961DA5DE85006F314A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../GameScene.sks; sourceTree = "<group>"; };
 		66B106981DA5DEC2006F314A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +114,10 @@
 			children = (
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
-				66B106631DA5CE43006F314A /* ViewController.swift */,
-				66B106961DA5DE85006F314A /* GameScene.sks */,
 				66B106921DA5DBDC006F314A /* GameScene.swift */,
-				66B106981DA5DEC2006F314A /* GameViewController.swift */,
+				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
+				7B678A941DA848BF0097E9E1 /* ViewControllers */,
+				7B678A931DA8487A0097E9E1 /* Scenes */,
 				66B106651DA5CE43006F314A /* Main.storyboard */,
 				66B1066B1DA5CE43006F314A /* Assets.xcassets */,
 				66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */,
@@ -142,6 +144,23 @@
 			);
 			name = SwatFrenzyUITests;
 			path = "Swat FrenzyUITests";
+			sourceTree = "<group>";
+		};
+		7B678A931DA8487A0097E9E1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				66B106961DA5DE85006F314A /* GameScene.sks */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		7B678A941DA848BF0097E9E1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				66B106981DA5DEC2006F314A /* GameViewController.swift */,
+				66B106631DA5CE43006F314A /* TitleScreenViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +301,8 @@
 			files = (
 				66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
-				66B106641DA5CE43006F314A /* ViewController.swift in Sources */,
+				7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */,
+				66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */,
 				66B106931DA5DBDC006F314A /* GameScene.swift in Sources */,
 				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,

@@ -10,7 +10,10 @@ import SpriteKit
 
 class GameScene: SKScene {
     var remainingHealth: SKLabelNode?
-    var loseMessage: SKLabelNode?
+    var enemiesLeft: SKLabelNode?
+    
+    var enemiesToKill = 5
+    var enemyDamage = 50
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -25,12 +28,13 @@ class GameScene: SKScene {
         backgroundColor = SKColor.black
 
         initializeUI()
-      
+        
         // Runs this action forever
-        run(SKAction.repeatForever(
+        run(SKAction.repeat(
             SKAction.sequence([
-                SKAction.run(spawnEnemy),
-                SKAction.wait(forDuration: 3.0)])))
+                SKAction.wait(forDuration: 2.0),
+                SKAction.run(spawnEnemy)
+                ]), count: enemiesToKill + (100/enemyDamage)))
     }
     
     func random() -> CGFloat {
@@ -46,8 +50,10 @@ class GameScene: SKScene {
         if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
             remainingHealth = currentHealth
         }
-        if let message = childNode(withName: "loseMessage") as? SKLabelNode {
-            loseMessage = message
+
+        if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
+            enemiesLeft = enemies
+            enemiesLeft?.text = String(enemiesToKill)
         }
     }
     
@@ -59,7 +65,7 @@ class GameScene: SKScene {
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
-        var y = (frame.size.height - (enemy.size.height * 3/2)) * random(min: 0, max: 1)
+        var y = (frame.size.height - (enemy.size.height * 3/2) - (remainingHealth?.frame.size.height)!) * random(min: 0, max: 1)
         
         if x < (enemy.size.width * 3/2) {
             x += enemy.size.width * 3/2
@@ -71,10 +77,10 @@ class GameScene: SKScene {
         addChild(enemy)
         
         // Enemy flies toward player.
-        enemy.run(SKAction.scale(by: 4, duration: 2), completion: {
+        enemy.run(SKAction.scale(by: 4, duration: 2.5), completion: {
             // Despawn enemy and take damage
             enemy.removeFromParent()
-            self.takeDamage(amount:50)
+            self.takeDamage(amount: self.enemyDamage)
         })
  /*
         enemy.run(
@@ -89,10 +95,16 @@ class GameScene: SKScene {
         // Check if player lost
         if(newHealth <= 0) {
             // Player loses!
-            self.removeAllActions()
-            loseMessage?.isHidden = false
+            gameOver(won: false)
         }
     }
+    
+    func gameOver(won: Bool) {
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameOverScene = GameOverScene(size: self.size, won: won)
+        self.view?.presentScene(gameOverScene, transition: reveal)
+    }
+
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -100,7 +112,7 @@ class GameScene: SKScene {
         let firstTouch = touches.first! as UITouch
         let touchLocation = firstTouch.location(in: self)
         weaponPosition = touchLocation
-        presentWeaponAtPosition(position: weaponLocation)
+        presentWeaponAtPosition(position: weaponPosition)
         
         for touch: AnyObject in touches {
             
@@ -108,7 +120,13 @@ class GameScene: SKScene {
             let touchedNode = self.atPoint(touchLocation)
             
             if(touchedNode.name == "fly") {
+                enemiesToKill -= 1
+                enemiesLeft?.text = String(enemiesToKill)
                 touchedNode.removeFromParent()
+                if(enemiesToKill == 0) {
+                    // You Win!
+                    gameOver(won: true)
+                }
             }
         }
     }
@@ -129,7 +147,13 @@ class GameScene: SKScene {
         for node : SKNode in children {
             if let enemy = node as? SKSpriteNode {
                 if enemy.frame.contains(location) {
+                    enemiesToKill -= 1
+                    enemiesLeft?.text = String(enemiesToKill)
                     enemy.removeFromParent()
+                    if(enemiesToKill == 0) {
+                        // You Win!
+                        gameOver(won: true)
+                    }
                 }
             }
         }
