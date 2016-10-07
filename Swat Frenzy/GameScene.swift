@@ -7,8 +7,10 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene {
+    /* INITIALIZATION */
     var remainingHealth: SKLabelNode?
     var enemiesLeft: SKLabelNode?
     
@@ -23,6 +25,11 @@ class GameScene: SKScene {
     var weaponPosition = CGPoint.zero
     var isWeaponDisplayed = false;
    
+    
+    var mosquitoSoundFX: AVAudioPlayer!
+    
+    /* GAME LOGIC */
+    
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
@@ -35,14 +42,6 @@ class GameScene: SKScene {
                 SKAction.wait(forDuration: 2.0),
                 SKAction.run(spawnEnemy)
                 ]), count: enemiesToKill + (100/enemyDamage)))
-    }
-    
-    func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    func random(min: CGFloat, max: CGFloat) -> CGFloat {
-        return random() * (max - min) + min
     }
     
     func initializeUI() {
@@ -82,12 +81,24 @@ class GameScene: SKScene {
             enemy.removeFromParent()
             self.takeDamage(amount: self.enemyDamage)
         })
+        playMosquito()
  /*
         enemy.run(
             SKAction.move(to: CGPoint(x: frame.size.width/2, y: frame.size.height/2), duration: 4)
         )
  */
     }
+    
+    /* HELPER FUNCTIONS */
+    
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+
     
     func takeDamage(amount: Int) {
         let newHealth: Int = Int(self.remainingHealth!.text!)! - amount
@@ -179,6 +190,21 @@ class GameScene: SKScene {
         if weapon != nil && isWeaponDisplayed {
             // Update the weapon position
             weapon!.position = CGPoint(x: weaponPosition.x, y:weaponPosition.y)
+        }
+    }
+    
+    
+    /* AUDIO */
+    func playMosquito() {
+        let path = Bundle.main.path(forResource: "mosquito.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            mosquitoSoundFX = sound
+            sound.play()
+        } catch {
+            // couldn't load file :(
         }
     }
     

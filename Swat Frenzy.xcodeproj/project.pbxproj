@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */ = {isa = PBXBuildFile; fileRef = 6683670E1DA72FDE00521D03 /* SWBlade-master */; };
 		668367111DA7337000521D03 /* SWBlade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668367101DA7337000521D03 /* SWBlade.swift */; };
+		668367151DA8645300521D03 /* mosquito.wav in Resources */ = {isa = PBXBuildFile; fileRef = 668367141DA8645300521D03 /* mosquito.wav */; };
 		66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106611DA5CE43006F314A /* AppDelegate.swift */; };
 		66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* TitleScreenViewController.swift */; };
 		66B106671DA5CE43006F314A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B106651DA5CE43006F314A /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		6683670E1DA72FDE00521D03 /* SWBlade-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SWBlade-master"; sourceTree = "<group>"; };
 		668367101DA7337000521D03 /* SWBlade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWBlade.swift; sourceTree = "<group>"; };
+		668367141DA8645300521D03 /* mosquito.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mosquito.wav; sourceTree = "<group>"; };
 		66B1065E1DA5CE43006F314A /* Swat Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swat Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B106611DA5CE43006F314A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B106631DA5CE43006F314A /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		668367171DA8647000521D03 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				668367141DA8645300521D03 /* mosquito.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		66B106551DA5CE42006F314A = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		66B106601DA5CE43006F314A /* Swat Frenzy */ = {
 			isa = PBXGroup;
 			children = (
+				668367171DA8647000521D03 /* Sounds */,
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				66B106921DA5DBDC006F314A /* GameScene.swift */,
@@ -275,6 +286,7 @@
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
+				668367151DA8645300521D03 /* mosquito.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
