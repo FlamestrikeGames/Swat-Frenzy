@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */ = {isa = PBXBuildFile; fileRef = 6683670E1DA72FDE00521D03 /* SWBlade-master */; };
+		668367111DA7337000521D03 /* SWBlade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668367101DA7337000521D03 /* SWBlade.swift */; };
 		66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106611DA5CE43006F314A /* AppDelegate.swift */; };
 		66B106641DA5CE43006F314A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106631DA5CE43006F314A /* ViewController.swift */; };
 		66B106671DA5CE43006F314A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B106651DA5CE43006F314A /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6683670E1DA72FDE00521D03 /* SWBlade-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SWBlade-master"; sourceTree = "<group>"; };
+		668367101DA7337000521D03 /* SWBlade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWBlade.swift; sourceTree = "<group>"; };
 		66B1065E1DA5CE43006F314A /* Swat Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swat Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B106611DA5CE43006F314A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B106631DA5CE43006F314A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		66B106551DA5CE42006F314A = {
 			isa = PBXGroup;
 			children = (
+				6683670E1DA72FDE00521D03 /* SWBlade-master */,
 				66B106601DA5CE43006F314A /* Swat Frenzy */,
 				66B106781DA5CE43006F314A /* Swat FrenzyTests */,
 				66B106831DA5CE43006F314A /* SwatFrenzyUITests */,
@@ -105,6 +110,7 @@
 		66B106601DA5CE43006F314A /* Swat Frenzy */ = {
 			isa = PBXGroup;
 			children = (
+				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				66B106631DA5CE43006F314A /* ViewController.swift */,
 				66B106961DA5DE85006F314A /* GameScene.sks */,
@@ -116,7 +122,6 @@
 				66B106701DA5CE43006F314A /* Info.plist */,
 				66B106681DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld */,
 			);
-			name = "Swat Frenzy";
 			path = "Swat Frenzy";
 			sourceTree = "<group>";
 		};
@@ -126,7 +131,6 @@
 				66B106791DA5CE43006F314A /* Swat_FrenzyTests.swift */,
 				66B1067B1DA5CE43006F314A /* Info.plist */,
 			);
-			name = "Swat FrenzyTests";
 			path = "Swat FrenzyTests";
 			sourceTree = "<group>";
 		};
@@ -249,6 +253,7 @@
 			files = (
 				66B106971DA5DE85006F314A /* GameScene.sks in Resources */,
 				66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */,
+				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
 			);
@@ -279,6 +284,7 @@
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
 				66B106641DA5CE43006F314A /* ViewController.swift in Sources */,
 				66B106931DA5DBDC006F314A /* GameScene.swift in Sources */,
+				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

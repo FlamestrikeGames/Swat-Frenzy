@@ -12,7 +12,26 @@ class GameScene: SKScene {
     var remainingHealth: SKLabelNode?
     var loseMessage: SKLabelNode?
     
+    // This optional variable will help us to easily access our blade
+    var blade:SWBlade?
+    
+    // This will help us to update the position of the blade
+    // Set the initial value to 0
+    var delta = CGPoint.zero
+   
+    // This will help us to initialize our blade
+    func presentBladeAtPosition(position:CGPoint) {
+        blade = SWBlade(position: position, target: self, color: UIColor.white)
+        self.addChild(blade!)
+    }
+    
+    // This will help us to remove our blade and reset the delta value
+    func removeBlade() {
+        delta = CGPoint.zero
+        blade!.removeFromParent()
+    }
 
+    
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
@@ -67,7 +86,7 @@ class GameScene: SKScene {
         enemy.run(SKAction.scale(by: 3, duration: 2), completion: {
             // Despawn enemy and take damage
             enemy.removeFromParent()
-            self.takeDamage(amount:10)
+            self.takeDamage(amount:50)
         })
  /*
         enemy.run(
@@ -88,6 +107,12 @@ class GameScene: SKScene {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        /* For weapon animation. */
+        let any_object = touches.first! as UITouch
+        let touchLocation = any_object.location(in: self)
+        presentBladeAtPosition(position: touchLocation)
+        
         for touch: AnyObject in touches {
             
             let touchLocation = touch.location(in: self)
@@ -99,17 +124,51 @@ class GameScene: SKScene {
         }
     }
     
+    /* Swipes. */
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
+        
+//        /* Get deltas for weapon animation. */
+//        for touch: UITouch in touches {
+//            let any_object = touch as UITouch
+//            let currentPoint = any_object.location(in: self)
+//            let previousPoint = any_object.previousLocation(in: self)
+//            delta = CGPoint(x: currentPoint.x - previousPoint.x, y: currentPoint.y - previousPoint.y)
+//        }
+        let any_object = touches.first! as UITouch
+        delta = any_object.location(in: self)
+        
+        
+        /* Killing enemies. */
         let touch = touches.first! as UITouch
         let location = touch.location(in: self)
         
-
         for enemy : SKNode in children {
             if enemy.frame.contains(location)
             {
                 enemy.removeFromParent()
             }
+        }
+    }
+    
+    // Remove the Blade if the touches have been cancelled or ended
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        removeBlade()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent!) {
+        removeBlade()
+    }
+    
+    override func update(_ currentTime: CFTimeInterval) {
+        // if the blade is available
+        if blade != nil {
+            // Here you add the delta value to the blade position
+            let newPosition = CGPoint(x: delta.x, y: delta.y)
+            // Set the new position
+            blade!.position = newPosition
+            // it's important to reset delta at this point,
+            // You are telling the blade to only update his position when touchesMoved is called
+            delta = CGPoint.zero
         }
     }
     
