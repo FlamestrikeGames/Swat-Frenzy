@@ -99,5 +99,19 @@ class GameScene: SKScene {
         }
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+        let touch = touches.first! as UITouch
+        let location = touch.location(in: self)
+        
+
+        for enemy : SKNode in children {
+            if enemy.frame.contains(location)
+            {
+                enemy.removeFromParent()
+            }
+        }
+    }
+    
     
 }
