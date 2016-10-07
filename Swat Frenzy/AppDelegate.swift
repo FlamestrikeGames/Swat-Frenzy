@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Swarm Frenzy
+//  Swat Frenzy
 //
 //  Created by Eddie Chou on 10/5/16.
 //  Copyright © 2016 FlamestrikeGames. All rights reserved.
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Swarm_Frenzy")
+        let container = NSPersistentContainer(name: "Swat_Frenzy")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
