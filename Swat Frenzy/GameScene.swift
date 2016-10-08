@@ -147,7 +147,7 @@ class GameScene: SKScene {
         let touch = touches.first! as UITouch
         let location = touch.location(in: self)
         
-        for node : SKNode in children {
+        for node : SKNode in children where node.name == "fly" {
             if let enemy = node as? SKSpriteNode {
                 if enemy.frame.contains(location) {
                     enemiesToKill -= 1
@@ -165,7 +165,6 @@ class GameScene: SKScene {
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.red)
-        weapon?.name = "weapon"
         self.addChild(weapon!)
         isWeaponDisplayed = true
     }
