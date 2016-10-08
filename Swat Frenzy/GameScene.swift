@@ -9,13 +9,13 @@
 import SpriteKit
 import AVFoundation
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     /* INITIALIZATION */
     var remainingHealth: SKLabelNode?
     var enemiesLeft: SKLabelNode?
     
     var enemiesToKill = 5
-    var enemyDamage = 50
+    var enemyDamage = 25
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -25,8 +25,15 @@ class GameScene: SKScene {
     var weaponPosition = CGPoint.zero
     var isWeaponDisplayed = false;
    
-    
     var mosquitoSoundFX: AVAudioPlayer!
+    
+    struct PhysicsCategory {
+        static let None      : UInt32 = 0
+        static let All       : UInt32 = UInt32.max
+        static let Enemy     : UInt32 = 0b1       // 1
+        static let Weapon    : UInt32 = 0b10      // 2
+    }
+    
     
     /* GAME LOGIC */
     
@@ -45,6 +52,11 @@ class GameScene: SKScene {
     }
     
     func initializeUI() {
+        
+        // Initialize physics
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
+        
         // Makes sure that the node is found and is not null
         if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
             remainingHealth = currentHealth
@@ -61,6 +73,12 @@ class GameScene: SKScene {
         
         let enemy = SKSpriteNode(imageNamed: "fly")
         enemy.name = "fly"
+        
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size) // 1
+        enemy.physicsBody?.isDynamic = true // 2
+        enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy // 3
+        enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon // 4
+        enemy.physicsBody?.collisionBitMask = PhysicsCategory.None // 5
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
@@ -144,9 +162,9 @@ class GameScene: SKScene {
         
         // To kill enemies enemies
         // To-do: May have to check type of child.
-        let touch = touches.first! as UITouch
-        let location = touch.location(in: self)
-        
+//        let touch = touches.first! as UITouch
+//        let location = touch.location(in: self)
+  /*
         for node : SKNode in children where node.name == "fly" {
             if let enemy = node as? SKSpriteNode {
                 if enemy.frame.contains(location) {
@@ -160,12 +178,52 @@ class GameScene: SKScene {
                 }
             }
         }
+ */
+    }
+    
+    func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
+        enemy.removeFromParent()
+        enemiesToKill -= 1
+        enemiesLeft?.text = String(enemiesToKill)
+        if(enemiesToKill == 0) {
+            // You Win!
+            gameOver(won: true)
+        }
+    }
+    
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if ((firstBody.categoryBitMask & PhysicsCategory.Enemy != 0) &&
+            (secondBody.categoryBitMask & PhysicsCategory.Weapon != 0)) {
+            // Make sure the node can be passed as a SWBlade
+            if let body1 = firstBody.node as? SWBlade {
+                weaponDidCollideWithEnemy(weapon: body1, enemy: secondBody.node as! SKSpriteNode)
+            } else {
+                weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! SKSpriteNode)
+            }
+        }
+        
     }
     
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.red)
         self.addChild(weapon!)
+        
+        weapon?.enablePhysics(categoryBitMask: PhysicsCategory.Weapon, contactTestBitmask: PhysicsCategory.Enemy, collisionBitmask: PhysicsCategory.None)
+        weapon!.physicsBody?.usesPreciseCollisionDetection = true
+
         isWeaponDisplayed = true
     }
     
