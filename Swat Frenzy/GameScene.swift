@@ -129,6 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(won: Bool) {
+        mosquitoSoundFX.stop()
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
         self.view?.presentScene(gameOverScene, transition: reveal)
@@ -182,7 +183,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
-        enemy.removeFromParent()
+        // Calculate difference in x, y for direction of move
+        enemy.physicsBody?.linearDamping = 0.5
+        enemy.physicsBody?.applyImpulse(CGVector(dx: (enemy.position.x - weapon.position.x),
+                                                 dy: (enemy.position.y - weapon.position.y)))
+        enemy.removeAllActions()
+        enemy.run(SKAction.scale(by: 0.75, duration: 0.5), completion: {
+            enemy.removeFromParent()
+        })
         enemiesToKill -= 1
         enemiesLeft?.text = String(enemiesToKill)
         if(enemiesToKill == 0) {
