@@ -94,17 +94,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(enemy)
         
         // Enemy flies toward player
-        enemy.run(SKAction.scale(by: 4, duration: 3.0), completion: {
+        enemy.run(SKAction.scale(by: 2, duration: 3.0), completion: {
             // Despawn enemy and take damage if action completes
             enemy.removeFromParent()
             self.takeDamage(amount: self.enemyDamage)
         })
         playMosquito()
- /*
+        
         enemy.run(
-            SKAction.move(to: CGPoint(x: frame.size.width/2, y: frame.size.height/2), duration: 4)
+            SKAction.move(to: CGPoint(x: random(min: enemy.size.width, max: frame.size.width - enemy.size.width),
+                                      y: random(min: enemy.size.height * 2,
+                                                max: frame.size.height - (enemy.size.height * 2))),
+                          duration: TimeInterval(random(min: 1, max: 3))),
+            withKey: "move"
+        )
+ 
+        /*
+        let path = UIBezierPath()
+        path.move(to: enemy.position)
+        path.addArc(withCenter: enemy.position, radius: 30, startAngle: 90, endAngle: 180, clockwise: true)
+        enemy.run(
+            SKAction.follow(path.cgPath, duration: 3)
+         //   SKAction.follow(path: path.cgPath, duration: TimeInterval(2)))
+
         )
  */
+ 
     }
     
     /* HELPER FUNCTIONS */
@@ -160,6 +175,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
+        // Remove move action from enemy
+        enemy.removeAction(forKey: "move")
         // Calculate difference in x, y for direction of move
         enemy.physicsBody?.linearDamping = 1.0
         var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
