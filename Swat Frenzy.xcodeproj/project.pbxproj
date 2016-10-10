@@ -23,6 +23,7 @@
 		66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B106981DA5DEC2006F314A /* GameViewController.swift */; };
 		7B5DE7801DAC2E2200BA7226 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE77F1DAC2E2200BA7226 /* background.wav */; };
 		7B5DE7821DAC2E2A00BA7226 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7811DAC2E2A00BA7226 /* slap.wav */; };
+		7B5DE7841DAC363900BA7226 /* whack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7831DAC363800BA7226 /* whack.wav */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		66B106981DA5DEC2006F314A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7B5DE77F1DAC2E2200BA7226 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		7B5DE7811DAC2E2A00BA7226 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slap.wav; sourceTree = "<group>"; };
+		7B5DE7831DAC363800BA7226 /* whack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = whack.wav; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 		668367171DA8647000521D03 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				7B5DE7831DAC363800BA7226 /* whack.wav */,
 				7B5DE7811DAC2E2A00BA7226 /* slap.wav */,
 				7B5DE77F1DAC2E2200BA7226 /* background.wav */,
 				668367141DA8645300521D03 /* mosquito.wav */,
@@ -289,6 +292,7 @@
 			files = (
 				66B106971DA5DE85006F314A /* GameScene.sks in Resources */,
 				66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */,
+				7B5DE7841DAC363900BA7226 /* whack.wav in Resources */,
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
 				7B5DE7821DAC2E2A00BA7226 /* slap.wav in Resources */,

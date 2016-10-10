@@ -141,6 +141,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func takeDamage(amount: Int) {
+        // Play whack sound
+        playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 1.0)
         let newHealth: Int = Int(self.remainingHealth!.text!)! - amount
         self.remainingHealth?.text = String(newHealth)
         // Check if player lost
