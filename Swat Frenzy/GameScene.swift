@@ -14,8 +14,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var remainingHealth: SKLabelNode?
     var enemiesLeft: SKLabelNode?
     
-    var enemiesToKill = 5
-    var enemyDamage = 25
+    var enemiesToKill = 10
+    var enemyDamage = 10
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -23,7 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // This will help us to update the position of the blade
     // Set the initial value to 0
     var weaponPosition = CGPoint.zero
-    var isWeaponDisplayed = false;
+    var weaponStartPosition = CGPoint.zero
+    var isWeaponDisplayed = false
+    var weaponPhysicsEnabled = false
    
     var mosquitoSoundFX: AVAudioPlayer!
     
@@ -33,14 +35,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let Enemy     : UInt32 = 0b1       // 1
         static let Weapon    : UInt32 = 0b10      // 2
     }
-    
-    
+
     /* GAME LOGIC */
     
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor.black
-
         initializeUI()
         
         // Runs this action forever
@@ -52,6 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initializeUI() {
+        backgroundColor = SKColor.black
         
         // Initialize physics
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
@@ -70,15 +70,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Spawns an enemy
     func spawnEnemy() {
-        
         let enemy = SKSpriteNode(imageNamed: "fly")
         enemy.name = "fly"
         
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size) // 1
-        enemy.physicsBody?.isDynamic = true // 2
-        enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy // 3
-        enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon // 4
-        enemy.physicsBody?.collisionBitMask = PhysicsCategory.None // 5
+        // Initialize enemy physics body
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size)
+        enemy.physicsBody?.isDynamic = true
+        enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
+        enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
+        enemy.physicsBody?.collisionBitMask = PhysicsCategory.None
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
@@ -93,9 +93,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.position = CGPoint(x: x, y: y)
         addChild(enemy)
         
-        // Enemy flies toward player.
-        enemy.run(SKAction.scale(by: 4, duration: 2.5), completion: {
-            // Despawn enemy and take damage
+        // Enemy flies toward player
+        enemy.run(SKAction.scale(by: 4, duration: 3.0), completion: {
+            // Despawn enemy and take damage if action completes
             enemy.removeFromParent()
             self.takeDamage(amount: self.enemyDamage)
         })
@@ -135,75 +135,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        /* For weapon animation. */
-        let firstTouch = touches.first! as UITouch
-        let touchLocation = firstTouch.location(in: self)
-        weaponPosition = touchLocation
-        presentWeaponAtPosition(position: weaponPosition)
-/*
-        for touch: AnyObject in touches {
-            
-            let touchLocation = touch.location(in: self)
-            let touchedNode = self.atPoint(touchLocation)
-
-        }
-*/
-    }
-    
-    // For swipes
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        // Update weapon position
-        let firstTouch = touches.first! as UITouch
-        weaponPosition = firstTouch.location(in: self)
-        
-        
-        // To kill enemies enemies
-        // To-do: May have to check type of child.
-//        let touch = touches.first! as UITouch
-//        let location = touch.location(in: self)
-  /*
-        for node : SKNode in children where node.name == "fly" {
-            if let enemy = node as? SKSpriteNode {
-                if enemy.frame.contains(location) {
-                    enemiesToKill -= 1
-                    enemiesLeft?.text = String(enemiesToKill)
-                    enemy.removeFromParent()
-                    if(enemiesToKill == 0) {
-                        // You Win!
-                        gameOver(won: true)
-                    }
-                }
-            }
-        }
- */
-    }
-    
-    func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
-        // Calculate difference in x, y for direction of move
-        enemy.physicsBody?.linearDamping = 0.5
-        enemy.physicsBody?.applyImpulse(CGVector(dx: (enemy.position.x - weapon.position.x),
-                                                 dy: (enemy.position.y - weapon.position.y)))
-        enemy.removeAllActions()
-        enemy.run(SKAction.scale(by: 0.75, duration: 0.5), completion: {
-            enemy.removeFromParent()
-        })
-        enemiesToKill -= 1
-        enemiesLeft?.text = String(enemiesToKill)
-        if(enemiesToKill == 0) {
-            // You Win!
-            gameOver(won: true)
-        }
-    }
-    
-    
+    // MARK: Physics
     func didBegin(_ contact: SKPhysicsContact) {
-        
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
+        
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -221,26 +157,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! SKSpriteNode)
             }
         }
-        
     }
     
-    // Initializes weapon at touch location
-    func presentWeaponAtPosition(position: CGPoint) {
-        weapon = SWBlade(position: position, target: self, color: UIColor.red)
-        self.addChild(weapon!)
-        
-        weapon?.enablePhysics(categoryBitMask: PhysicsCategory.Weapon, contactTestBitmask: PhysicsCategory.Enemy, collisionBitmask: PhysicsCategory.None)
-        weapon!.physicsBody?.usesPreciseCollisionDetection = true
+    func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
+        // Calculate difference in x, y for direction of move
+        enemy.physicsBody?.linearDamping = 1.0
+        var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
+        var dy = (enemy.position.y - weaponStartPosition.y) * 0.5
+        // Limit impulse speeds so it doesn't blast off the screen
+        if dx > 50.0 {
+            dx = 50.0
+        }
+        if dy > 50.0 {
+            dy = 50.0
+        }
 
-        isWeaponDisplayed = true
+        enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
+        // Waits 0.25s and then stops the enemy in place and checks if it is off the screen
+        enemy.run(SKAction.scale(by: 1, duration: 0.25), completion: {
+            enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            // If the enemy center is off the screen
+            if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
+                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height){
+                enemy.removeFromParent()
+                self.enemiesToKill -= 1
+                self.enemiesLeft?.text = String(self.enemiesToKill)
+                if(self.enemiesToKill == 0) {
+                    // You Win!
+                    self.gameOver(won: true)
+                }
+            }
+        })
+        removeWeapon()
     }
     
-    // This will help us to remove our blade and reset the delta value
-    func removeWeapon() {
-        isWeaponDisplayed = false
-        weapon!.removeFromParent()
+    // MARK: Touches
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /* For weapon animation. */
+        let firstTouch = touches.first! as UITouch
+        let touchLocation = firstTouch.location(in: self)
+        weaponPosition = touchLocation
+        weaponStartPosition = touchLocation
+        presentWeaponAtPosition(position: weaponPosition)
     }
     
+    // For swipes
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Update weapon position
+        let firstTouch = touches.first! as UITouch
+        weaponPosition = firstTouch.location(in: self)
+        
+        if(!weaponPhysicsEnabled && isWeaponDisplayed) {
+            weapon?.enablePhysics(categoryBitMask: PhysicsCategory.Weapon, contactTestBitmask: PhysicsCategory.Enemy, collisionBitmask: PhysicsCategory.None)
+            weapon!.physicsBody?.usesPreciseCollisionDetection = true
+            weaponPhysicsEnabled = true
+        }
+    }
+ 
     // Remove the Weapon if the touches have been cancelled or ended
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         removeWeapon()
@@ -258,8 +231,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // MARK: Weapon
+    // Initializes weapon at touch location
+    func presentWeaponAtPosition(position: CGPoint) {
+        weapon = SWBlade(position: position, target: self, color: UIColor.red)
+        self.addChild(weapon!)
+        isWeaponDisplayed = true
+    }
     
-    /* AUDIO */
+    // This will help us to remove our blade and reset the delta value
+    func removeWeapon() {
+        if(isWeaponDisplayed) {
+            isWeaponDisplayed = false
+            weaponPhysicsEnabled = false
+            weapon!.removeFromParent()
+        }
+    }
+    
+    // MARK: Audio
     func playMosquito() {
         let path = Bundle.main.path(forResource: "mosquito.wav", ofType:nil)!
         let url = URL(fileURLWithPath: path)
