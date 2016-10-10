@@ -27,7 +27,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isWeaponDisplayed = false
     var weaponPhysicsEnabled = false
    
+    var backgroundSoundFX: AVAudioPlayer!
     var mosquitoSoundFX: AVAudioPlayer!
+    var hitSoundFX: AVAudioPlayer!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -52,6 +54,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func initializeUI() {
         backgroundColor = SKColor.black
+        
+        // Play background music
+        playAudio(fileName: "background.wav", audioPlayer: 3, volume: 0.25)
+
         
         // Initialize physics
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
@@ -99,7 +105,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.removeFromParent()
             self.takeDamage(amount: self.enemyDamage)
         })
-        playMosquito()
+        
+        playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
         
         enemy.run(
             SKAction.move(to: CGPoint(x: random(min: enemy.size.width, max: frame.size.width - enemy.size.width),
@@ -145,6 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver(won: Bool) {
         mosquitoSoundFX.stop()
+        backgroundSoundFX.stop()
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
         self.view?.presentScene(gameOverScene, transition: reveal)
@@ -177,6 +185,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
         // Remove move action from enemy
         enemy.removeAction(forKey: "move")
+        
+        // Play slap sound
+        playAudio(fileName: "slap.wav", audioPlayer: 2, volume: 0.3)
+
+        
         // Calculate difference in x, y for direction of move
         enemy.physicsBody?.linearDamping = 1.0
         var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
@@ -266,18 +279,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: Audio
-    func playMosquito() {
-        let path = Bundle.main.path(forResource: "mosquito.wav", ofType:nil)!
+    
+    func playAudio(fileName: String, audioPlayer: Int, volume: Float) {
+        let path = Bundle.main.path(forResource: fileName, ofType:nil)!
         let url = URL(fileURLWithPath: path)
         
         do {
             let sound = try AVAudioPlayer(contentsOf: url)
-            mosquitoSoundFX = sound
+            switch(audioPlayer) {
+            case 1: mosquitoSoundFX = sound
+            case 2: hitSoundFX = sound
+            case 3: backgroundSoundFX = sound
+                    backgroundSoundFX.numberOfLoops = -1
+            default:
+                break
+            }
             sound.play()
+            sound.volume = volume
         } catch {
             // couldn't load file :(
         }
+        
     }
-    
     
 }
