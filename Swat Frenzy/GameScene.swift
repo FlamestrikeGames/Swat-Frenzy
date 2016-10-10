@@ -11,8 +11,10 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     /* INITIALIZATION */
-    var remainingHealth: SKLabelNode?
+    var currentHealth = 100
     var enemiesLeft: SKLabelNode?
+    var healthBar: SKSpriteNode?
+    var healthBaseWidth: CGFloat?
     
     var enemiesToKill = 10
     var enemyDamage = 10
@@ -64,13 +66,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         // Makes sure that the node is found and is not null
-        if let currentHealth = childNode(withName: "remainingHealth") as? SKLabelNode {
-            remainingHealth = currentHealth
-        }
-
         if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
             enemiesLeft = enemies
             enemiesLeft?.text = String(enemiesToKill)
+        }
+        
+        if let health = childNode(withName: "healthBar") as? SKSpriteNode {
+            healthBar = health
+            healthBaseWidth = health.frame.size.width
         }
     }
     
@@ -88,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
-        var y = (frame.size.height - (enemy.size.height * 3/2) - (remainingHealth?.frame.size.height)!) * random(min: 0, max: 1)
+        var y = (frame.size.height - (enemy.size.height * 3/2) - (enemiesLeft?.frame.size.height)!) * random(min: 0, max: 1)
         
         if x < (enemy.size.width * 3/2) {
             x += enemy.size.width * 3/2
@@ -126,7 +129,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         )
  */
- 
     }
     
     /* HELPER FUNCTIONS */
@@ -143,10 +145,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func takeDamage(amount: Int) {
         // Play whack sound
         playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 1.0)
-        let newHealth: Int = Int(self.remainingHealth!.text!)! - amount
-        self.remainingHealth?.text = String(newHealth)
+        currentHealth = currentHealth - amount
+        let newWidth = (healthBaseWidth! * CGFloat(Float(currentHealth) / 100.0))
+        healthBar?.run(
+            SKAction.resize(toWidth: newWidth, duration: 0.25), completion: {
+                if( newWidth <= self.healthBaseWidth! * 0.33) {
+                    self.healthBar?.color = .red
+                } else if newWidth <= self.healthBaseWidth! * 0.66 {
+                    self.healthBar?.color = .yellow
+                }
+            }
+        )
         // Check if player lost
-        if(newHealth <= 0) {
+        if(currentHealth <= 0) {
             // Player loses!
             gameOver(won: false)
         }
