@@ -107,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Despawn enemy and take damage if action completes
             enemy.removeFromParent()
             self.takeDamage(amount: self.enemyDamage)
+            self.takeHit(enemy: enemy)
         })
         
         playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
@@ -144,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func takeDamage(amount: Int) {
         // Play whack sound
-        playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 1.0)
+        playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 0.3)
         currentHealth = currentHealth - amount
         let newWidth = (healthBaseWidth! * CGFloat(Float(currentHealth) / 100.0))
         healthBar?.run(
@@ -156,11 +157,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         )
+        
         // Check if player lost
         if(currentHealth <= 0) {
             // Player loses!
             gameOver(won: false)
         }
+    }
+    
+    func takeHit(enemy: SKSpriteNode) {
+        // display bloodSplat
+        let takeHit = SKSpriteNode(color: .red, size: frame.size)
+        takeHit.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        takeHit.alpha = 0.5
+        addChild(takeHit)
+        takeHit.run(
+            SKAction.fadeOut(withDuration: 0.2)
+        )
     }
     
     func gameOver(won: Bool) {
