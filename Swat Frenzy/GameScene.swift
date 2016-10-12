@@ -105,9 +105,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Enemy flies toward player
         enemy.run(SKAction.scale(by: 2, duration: 3.0), completion: {
             // Despawn enemy and take damage if action completes
-            enemy.removeFromParent()
-            self.takeDamage(amount: self.enemyDamage)
-            self.takeHit(enemy: enemy)
+            if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
+                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
+                self.killEnemy(enemy: enemy)
+            } else {
+                enemy.removeFromParent()
+                self.takeDamage(amount: self.enemyDamage)
+                self.takeHit(enemy: enemy)
+            }
+
         })
         
         playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
@@ -142,6 +148,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return random() * (max - min) + min
     }
 
+    func killEnemy(enemy: SKSpriteNode) {
+        enemy.removeAllActions()
+        enemy.removeFromParent()
+        self.enemiesToKill -= 1
+        self.enemiesLeft?.text = String(self.enemiesToKill)
+        if(self.enemiesToKill == 0) {
+            // You Win!
+            self.gameOver(won: true)
+        }
+
+    }
     
     func takeDamage(amount: Int) {
         // Play whack sound
@@ -234,14 +251,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
-                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height){
-                enemy.removeFromParent()
-                self.enemiesToKill -= 1
-                self.enemiesLeft?.text = String(self.enemiesToKill)
-                if(self.enemiesToKill == 0) {
-                    // You Win!
-                    self.gameOver(won: true)
-                }
+                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
+                self.killEnemy(enemy: enemy)
             }
         })
         removeWeapon()
