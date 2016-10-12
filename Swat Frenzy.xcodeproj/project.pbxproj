@@ -24,6 +24,7 @@
 		7B5DE7801DAC2E2200BA7226 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE77F1DAC2E2200BA7226 /* background.wav */; };
 		7B5DE7821DAC2E2A00BA7226 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7811DAC2E2A00BA7226 /* slap.wav */; };
 		7B5DE7841DAC363900BA7226 /* whack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7831DAC363800BA7226 /* whack.wav */; };
+		7B5DE7861DAEE6DA00BA7226 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7851DAEE6D900BA7226 /* coin.wav */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		7B5DE77F1DAC2E2200BA7226 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		7B5DE7811DAC2E2A00BA7226 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slap.wav; sourceTree = "<group>"; };
 		7B5DE7831DAC363800BA7226 /* whack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = whack.wav; sourceTree = "<group>"; };
+		7B5DE7851DAEE6D900BA7226 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 		668367171DA8647000521D03 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				7B5DE7851DAEE6D900BA7226 /* coin.wav */,
 				7B5DE7831DAC363800BA7226 /* whack.wav */,
 				7B5DE7811DAC2E2A00BA7226 /* slap.wav */,
 				7B5DE77F1DAC2E2200BA7226 /* background.wav */,
@@ -295,6 +298,7 @@
 				7B5DE7841DAC363900BA7226 /* whack.wav in Resources */,
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
+				7B5DE7861DAEE6DA00BA7226 /* coin.wav in Resources */,
 				7B5DE7821DAC2E2A00BA7226 /* slap.wav in Resources */,
 				7B5DE7801DAC2E2200BA7226 /* background.wav in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,

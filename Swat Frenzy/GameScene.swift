@@ -15,9 +15,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemiesLeft: SKLabelNode?
     var healthBar: SKSpriteNode?
     var healthBaseWidth: CGFloat?
+    var goldLabel: SKLabelNode?
     
     var enemiesToKill = 10
     var enemyDamage = 10
+    var goldAmount = 0
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -32,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var backgroundSoundFX: AVAudioPlayer!
     var mosquitoSoundFX: AVAudioPlayer!
     var hitSoundFX: AVAudioPlayer!
+    var coinSoundFX: AVAudioPlayer!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -62,7 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         // Initialize physics
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        //physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
         // Makes sure that the node is found and is not null
@@ -74,6 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let health = childNode(withName: "healthBar") as? SKSpriteNode {
             healthBar = health
             healthBaseWidth = health.frame.size.width
+        }
+        
+        if let gold = childNode(withName: "goldAmount") as? SKLabelNode {
+            goldLabel = gold
         }
     }
     
@@ -88,6 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
         enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         enemy.physicsBody?.collisionBitMask = PhysicsCategory.None
+        enemy.physicsBody?.affectedByGravity = false
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
@@ -193,6 +201,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         )
     }
     
+    func dropCoin(location: CGPoint) {
+        // Create sprite at location
+        let coin = SKSpriteNode(imageNamed: "coin")
+        coin.position = CGPoint(x: location.x, y: location.y - 20)
+        coin.xScale = 0.3
+        coin.yScale = 0.3
+        
+        coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.frame.size.width / 2)
+        coin.physicsBody?.affectedByGravity = true
+        coin.physicsBody?.isDynamic = true
+        coin.physicsBody?.categoryBitMask = PhysicsCategory.None
+        coin.physicsBody?.contactTestBitMask = PhysicsCategory.None
+        coin.physicsBody?.collisionBitMask = PhysicsCategory.None
+        coin.physicsBody?.friction = 0
+        addChild(coin)
+        
+        // Play coin sound
+        playAudio(fileName: "coin.wav", audioPlayer: 4, volume: 1.0)
+        
+        // Increase gold amount
+        goldAmount += 1
+        goldLabel?.text = String(goldAmount)
+        
+        // Coin drops to ground (from gravity)
+        coin.run(SKAction.wait(forDuration: 1.0), completion: {
+            coin.removeFromParent()
+            }
+        )
+    }
+    
     func gameOver(won: Bool) {
         mosquitoSoundFX.stop()
         backgroundSoundFX.stop()
@@ -233,6 +271,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playAudio(fileName: "slap.wav", audioPlayer: 2, volume: 0.3)
 
         
+        // Check if it drops a coin
+        let coinDropped = random(min: 1, max: 100)
+        if coinDropped <= 75 {
+            // Drop coin
+            dropCoin(location: enemy.position)
+        }
+        
         // Calculate difference in x, y for direction of move
         enemy.physicsBody?.linearDamping = 1.0
         var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
@@ -247,7 +292,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
         // Waits 0.25s and then stops the enemy in place and checks if it is off the screen
-        enemy.run(SKAction.scale(by: 1, duration: 0.25), completion: {
+        enemy.run(SKAction.wait(forDuration: 0.25), completion: {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
@@ -327,7 +372,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             case 1: mosquitoSoundFX = sound
             case 2: hitSoundFX = sound
             case 3: backgroundSoundFX = sound
+                    // Repeats on negative number
                     backgroundSoundFX.numberOfLoops = -1
+            case 4: coinSoundFX = sound
             default:
                 break
             }
