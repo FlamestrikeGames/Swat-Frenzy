@@ -9,7 +9,7 @@
 import UIKit
 
 class LevelSelectViewController: UICollectionViewController {
-    let numLevels = 3
+    let numLevels = 10
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -45,6 +45,7 @@ class LevelSelectViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        viewController.level = indexPath.row + 1
         
         present(viewController, animated: false, completion: nil)
     }

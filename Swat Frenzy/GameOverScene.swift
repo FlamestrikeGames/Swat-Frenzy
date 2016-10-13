@@ -48,7 +48,7 @@ class GameOverScene: SKScene {
             let touchedNode = self.atPoint(touchLocation)
             if(touchedNode.name == "replay") {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let scene = GameScene(fileNamed: "GameScene.sks")
+                let scene = BaseScene(fileNamed: "BaseScene.sks")
                 self.view?.presentScene(scene!, transition:reveal)
             }
          

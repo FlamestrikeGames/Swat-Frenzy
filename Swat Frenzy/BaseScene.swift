@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  BaseScene.swift
 //  Swat Frenzy
 //
 //  Created by Eddie Chou on 10/5/16.
@@ -9,7 +9,7 @@
 import SpriteKit
 import AVFoundation
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class BaseScene: SKScene, SKPhysicsContactDelegate {
     /* INITIALIZATION */
     var currentHealth = 100
     var enemiesLeft: SKLabelNode?
@@ -218,7 +218,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(coin)
         
         // Play coin sound
-        playAudio(fileName: "coin.wav", audioPlayer: 4, volume: 1.0)
+        playAudio(fileName: "coin.wav", audioPlayer: 4, volume: 0.5)
         
         // Increase gold amount
         goldAmount += 1
@@ -268,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.removeAction(forKey: "move")
         
         // Play slap sound
-        playAudio(fileName: "slap.wav", audioPlayer: 2, volume: 0.3)
+        playAudio(fileName: "slap.wav", audioPlayer: 2, volume: 0.1)
 
         
         // Check if it drops a coin

@@ -13,6 +13,6 @@ class CustomLevelCell: UICollectionViewCell {
     @IBOutlet weak var levelLabel: UILabel!
     
     func setLevel(level: Int) {
-        levelLabel.text = "level" + String(level)
+        levelLabel.text = "Level " + String(level)
     }
 }
