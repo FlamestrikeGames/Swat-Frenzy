@@ -11,6 +11,21 @@ import UIKit
 class LevelSelectViewController: UICollectionViewController {
     let numLevels = 3
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let space: CGFloat = 15.0
+        let width = (view.frame.size.width - 2*space - 60) / 3.0
+        let height = (view.frame.size.height - 2*space - 20) / 4.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: width,height: height)
+        
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 30, 10, 30)
+    }
     
     //override func collectionView
     
@@ -22,16 +37,15 @@ class LevelSelectViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomLevelCell", for: indexPath) as! CustomLevelCell
         
-        cell.setLevel(level: indexPath.row)
+        cell.setLevel(level: indexPath.row + 1)
         return cell
  
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = memes[indexPath.row]
-        navigationController!.pushViewController(detailController, animated: true)
-         */
+        
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        
+        present(viewController, animated: false, completion: nil)
     }
 }
