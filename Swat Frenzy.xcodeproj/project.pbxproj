@@ -25,6 +25,8 @@
 		7B5DE7821DAC2E2A00BA7226 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7811DAC2E2A00BA7226 /* slap.wav */; };
 		7B5DE7841DAC363900BA7226 /* whack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7831DAC363800BA7226 /* whack.wav */; };
 		7B5DE7861DAEE6DA00BA7226 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DE7851DAEE6D900BA7226 /* coin.wav */; };
+		7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */; };
+		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		7B5DE7811DAC2E2A00BA7226 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slap.wav; sourceTree = "<group>"; };
 		7B5DE7831DAC363800BA7226 /* whack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = whack.wav; sourceTree = "<group>"; };
 		7B5DE7851DAEE6D900BA7226 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,7 @@
 			children = (
 				668367171DA8647000521D03 /* Sounds */,
 				668367101DA7337000521D03 /* SWBlade.swift */,
+				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				66B106921DA5DBDC006F314A /* GameScene.swift */,
 				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				66B106981DA5DEC2006F314A /* GameViewController.swift */,
+				7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */,
 				66B106631DA5CE43006F314A /* TitleScreenViewController.swift */,
 			);
 			name = ViewControllers;
@@ -328,9 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */,
+				7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
 				7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */,
 				66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */,
+				7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */,
 				66B106931DA5DBDC006F314A /* GameScene.swift in Sources */,
 				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
