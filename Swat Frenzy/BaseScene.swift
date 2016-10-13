@@ -17,10 +17,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var healthBaseWidth: CGFloat?
     var goldLabel: SKLabelNode?
     
-    var enemiesToKill = 10
-    var enemyDamage = 10
+    var enemiesToKill: Int?
+    var enemyDamage: Int?
     var goldAmount = 0
-    
+        
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
     
@@ -32,7 +32,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var weaponPhysicsEnabled = false
    
     var backgroundSoundFX: AVAudioPlayer!
-    var mosquitoSoundFX: AVAudioPlayer!
+    var enemySoundFX: AVAudioPlayer!
     var hitSoundFX: AVAudioPlayer!
     var coinSoundFX: AVAudioPlayer!
     
@@ -42,19 +42,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         static let Enemy     : UInt32 = 0b1       // 1
         static let Weapon    : UInt32 = 0b10      // 2
     }
+    
 
     /* GAME LOGIC */
     
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
         initializeUI()
-        
-        // Runs this action forever
-        run(SKAction.repeat(
-            SKAction.sequence([
-                SKAction.wait(forDuration: 2.0),
-                SKAction.run(spawnEnemy)
-                ]), count: enemiesToKill + (100/enemyDamage)))
     }
     
     func initializeUI() {
@@ -71,7 +65,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Makes sure that the node is found and is not null
         if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
             enemiesLeft = enemies
-            enemiesLeft?.text = String(enemiesToKill)
+            //enemiesLeft?.text = String(enemiesToKill!)
         }
         
         if let health = childNode(withName: "healthBar") as? SKSpriteNode {
@@ -85,9 +79,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // Spawns an enemy
-    func spawnEnemy() {
-        let enemy = SKSpriteNode(imageNamed: "fly")
-        enemy.name = "fly"
+    func spawnEnemy(level: Int) {
+        var enemy = SKSpriteNode(imageNamed: "fly")
+        switch(level) {
+        case 1: enemy = SKSpriteNode(imageNamed: "fly")
+                enemy.name = "fly"
+                playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+        default:enemy = SKSpriteNode(imageNamed: "fly")
+                enemy.name = "fly"
+                playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+        }
+
+
         
         // Initialize enemy physics body
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size)
@@ -118,13 +121,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 self.killEnemy(enemy: enemy)
             } else {
                 enemy.removeFromParent()
-                self.takeDamage(amount: self.enemyDamage)
+                self.takeDamage(amount: self.enemyDamage!)
                 self.takeHit(enemy: enemy)
             }
 
         })
-        
-        playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
         
         enemy.run(
             SKAction.move(to: CGPoint(x: random(min: enemy.size.width, max: frame.size.width - enemy.size.width),
@@ -159,9 +160,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func killEnemy(enemy: SKSpriteNode) {
         enemy.removeAllActions()
         enemy.removeFromParent()
-        self.enemiesToKill -= 1
-        self.enemiesLeft?.text = String(self.enemiesToKill)
-        if(self.enemiesToKill == 0) {
+        enemiesToKill! -= 1
+        enemiesLeft?.text = String(enemiesToKill!)
+        if(enemiesToKill! == 0) {
             // You Win!
             self.gameOver(won: true)
         }
@@ -232,7 +233,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(won: Bool) {
-        mosquitoSoundFX.stop()
+        enemySoundFX.stop()
         backgroundSoundFX.stop()
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
@@ -369,7 +370,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         do {
             let sound = try AVAudioPlayer(contentsOf: url)
             switch(audioPlayer) {
-            case 1: mosquitoSoundFX = sound
+            case 1: enemySoundFX = sound
             case 2: hitSoundFX = sound
             case 3: backgroundSoundFX = sound
                     // Repeats on negative number

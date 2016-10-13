@@ -144,7 +144,6 @@
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
-				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
 				7B678A941DA848BF0097E9E1 /* ViewControllers */,
 				7B678A931DA8487A0097E9E1 /* Scenes */,
 				66B106651DA5CE43006F314A /* Main.storyboard */,
@@ -181,6 +180,7 @@
 				66B106921DA5DBDC006F314A /* BaseScene.swift */,
 				66B106961DA5DE85006F314A /* BaseScene.sks */,
 				7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */,
+				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";

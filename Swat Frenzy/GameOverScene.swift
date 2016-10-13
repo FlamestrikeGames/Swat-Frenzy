@@ -34,6 +34,14 @@ class GameOverScene: SKScene {
         replayButton.position = CGPoint(x: size.width/2, y: size.height/4)
         replayButton.name = "replay"
         addChild(replayButton)
+        
+        let levelSelect = "Level Select"
+        let levelSelectButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+        levelSelectButton.text = levelSelect
+        levelSelectButton.fontColor = SKColor.blue
+        levelSelectButton.position = CGPoint(x: size.width/2, y: size.height/7)
+        levelSelectButton.name = "levelSelect"
+        addChild(levelSelectButton)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -50,6 +58,8 @@ class GameOverScene: SKScene {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let scene = BaseScene(fileNamed: "BaseScene.sks")
                 self.view?.presentScene(scene!, transition:reveal)
+            } else if(touchedNode.name == "levelSelect") {
+
             }
          
          }

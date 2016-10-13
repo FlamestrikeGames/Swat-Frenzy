@@ -20,7 +20,14 @@ class GameViewController: UIViewController {
         
         let skView = self.view as! SKView
         if skView.scene == nil {
-            let scene = BaseScene(fileNamed: "BaseScene.sks")
+            var scene: BaseScene?
+            switch(level) {
+            case 1: scene = LevelOneScene(fileNamed: "BaseScene.sks")
+                
+            default: scene = BaseScene(fileNamed: "BaseScene.sks")
+                     break
+
+            }
             skView.showsFPS = true
             skView.showsNodeCount = true
             skView.showsPhysics = false
