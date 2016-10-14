@@ -20,7 +20,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var enemiesToKill: Int?
     var enemyDamage: Int?
     var goldAmount = 0
-        
+    
+    
+    var viewController: GameViewController?
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
     
@@ -80,7 +82,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     // Spawns an enemy
     func spawnEnemy(level: Int) {
-        var enemy = SKSpriteNode(imageNamed: "fly")
+        var enemy: SKSpriteNode
         switch(level) {
         case 1: enemy = SKSpriteNode(imageNamed: "fly")
                 enemy.name = "fly"
@@ -197,9 +199,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         takeHit.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         takeHit.alpha = 0.5
         addChild(takeHit)
+        
         takeHit.run(
-            SKAction.fadeOut(withDuration: 0.2)
+            SKAction.wait(forDuration: 0.10), completion: {
+                takeHit.removeFromParent()
+            }
         )
+ 
     }
     
     func dropCoin(location: CGPoint) {
@@ -237,6 +243,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         backgroundSoundFX.stop()
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
+        gameOverScene.viewController = viewController!
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 

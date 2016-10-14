@@ -9,8 +9,6 @@
 import UIKit
 import SpriteKit
 
-import AVFoundation
-
 class GameViewController: UIViewController {
     
     var level: Int!
@@ -33,6 +31,7 @@ class GameViewController: UIViewController {
             skView.showsPhysics = false
             skView.ignoresSiblingOrder = true
             scene?.scaleMode = .aspectFill
+            scene?.viewController = self
             skView.presentScene(scene)
         }
     }

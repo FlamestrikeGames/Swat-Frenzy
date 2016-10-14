@@ -15,7 +15,7 @@ class LevelOneScene: BaseScene {
         super.didMove(to: view)
         
         enemiesToKill = 10
-        enemyDamage = 10
+        enemyDamage = 50
         enemiesLeft?.text = String(enemiesToKill!)
         
         // Runs this action a max number of times

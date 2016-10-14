@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
+    var viewController: GameViewController?
+    
     init(size: CGSize, won:Bool) {
         
         super.init(size: size)
@@ -27,7 +29,7 @@ class GameOverScene: SKScene {
         label.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(label)
         
-        let replayMessage = "Replay Game"
+        let replayMessage = "Replay Level"
         let replayButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         replayButton.text = replayMessage
         replayButton.fontColor = SKColor.blue
@@ -56,10 +58,11 @@ class GameOverScene: SKScene {
             let touchedNode = self.atPoint(touchLocation)
             if(touchedNode.name == "replay") {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let scene = BaseScene(fileNamed: "BaseScene.sks")
+                let scene = LevelOneScene(fileNamed: "BaseScene.sks")
+                scene?.viewController = viewController!
                 self.view?.presentScene(scene!, transition:reveal)
             } else if(touchedNode.name == "levelSelect") {
-
+                viewController?.dismiss(animated: true, completion: nil)
             }
          
          }
