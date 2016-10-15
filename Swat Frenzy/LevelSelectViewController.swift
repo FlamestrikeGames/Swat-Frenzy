@@ -43,7 +43,7 @@ class LevelSelectViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         
         viewController.level = indexPath.row + 1

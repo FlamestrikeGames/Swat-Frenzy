@@ -11,8 +11,6 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
-    var viewController: GameViewController?
-    
     init(size: CGSize, won:Bool) {
         
         super.init(size: size)
@@ -59,10 +57,10 @@ class GameOverScene: SKScene {
             if(touchedNode.name == "replay") {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let scene = LevelOneScene(fileNamed: "BaseScene.sks")
-                scene?.viewController = viewController!
                 self.view?.presentScene(scene!, transition:reveal)
             } else if(touchedNode.name == "levelSelect") {
-                viewController?.dismiss(animated: true, completion: nil)
+                // Post notification
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
             }
          
          }

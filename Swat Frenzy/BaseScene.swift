@@ -21,8 +21,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var enemyDamage: Int?
     var goldAmount = 0
     
-    
-    var viewController: GameViewController?
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
     
@@ -243,7 +241,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         backgroundSoundFX.stop()
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
-        gameOverScene.viewController = viewController!
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 
