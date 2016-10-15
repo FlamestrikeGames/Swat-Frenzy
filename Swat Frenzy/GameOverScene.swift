@@ -11,10 +11,13 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
-    init(size: CGSize, won:Bool) {
+    var level: Int!
+    
+    init(size: CGSize, won:Bool, level: Int) {
         
         super.init(size: size)
         
+        self.level = level
         backgroundColor = won ? SKColor.green : SKColor.red
         
         let message = won ? "All enemies swatted! You win!" :
@@ -56,7 +59,15 @@ class GameOverScene: SKScene {
             let touchedNode = self.atPoint(touchLocation)
             if(touchedNode.name == "replay") {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let scene = LevelOneScene(fileNamed: "BaseScene.sks")
+                var scene: BaseScene?
+                switch(level) {
+                case 1: scene = LevelOneScene(fileNamed: "BaseScene.sks")
+                case 2: scene = LevelTwoScene(fileNamed: "BaseScene.sks")
+                    
+                default: scene = BaseScene(fileNamed: "BaseScene.sks")
+                    break
+                    
+                }
                 self.view?.presentScene(scene!, transition:reveal)
             } else if(touchedNode.name == "levelSelect") {
                 // Post notification

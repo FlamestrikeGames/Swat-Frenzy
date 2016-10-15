@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
             var scene: BaseScene?
             switch(level) {
             case 1: scene = LevelOneScene(fileNamed: "BaseScene.sks")
+            case 2: scene = LevelTwoScene(fileNamed: "BaseScene.sks")
                 
             default: scene = BaseScene(fileNamed: "BaseScene.sks")
                      break

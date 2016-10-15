@@ -10,7 +10,7 @@ import UIKit
 
 class LevelSelectViewController: UICollectionViewController {
     let maxLevels = 12
-    var currentLevel: Int = 1
+    var currentLevel: Int!
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -28,21 +28,19 @@ class LevelSelectViewController: UICollectionViewController {
         flowLayout.sectionInset = UIEdgeInsetsMake(10, 30, 10, 30)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Unlocks new level if just completed one
         let userDef = UserDefaults.standard
         
         if let curLevel = userDef.value(forKey: "currentLevel") {
             currentLevel = curLevel as! Int
         } else {
+            currentLevel = 1
             userDef.set(1, forKey: "currentLevel")
         }
         collectionView?.reloadData()
     }
-    
-    //override func collectionView
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return maxLevels
@@ -62,17 +60,14 @@ class LevelSelectViewController: UICollectionViewController {
             cell.isUserInteractionEnabled = true
             cell.lockedLabel.isHidden = true
         }
+        
         return cell
- 
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        
         viewController.level = indexPath.row + 1
         
         present(viewController, animated: true, completion: nil)
-
     }
 }

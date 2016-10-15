@@ -20,6 +20,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var enemiesToKill: Int?
     var enemyDamage: Int?
     var enemyStunDuration: Double?
+    var enemyDuration: Double?
     var goldAmount = 0
     var currentLevel: Int?
     
@@ -92,7 +93,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func spawnEnemy(level: Int) {
         var enemy: SKSpriteNode
         switch(level) {
-        case 1: enemy = SKSpriteNode(imageNamed: "fly")
+        case 1, 2: enemy = SKSpriteNode(imageNamed: "fly")
                 enemy.name = "fly"
                 playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
         default:enemy = SKSpriteNode(imageNamed: "fly")
@@ -124,7 +125,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         addChild(enemy)
         
         // Enemy flies toward player
-        enemy.run(SKAction.scale(by: 2, duration: 3.0), completion: {
+        enemy.run(SKAction.scale(by: 2, duration: enemyDuration!), completion: {
             // Despawn enemy and take damage if action completes
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
                 enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
@@ -262,7 +263,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 1.0)
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let gameOverScene = GameOverScene(size: self.size, won: won)
+        let gameOverScene = GameOverScene(size: self.size, won: won, level: currentLevel!)
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 
