@@ -19,7 +19,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     var enemiesToKill: Int?
     var enemyDamage: Int?
+    var enemyStunDuration: Double?
     var goldAmount = 0
+    var currentLevel: Int?
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -62,6 +64,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         //physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
+        // Retrieve from userDefaults
+        let userDef = UserDefaults.standard
+        
+        if let currentGold = userDef.value(forKey: "goldAmount") {
+            goldAmount = currentGold as! Int
+        }
+        
         // Makes sure that the node is found and is not null
         if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
             enemiesLeft = enemies
@@ -75,6 +84,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         if let gold = childNode(withName: "goldAmount") as? SKLabelNode {
             goldLabel = gold
+            goldLabel?.text = String(goldAmount)
         }
     }
     
@@ -239,6 +249,15 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(won: Bool) {
         enemySoundFX.stop()
         backgroundSoundFX.stop()
+        // Save gold to user defaults if player won
+        if (won) {
+            let userDef = UserDefaults.standard
+            userDef.set(goldAmount, forKey: "goldAmount")
+            let maxLevel = userDef.value(forKey: "currentLevel") as? Int
+            if(maxLevel != nil && maxLevel! < currentLevel!+1) {
+                userDef.set(currentLevel!+1, forKey: "currentLevel")
+            }
+        }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
         self.view?.presentScene(gameOverScene, transition: reveal)
@@ -297,7 +316,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
         // Waits 0.25s and then stops the enemy in place and checks if it is off the screen
-        enemy.run(SKAction.wait(forDuration: 0.25), completion: {
+        enemy.run(SKAction.wait(forDuration: enemyStunDuration!), completion: {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||

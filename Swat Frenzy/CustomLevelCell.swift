@@ -11,6 +11,7 @@ import UIKit
 class CustomLevelCell: UICollectionViewCell {
     
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var lockedLabel: UILabel!
     
     func setLevel(level: Int) {
         levelLabel.text = "Level " + String(level)

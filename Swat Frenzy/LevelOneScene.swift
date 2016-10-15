@@ -14,11 +14,14 @@ class LevelOneScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        enemiesToKill = 10
-        enemyDamage = 50
+        enemiesToKill = 10          // How many enemies to kill before player wins
+        enemyDamage = 10            // How much damage to take per hit
+        enemyStunDuration = 0.5     // How long the swat impulse lasts before stopping the enemy in place
+        currentLevel = 1
+        
         enemiesLeft?.text = String(enemiesToKill!)
         
-        // Runs this action a max number of times
+        // Spawn enemies
         run(SKAction.repeat(
             SKAction.sequence([
                 SKAction.wait(forDuration: 2.0),

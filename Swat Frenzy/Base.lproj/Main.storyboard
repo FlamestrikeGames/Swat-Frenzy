@@ -85,15 +85,23 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCKED" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-U0-1i2">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.06950727541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.41703906299999999" green="0.81002040639999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="aS3-U0-1i2" firstAttribute="top" secondItem="24g-SV-Lum" secondAttribute="bottom" constant="4" id="2re-1S-c5j"/>
+                                    <constraint firstItem="aS3-U0-1i2" firstAttribute="centerX" secondItem="5zy-mF-gQn" secondAttribute="centerX" id="GEr-R8-vrg"/>
                                     <constraint firstItem="24g-SV-Lum" firstAttribute="centerX" secondItem="5zy-mF-gQn" secondAttribute="centerX" id="Pdb-pt-Gr7"/>
                                     <constraint firstItem="24g-SV-Lum" firstAttribute="centerY" secondItem="5zy-mF-gQn" secondAttribute="centerY" id="iW3-5l-Euc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="levelLabel" destination="24g-SV-Lum" id="iHt-k9-MGw"/>
+                                    <outlet property="lockedLabel" destination="aS3-U0-1i2" id="ig3-qf-xXe"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
