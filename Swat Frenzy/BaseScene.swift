@@ -257,6 +257,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
                 userDef.set(currentLevel!+1, forKey: "currentLevel")
             }
+            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 1.0)
+        } else {
+            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 1.0)
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)

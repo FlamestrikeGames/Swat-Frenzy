@@ -14,8 +14,8 @@ class LevelOneScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        enemiesToKill = 10          // How many enemies to kill before player wins
-        enemyDamage = 10            // How much damage to take per hit
+        enemiesToKill = 2          // How many enemies to kill before player wins
+        enemyDamage = 50           // How much damage to take per hit
         enemyStunDuration = 0.5     // How long the swat impulse lasts before stopping the enemy in place
         currentLevel = 1
         
