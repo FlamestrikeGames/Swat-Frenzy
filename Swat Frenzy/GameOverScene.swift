@@ -61,10 +61,11 @@ class GameOverScene: SKScene {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 var scene: BaseScene?
                 switch(level) {
-                case 1: scene = LevelOneScene(fileNamed: "BaseScene.sks")
-                case 2: scene = LevelTwoScene(fileNamed: "BaseScene.sks")
+                case 1: scene = LevelOneScene(fileNamed: "BaseScene")
+                case 2: scene = LevelTwoScene(fileNamed: "BaseScene")
+                case 3: scene = LevelThreeScene(fileNamed: "BaseScene")
                     
-                default: scene = BaseScene(fileNamed: "BaseScene.sks")
+                default: scene = BaseScene(fileNamed: "BaseScene")
                     break
                     
                 }

@@ -15,7 +15,7 @@ class LevelTwoScene: BaseScene {
         super.didMove(to: view)
         
         enemiesToKill = 15          // How many enemies to kill before player wins
-        enemyDamage = 15            // How much damage to take per hit
+        enemyDamage = 10            // How much damage to take per hit
         enemyStunDuration = 0.5     // How long the swat impulse lasts before stopping the enemy in place
         enemyDuration = 3.0         // How long the enemy stays on the screen for
         currentLevel = 2            // What level this is
