@@ -96,7 +96,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         case 1, 2: enemy = SKSpriteNode(imageNamed: "fly")
                 enemy.name = "fly"
                 playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
-        case 3: enemy = SKSpriteNode(imageNamed: "bee")
+        case 3, 4: enemy = SKSpriteNode(imageNamed: "bee")
                 enemy.name = "bee"
                 playAudio(fileName: "bumblebee.m4a", audioPlayer: 1, volume: 1.0)
 
