@@ -7,27 +7,29 @@
 //
 
 import SpriteKit
-import AVFoundation
 
 class LevelTwoScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
-        enemiesToKill = 15          // How many enemies to kill before player wins
-        enemyDamage = 10            // How much damage to take per hit
-        enemyStunDuration = 0.5     // How long the swat impulse lasts before stopping the enemy in place
-        enemyDuration = 3.0         // How long the enemy stays on the screen for
-        currentLevel = 2            // What level this is
-        
+
+        currentLevel = 2
+        enemiesToKill = 15
         enemiesLeft?.text = String(enemiesToKill!)
         
         // Spawn enemies
         run(SKAction.repeat(
             SKAction.sequence([
-                SKAction.wait(forDuration: 2.0),
-                SKAction.run({self.spawnEnemy(level: self.currentLevel!)})
-                ]), count: enemiesToKill! + (100/enemyDamage!)))
+                SKAction.wait(forDuration: 2.5),
+                SKAction.run({
+                    let enemy = Fly()
+                    self.playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+                    self.spawnEnemy(enemy: enemy)
+                })
+                ]),
+            count: enemiesToKill! + 10
+            )
+        )
     }
     
 }

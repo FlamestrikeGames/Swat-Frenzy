@@ -32,6 +32,10 @@
 		7B36D7621DB301F50035D6D6 /* LevelThreeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36D7611DB301F50035D6D6 /* LevelThreeScene.swift */; };
 		7B4F85F61DB43AA200748F0E /* bumblebee.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7B4F85F51DB43AA200748F0E /* bumblebee.m4a */; };
 		7B4F85F81DB452F400748F0E /* LevelFourScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85F71DB452F400748F0E /* LevelFourScene.swift */; };
+		7B4F85FA1DB45DE300748F0E /* LevelFiveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85F91DB45DE300748F0E /* LevelFiveScene.swift */; };
+		7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FB1DB4605000748F0E /* Enemy.swift */; };
+		7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FD1DB463B900748F0E /* Fly.swift */; };
+		7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FF1DB4B6F300748F0E /* Bee.swift */; };
 		7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */; };
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
@@ -87,6 +91,10 @@
 		7B36D7611DB301F50035D6D6 /* LevelThreeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelThreeScene.swift; sourceTree = "<group>"; };
 		7B4F85F51DB43AA200748F0E /* bumblebee.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = bumblebee.m4a; path = Sounds/bumblebee.m4a; sourceTree = "<group>"; };
 		7B4F85F71DB452F400748F0E /* LevelFourScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelFourScene.swift; sourceTree = "<group>"; };
+		7B4F85F91DB45DE300748F0E /* LevelFiveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelFiveScene.swift; sourceTree = "<group>"; };
+		7B4F85FB1DB4605000748F0E /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		7B4F85FD1DB463B900748F0E /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
+		7B4F85FF1DB4B6F300748F0E /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 		7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
@@ -158,12 +166,13 @@
 		66B106601DA5CE43006F314A /* Swat Frenzy */ = {
 			isa = PBXGroup;
 			children = (
-				668367171DA8647000521D03 /* Sounds */,
 				668367101DA7337000521D03 /* SWBlade.swift */,
-				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
+				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
+				7B4F86011DB4BE7000748F0E /* Enemies */,
 				7B678A941DA848BF0097E9E1 /* ViewControllers */,
 				7B678A931DA8487A0097E9E1 /* Scenes */,
+				668367171DA8647000521D03 /* Sounds */,
 				66B106651DA5CE43006F314A /* Main.storyboard */,
 				66B1066B1DA5CE43006F314A /* Assets.xcassets */,
 				66B1066D1DA5CE43006F314A /* LaunchScreen.storyboard */,
@@ -192,6 +201,16 @@
 			path = "Swat FrenzyUITests";
 			sourceTree = "<group>";
 		};
+		7B4F86011DB4BE7000748F0E /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				7B4F85FB1DB4605000748F0E /* Enemy.swift */,
+				7B4F85FD1DB463B900748F0E /* Fly.swift */,
+				7B4F85FF1DB4B6F300748F0E /* Bee.swift */,
+			);
+			name = Enemies;
+			sourceTree = "<group>";
+		};
 		7B678A931DA8487A0097E9E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +220,7 @@
 				7B36D75F1DB2F03D0035D6D6 /* LevelTwoScene.swift */,
 				7B36D7611DB301F50035D6D6 /* LevelThreeScene.swift */,
 				7B4F85F71DB452F400748F0E /* LevelFourScene.swift */,
+				7B4F85F91DB45DE300748F0E /* LevelFiveScene.swift */,
 				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
 			);
 			name = Scenes;
@@ -284,6 +304,7 @@
 				TargetAttributes = {
 					66B1065D1DA5CE42006F314A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UH8N68H8CG;
 						ProvisioningStyle = Automatic;
 					};
 					66B106741DA5CE43006F314A = {
@@ -366,14 +387,18 @@
 				7B36D7621DB301F50035D6D6 /* LevelThreeScene.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
 				7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */,
+				7B4F85FA1DB45DE300748F0E /* LevelFiveScene.swift in Sources */,
 				66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */,
 				7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */,
 				7B36D7601DB2F03E0035D6D6 /* LevelTwoScene.swift in Sources */,
 				66B106931DA5DBDC006F314A /* BaseScene.swift in Sources */,
 				7B4F85F81DB452F400748F0E /* LevelFourScene.swift in Sources */,
+				7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */,
 				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 				7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */,
+				7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */,
+				7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +474,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jonchou@ucdavis.edu (2T4ATUF2QJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -499,6 +525,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jonchou@ucdavis.edu (2T4ATUF2QJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -525,7 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UH8N68H8CG;
 				INFOPLIST_FILE = "Swat Frenzy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -540,7 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UH8N68H8CG;
 				INFOPLIST_FILE = "Swat Frenzy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

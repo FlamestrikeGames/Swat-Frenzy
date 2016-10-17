@@ -18,9 +18,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var goldLabel: SKLabelNode?
     
     var enemiesToKill: Int?
-    var enemyDamage: Int?
-    var enemyStunDuration: Double?
-    var enemyDuration: Double?
     var goldAmount = 0
     var currentLevel: Int?
     
@@ -90,22 +87,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // Spawns an enemy
-    func spawnEnemy(level: Int) {
-        var enemy: SKSpriteNode
-        switch(level) {
-        case 1, 2: enemy = SKSpriteNode(imageNamed: "fly")
-                enemy.name = "fly"
-                playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
-        case 3, 4: enemy = SKSpriteNode(imageNamed: "bee")
-                enemy.name = "bee"
-                playAudio(fileName: "bumblebee.m4a", audioPlayer: 1, volume: 1.0)
-
-        default:enemy = SKSpriteNode(imageNamed: "fly")
-                enemy.name = "fly"
-                playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
-        }
-
-        
+    func spawnEnemy(enemy: Enemy) {
         // Initialize enemy physics body
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size)
         enemy.physicsBody?.isDynamic = true
@@ -128,14 +110,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         addChild(enemy)
         
         // Enemy flies toward player
-        enemy.run(SKAction.scale(by: 2, duration: enemyDuration!), completion: {
+        enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
             // Despawn enemy and take damage if action completes
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
                 enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
                 self.killEnemy(enemy: enemy)
             } else {
                 enemy.removeFromParent()
-                self.takeDamage(amount: self.enemyDamage!)
+                self.takeDamage(amount: Int(enemy.damage))
                 self.takeHit(enemy: enemy)
             }
 
@@ -287,14 +269,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             (secondBody.categoryBitMask & PhysicsCategory.Weapon != 0)) {
             // Make sure the node can be passed as a SWBlade
             if let body1 = firstBody.node as? SWBlade {
-                weaponDidCollideWithEnemy(weapon: body1, enemy: secondBody.node as! SKSpriteNode)
+                weaponDidCollideWithEnemy(weapon: body1, enemy: secondBody.node as! Enemy)
             } else {
-                weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! SKSpriteNode)
+                weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! Enemy)
             }
         }
     }
     
-    func weaponDidCollideWithEnemy(weapon:SWBlade, enemy:SKSpriteNode) {
+    func weaponDidCollideWithEnemy(weapon:SWBlade, enemy: Enemy) {
         // Remove move action from enemy
         enemy.removeAction(forKey: "move")
         
@@ -323,7 +305,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
         // Waits 0.25s and then stops the enemy in place and checks if it is off the screen
-        enemy.run(SKAction.wait(forDuration: enemyStunDuration!), completion: {
+        enemy.run(SKAction.wait(forDuration: enemy.stunDuration), completion: {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
             if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
