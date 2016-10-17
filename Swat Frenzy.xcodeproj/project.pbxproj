@@ -36,6 +36,7 @@
 		7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FB1DB4605000748F0E /* Enemy.swift */; };
 		7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FD1DB463B900748F0E /* Fly.swift */; };
 		7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FF1DB4B6F300748F0E /* Bee.swift */; };
+		7B4F86031DB5798C00748F0E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F86021DB5798B00748F0E /* Player.swift */; };
 		7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */; };
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
@@ -95,6 +96,7 @@
 		7B4F85FB1DB4605000748F0E /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		7B4F85FD1DB463B900748F0E /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
 		7B4F85FF1DB4B6F300748F0E /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
+		7B4F86021DB5798B00748F0E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
+				7B4F86021DB5798B00748F0E /* Player.swift */,
 				7B4F86011DB4BE7000748F0E /* Enemies */,
 				7B678A941DA848BF0097E9E1 /* ViewControllers */,
 				7B678A931DA8487A0097E9E1 /* Scenes */,
@@ -398,6 +401,7 @@
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 				7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */,
 				7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */,
+				7B4F86031DB5798C00748F0E /* Player.swift in Sources */,
 				7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

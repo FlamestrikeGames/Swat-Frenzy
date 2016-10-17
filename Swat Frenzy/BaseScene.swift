@@ -11,15 +11,15 @@ import AVFoundation
 
 class BaseScene: SKScene, SKPhysicsContactDelegate {
     /* INITIALIZATION */
-    var currentHealth = 100
     var enemiesLeft: SKLabelNode?
     var healthBar: SKSpriteNode?
     var healthBaseWidth: CGFloat?
     var goldLabel: SKLabelNode?
     
     var enemiesToKill: Int?
-    var goldAmount = 0
     var currentLevel: Int?
+    
+    var player: Player!
     
     // This optional variable will help us to easily access our weapon
     var weapon: SWBlade?
@@ -48,26 +48,43 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
+        initializePlayer()
+        initializeBackground()
+        initializeMusic()
         initializeUI()
     }
     
-    func initializeUI() {
-        backgroundColor = SKColor.black
-        
-        // Play background music
-        playAudio(fileName: "background.wav", audioPlayer: 3, volume: 0.25)
-
-        
-        // Initialize physics
-        //physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        physicsWorld.contactDelegate = self
-        
+    func initializePlayer() {
+        var gold: Int
         // Retrieve from userDefaults
         let userDef = UserDefaults.standard
         
         if let currentGold = userDef.value(forKey: "goldAmount") {
-            goldAmount = currentGold as! Int
+            gold = currentGold as! Int
+        } else {
+            gold = 0
         }
+        player = Player(goldAmount: gold)
+    }
+    
+    func initializeBackground() {
+        let background = SKSpriteNode(imageNamed: "background")
+        let aspectRatio = background.frame.size.width / background.frame.size.height
+        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
+        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        background.zPosition = -200
+        addChild(background)
+    }
+    
+    func initializeMusic() {
+        // Play background music
+        playAudio(fileName: "background.wav", audioPlayer: 3, volume: 0.25)
+    }
+    
+    func initializeUI() {
+        // Initialize physics
+        //physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         // Makes sure that the node is found and is not null
         if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
@@ -82,7 +99,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         if let gold = childNode(withName: "goldAmount") as? SKLabelNode {
             goldLabel = gold
-            goldLabel?.text = String(goldAmount)
+            goldLabel?.text = String(player.goldAmount)
         }
     }
     
@@ -118,7 +135,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 enemy.removeFromParent()
                 self.takeDamage(amount: Int(enemy.damage))
-                self.takeHit(enemy: enemy)
+                self.takeHit()
             }
 
         })
@@ -168,8 +185,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func takeDamage(amount: Int) {
         // Play whack sound
         playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 0.3)
-        currentHealth = currentHealth - amount
-        let newWidth = (healthBaseWidth! * CGFloat(Float(currentHealth) / 100.0))
+        player.currentHealth = player.currentHealth - amount
+        let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / 100.0))
         healthBar?.run(
             SKAction.resize(toWidth: newWidth, duration: 0.25), completion: {
                 if( newWidth <= self.healthBaseWidth! * 0.33) {
@@ -181,14 +198,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         )
         
         // Check if player lost
-        if(currentHealth <= 0) {
+        if(player.currentHealth <= 0) {
             // Player loses!
             gameOver(won: false)
         }
     }
     
-    func takeHit(enemy: SKSpriteNode) {
-        // display bloodSplat
+    func takeHit() {
+        // display red screen
         let takeHit = SKSpriteNode(color: .red, size: frame.size)
         takeHit.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         takeHit.alpha = 0.5
@@ -222,8 +239,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         playAudio(fileName: "coin.wav", audioPlayer: 4, volume: 0.5)
         
         // Increase gold amount
-        goldAmount += 1
-        goldLabel?.text = String(goldAmount)
+        player.goldAmount += 1
+        goldLabel?.text = String(player.goldAmount)
         
         // Coin drops to ground (from gravity)
         coin.run(SKAction.wait(forDuration: 1.0), completion: {
@@ -238,7 +255,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Save gold to user defaults if player won
         if (won) {
             let userDef = UserDefaults.standard
-            userDef.set(goldAmount, forKey: "goldAmount")
+            userDef.set(player.goldAmount, forKey: "goldAmount")
             let maxLevel = userDef.value(forKey: "currentLevel") as? Int
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
                 userDef.set(currentLevel!+1, forKey: "currentLevel")
@@ -332,6 +349,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let firstTouch = touches.first! as UITouch
         weaponPosition = firstTouch.location(in: self)
         
+        // Creates physics on weapon the first time it is moved
         if(!weaponPhysicsEnabled && isWeaponDisplayed) {
             weapon?.enablePhysics(categoryBitMask: PhysicsCategory.Weapon, contactTestBitmask: PhysicsCategory.Enemy, collisionBitmask: PhysicsCategory.None)
             weapon!.physicsBody?.usesPreciseCollisionDetection = true
