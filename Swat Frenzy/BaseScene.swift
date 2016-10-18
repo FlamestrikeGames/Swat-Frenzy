@@ -41,6 +41,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         static let All       : UInt32 = UInt32.max
         static let Enemy     : UInt32 = 0b1       // 1
         static let Weapon    : UInt32 = 0b10      // 2
+        static let Board     : UInt32 = 0b100     // 3
     }
     
 
@@ -106,7 +107,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // Spawns an enemy
     func spawnEnemy(enemy: Enemy) {
         // Initialize enemy physics body
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.frame.size)
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: enemy.frame.size.width * 0.9,
+                                                              height: enemy.frame.size.height * 0.9))
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
         enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
@@ -274,9 +276,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
                 userDef.set(currentLevel!+1, forKey: "currentLevel")
             }
-            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 1.0)
+            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 0.4)
         } else {
-            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 1.0)
+            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 0.4)
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won, level: currentLevel!)
@@ -296,14 +298,25 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
+        // If enemy collides with weapon
         if ((firstBody.categoryBitMask & PhysicsCategory.Enemy != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Weapon != 0)) {
-            // Make sure the node can be passed as a SWBlade
-            if let body1 = firstBody.node as? SWBlade {
-                weaponDidCollideWithEnemy(weapon: body1, enemy: secondBody.node as! Enemy)
-            } else {
-                weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! Enemy)
-            }
+            // FirstBody is always the enemy
+            weaponDidCollideWithEnemy(weapon: secondBody.node as! SWBlade, enemy: firstBody.node as! Enemy)
+        } else if ((firstBody.categoryBitMask & PhysicsCategory.Weapon != 0) &&
+            (secondBody.categoryBitMask & PhysicsCategory.Board != 0)) {
+            let boardBody = secondBody.node as! SKSpriteNode
+            // If weapon collides with board
+            // play thunk audio
+            // flash the board red
+            //boardBody.color = .red
+            boardBody.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.1), completion: {
+                boardBody.run(SKAction.colorize(with: .black, colorBlendFactor: 0.0, duration: 0.1))
+            })
+            
+
+            // remove weapon
+            removeWeapon()
         }
     }
     

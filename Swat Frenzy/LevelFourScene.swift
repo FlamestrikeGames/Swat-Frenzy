@@ -13,6 +13,8 @@ class LevelFourScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
       
+        initializeBoards()
+        
         currentLevel = 4
         enemiesToKill = 20
         enemiesLeft?.text = String(enemiesToKill!)
@@ -35,4 +37,28 @@ class LevelFourScene: BaseScene {
         })
     }
     
+    override func initializeBackground() {
+        let background = SKSpriteNode(imageNamed: "woodenBackground")
+        let aspectRatio = background.frame.size.width / background.frame.size.height
+        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
+        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        background.zPosition = -200
+        background.alpha = 0.5
+        addChild(background)
+    }
+    
+    func initializeBoards() {
+        let board = SKSpriteNode(imageNamed: "woodenBoard")
+        board.size = CGSize(width: self.frame.size.width, height: self.frame.size.height / 12)
+        board.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        board.zPosition = -100
+        addChild(board)
+        
+        board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
+        board.physicsBody?.isDynamic = true
+        board.physicsBody?.categoryBitMask = PhysicsCategory.Board
+        board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
+        board.physicsBody?.collisionBitMask = PhysicsCategory.None
+        board.physicsBody?.affectedByGravity = false
+    }
 }

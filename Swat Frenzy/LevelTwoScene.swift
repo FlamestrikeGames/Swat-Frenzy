@@ -14,7 +14,7 @@ class LevelTwoScene: BaseScene {
         super.didMove(to: view)
 
         currentLevel = 2
-        enemiesToKill = 15
+        enemiesToKill = 20
         enemiesLeft?.text = String(enemiesToKill!)
         
         // Let user get ready for level to start
