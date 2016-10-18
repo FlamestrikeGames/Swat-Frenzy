@@ -126,6 +126,20 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         enemy.position = CGPoint(x: x, y: y)
         addChild(enemy)
         
+        // Spawn attack timer circle
+        let circle = SKShapeNode(circleOfRadius: enemy.size.width / 2 + 5)
+        circle.fillColor = .clear
+        circle.strokeColor = .green
+        enemy.addChild(circle)
+    
+        circle.run(SKAction.sequence([
+                SKAction.wait(forDuration: enemy.aliveDuration / 3.0),
+                SKAction.run({circle.strokeColor = .yellow}),
+                SKAction.wait(forDuration: enemy.aliveDuration / 3.0),
+                SKAction.run({circle.strokeColor = .red})
+                ])
+        )
+        
         // Enemy flies toward player
         enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
             // Despawn enemy and take damage if action completes

@@ -16,7 +16,7 @@ class Fly: Enemy {
         name = "fly"
         damage = 10.0
         stunDuration = 0.5
-        aliveDuration = 3.0
+        aliveDuration = 4.0
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -17,19 +17,24 @@ class LevelOneScene: BaseScene {
         enemiesToKill = 10
         enemiesLeft?.text = String(enemiesToKill!)
         
-        // Spawn enemies
-        run(SKAction.repeat(
-            SKAction.sequence([
-                SKAction.wait(forDuration: 2.5),
-                SKAction.run({
-                    let enemy = Fly()
-                    self.playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
-                    self.spawnEnemy(enemy: enemy)
-                })
-                ]),
-            count: enemiesToKill! + 10
+        // Let user get ready for level to start
+        run(SKAction.wait(forDuration: 3.0), completion: {
+            // Spawn enemies
+            self.run(SKAction.repeat(
+                SKAction.sequence([
+                    SKAction.run({
+                        let enemy = Fly()
+                        self.playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+                        self.spawnEnemy(enemy: enemy)
+                    }),
+                    SKAction.wait(forDuration: 1.5)
+                    ]),
+                count: self.enemiesToKill! + 10
+                )
             )
-        )
+        })
+        
+
     }
     
     /* If we want to override the background initialization
