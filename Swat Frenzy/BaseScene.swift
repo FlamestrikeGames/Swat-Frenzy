@@ -107,13 +107,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // Spawns an enemy
     func spawnEnemy(enemy: Enemy) {
         // Initialize enemy physics body
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: enemy.frame.size.width * 0.9,
-                                                              height: enemy.frame.size.height * 0.9))
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: enemy.frame.size.width,
+                                                              height: enemy.frame.size.height))
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
         enemy.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         enemy.physicsBody?.collisionBitMask = PhysicsCategory.None
         enemy.physicsBody?.affectedByGravity = false
+        enemy.physicsBody?.usesPreciseCollisionDetection = true
         
         // Spawns enemy within the screen
         var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
@@ -290,6 +291,12 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         
+        if(isWeaponDisplayed) {
+            removeWeapon()
+        } else {
+            return
+        }
+        
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -308,15 +315,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             let boardBody = secondBody.node as! SKSpriteNode
             // If weapon collides with board
             // play thunk audio
+            
             // flash the board red
-            //boardBody.color = .red
             boardBody.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.1), completion: {
                 boardBody.run(SKAction.colorize(with: .black, colorBlendFactor: 0.0, duration: 0.1))
             })
-            
-
-            // remove weapon
-            removeWeapon()
         }
     }
     
