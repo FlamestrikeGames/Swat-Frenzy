@@ -14,7 +14,7 @@ class Enemy: SKSpriteNode {
     var damage: Double = 1.0
     var stunDuration: Double = 1.0
     var aliveDuration: Double = 1.0
-   // var soundEffect: AVAudioPlayer
+    var soundEffectFile: String = "coin.wav"
     
     init(image: String) {
         let texture = SKTexture(imageNamed: image)

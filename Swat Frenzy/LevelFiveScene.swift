@@ -27,13 +27,13 @@ class LevelFiveScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Fly()
-                        self.playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+                        self.playAudio(fileName: enemy.soundEffectFile, audioPlayer: 1, volume: 1.0)
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.25),
                     SKAction.run({
                         let enemy = Bee()
-                        self.playAudio(fileName: "bumblebee.m4a", audioPlayer: 1, volume: 1.0)
+                        self.playAudio(fileName: enemy.soundEffectFile, audioPlayer: 1, volume: 1.0)
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.0)

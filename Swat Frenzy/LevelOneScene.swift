@@ -14,7 +14,7 @@ class LevelOneScene: BaseScene {
         super.didMove(to: view)
         
         currentLevel = 1
-        enemiesToKill = 15
+        enemiesToKill = 10
         enemiesLeft?.text = String(enemiesToKill!)
         
         // Let user get ready for level to start
@@ -24,10 +24,10 @@ class LevelOneScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Fly()
-                        self.playAudio(fileName: "mosquito.wav", audioPlayer: 1, volume: 1.0)
+                        self.playAudio(fileName: enemy.soundEffectFile, audioPlayer: 1, volume: 1.0)
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.5)
+                    SKAction.wait(forDuration: 2.0)
                     ]),
                 count: self.enemiesToKill! + 10
                 )

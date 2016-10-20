@@ -26,7 +26,7 @@ class LevelFourScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Bee()
-                        self.playAudio(fileName: "bumblebee.m4a", audioPlayer: 1, volume: 1.0)
+                        self.playAudio(fileName: enemy.soundEffectFile, audioPlayer: 1, volume: 1.0)
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.5)
