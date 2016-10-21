@@ -315,6 +315,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             let boardBody = secondBody.node as! SKSpriteNode
             // If weapon collides with board
             // play thunk audio
+            boardBody.run(SKAction.playSoundFileNamed("thunk.wav", waitForCompletion: false))
             
             // flash the board red
             boardBody.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.1), completion: {
