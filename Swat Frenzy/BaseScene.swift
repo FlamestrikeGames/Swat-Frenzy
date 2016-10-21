@@ -32,7 +32,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var weaponPhysicsEnabled = false
    
     var backgroundSoundFX: AVAudioPlayer!
-    var enemySoundFX: AVAudioPlayer!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -77,7 +76,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func initializeMusic() {
         // Play background music
-        playAudio(fileName: "background.wav", audioPlayer: 2, volume: 0.25)
+        playBackgroundMusic(fileName: "background.wav", volume: 0.3)
     }
     
     func initializeUI() {
@@ -148,6 +147,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
                 self.killEnemy(enemy: enemy)
             } else {
+                enemy.removeAllChildren()
                 enemy.removeFromParent()
                 self.takeDamage(amount: Int(enemy.damage))
                 self.takeHit()
@@ -187,6 +187,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
     func killEnemy(enemy: SKSpriteNode) {
         enemy.removeAllActions()
+        enemy.removeAllChildren()
         enemy.removeFromParent()
         enemiesToKill! -= 1
         enemiesLeft?.text = String(enemiesToKill!)
@@ -265,8 +266,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(won: Bool) {
-        enemySoundFX.stop()
         backgroundSoundFX.stop()
+
         // Save gold to user defaults if player won
         if (won) {
             let userDef = UserDefaults.standard
@@ -275,9 +276,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
                 userDef.set(currentLevel!+1, forKey: "currentLevel")
             }
-            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 1.0)
-        } else {
-            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 0.7)
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won, level: currentLevel!)
@@ -421,26 +419,26 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Audio
     
-    func playAudio(fileName: String, audioPlayer: Int, volume: Float) {
+    func playBackgroundMusic(fileName: String, volume: Float) {
         let path = Bundle.main.path(forResource: fileName, ofType:nil)!
         let url = URL(fileURLWithPath: path)
         
         do {
             let sound = try AVAudioPlayer(contentsOf: url)
-            switch(audioPlayer) {
-            case 1: enemySoundFX = sound
-            case 2: backgroundSoundFX = sound
-                    // Repeats on negative number
-                    backgroundSoundFX.numberOfLoops = -1
-            default:
-                break
-            }
+            backgroundSoundFX = sound
+            // Repeats on negative number
+            backgroundSoundFX.numberOfLoops = -1
             sound.play()
             sound.volume = volume
         } catch {
             // couldn't load file :(
         }
-        
+    }
+    
+    func playEnemySound(enemy: Enemy) {
+        let enemySound = SKAudioNode(fileNamed: enemy.soundEffectFile)
+        enemy.addChild(enemySound)
+        enemy.run(SKAction.play())
     }
     
 }

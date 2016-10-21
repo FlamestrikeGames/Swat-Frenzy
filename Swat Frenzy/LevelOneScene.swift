@@ -24,7 +24,7 @@ class LevelOneScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Fly()
-                        self.playAudio(fileName: enemy.soundEffectFile, audioPlayer: 1, volume: 1.0)
+                        self.playEnemySound(enemy: enemy)
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 2.0)
@@ -48,7 +48,7 @@ class LevelOneScene: BaseScene {
     }
      
      override func initializeMusic() {
-        playAudio(fileName: "background.wav", audioPlayer: 3, volume: 0.25)
+        playBackgroundMusic(fileName: "background.wav", volume: 0.25)
      }
  */
 }

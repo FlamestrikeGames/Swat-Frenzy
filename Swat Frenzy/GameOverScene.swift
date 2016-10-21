@@ -45,6 +45,13 @@ class GameOverScene: SKScene {
         levelSelectButton.position = CGPoint(x: size.width/2, y: size.height/7)
         levelSelectButton.name = "levelSelect"
         addChild(levelSelectButton)
+        
+        if(won) {
+            self.run(SKAction.playSoundFileNamed("win.wav", waitForCompletion: false))
+        } else {
+            self.run(SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false))
+
+        }
     }
     
     required init(coder aDecoder: NSCoder) {
