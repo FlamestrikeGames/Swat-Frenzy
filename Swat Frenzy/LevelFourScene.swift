@@ -13,7 +13,7 @@ class LevelFourScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
       
-        initializeBoards()
+        initializeBoard()
         
         currentLevel = 4
         enemiesToKill = 20
@@ -47,11 +47,13 @@ class LevelFourScene: BaseScene {
         addChild(background)
     }
     
-    func initializeBoards() {
+    func initializeBoard() {
         let board = SKSpriteNode(imageNamed: "woodenBoard")
         board.size = CGSize(width: self.frame.size.width, height: self.frame.size.height / 12)
         board.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         board.zPosition = -100
+        let angle = tan(((self.frame.size.height - (board.size.height)) / 2.0) /
+                        (self.frame.size.width / 2.0))
         addChild(board)
         
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
@@ -60,5 +62,6 @@ class LevelFourScene: BaseScene {
         board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         board.physicsBody?.collisionBitMask = PhysicsCategory.None
         board.physicsBody?.affectedByGravity = false
+        board.zRotation = CGFloat(angle)
     }
 }

@@ -59,7 +59,6 @@ class LevelFiveScene: BaseScene {
         board.size = CGSize(width: self.frame.size.height * 0.8, height: self.frame.size.width / 30)
         board.position = location
         board.zPosition = -100
-        board.run(SKAction.rotate(byAngle: CGFloat(M_PI_2), duration: 0.0))
         addChild(board)
  
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
@@ -68,6 +67,7 @@ class LevelFiveScene: BaseScene {
         board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         board.physicsBody?.collisionBitMask = PhysicsCategory.None
         board.physicsBody?.affectedByGravity = false
+        board.zRotation = CGFloat(M_PI_2)
     }
     
 }
