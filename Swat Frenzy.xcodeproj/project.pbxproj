@@ -39,6 +39,7 @@
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
+		7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */; };
 		7BE2C42B1DB9950B001A9237 /* thunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42A1DB9950B001A9237 /* thunk.wav */; };
 		7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42E1DB99CD6001A9237 /* slap.wav */; };
 		7BE2C4311DB99FAE001A9237 /* fly.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4301DB99FAE001A9237 /* fly.wav */; };
@@ -101,6 +102,7 @@
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mosquito.swift; sourceTree = "<group>"; };
 		7BE2C42A1DB9950B001A9237 /* thunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = thunk.wav; path = Sounds/thunk.wav; sourceTree = "<group>"; };
 		7BE2C42E1DB99CD6001A9237 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap.wav; path = Sounds/slap.wav; sourceTree = "<group>"; };
 		7BE2C4301DB99FAE001A9237 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = Sounds/fly.wav; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				7B4F85FB1DB4605000748F0E /* Enemy.swift */,
 				7B4F85FD1DB463B900748F0E /* Fly.swift */,
 				7B4F85FF1DB4B6F300748F0E /* Bee.swift */,
+				7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				7B4F85F81DB452F400748F0E /* LevelFourScene.swift in Sources */,
 				7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */,
 				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
+				7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 				7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */,
 				7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */,

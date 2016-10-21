@@ -25,7 +25,7 @@ class LevelFourScene: BaseScene {
             self.run(SKAction.repeat(
                 SKAction.sequence([
                     SKAction.run({
-                        let enemy = Bee()
+                        let enemy = Mosquito()  
                         self.playEnemySound(enemy: enemy)
                         self.spawnEnemy(enemy: enemy)
                     }),
@@ -38,7 +38,7 @@ class LevelFourScene: BaseScene {
     }
     
     override func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "woodenBackground")
+        let background = SKSpriteNode(imageNamed: "insideHouse1")
         let aspectRatio = background.frame.size.width / background.frame.size.height
         background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
         background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
