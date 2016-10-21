@@ -26,11 +26,9 @@
 		7B36D75A1DB2E9770035D6D6 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B36D7551DB2E9770035D6D6 /* background.wav */; };
 		7B36D75B1DB2E9770035D6D6 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B36D7561DB2E9770035D6D6 /* coin.wav */; };
 		7B36D75C1DB2E9770035D6D6 /* mosquito.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B36D7571DB2E9770035D6D6 /* mosquito.wav */; };
-		7B36D75D1DB2E9770035D6D6 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B36D7581DB2E9770035D6D6 /* slap.wav */; };
 		7B36D75E1DB2E9770035D6D6 /* whack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B36D7591DB2E9770035D6D6 /* whack.wav */; };
 		7B36D7601DB2F03E0035D6D6 /* LevelTwoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36D75F1DB2F03D0035D6D6 /* LevelTwoScene.swift */; };
 		7B36D7621DB301F50035D6D6 /* LevelThreeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36D7611DB301F50035D6D6 /* LevelThreeScene.swift */; };
-		7B4F85F61DB43AA200748F0E /* bumblebee.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7B4F85F51DB43AA200748F0E /* bumblebee.m4a */; };
 		7B4F85F81DB452F400748F0E /* LevelFourScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85F71DB452F400748F0E /* LevelFourScene.swift */; };
 		7B4F85FA1DB45DE300748F0E /* LevelFiveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85F91DB45DE300748F0E /* LevelFiveScene.swift */; };
 		7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FB1DB4605000748F0E /* Enemy.swift */; };
@@ -41,8 +39,10 @@
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
-		7BE2C4291DB98C01001A9237 /* fly.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4281DB98C00001A9237 /* fly.m4a */; };
 		7BE2C42B1DB9950B001A9237 /* thunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42A1DB9950B001A9237 /* thunk.wav */; };
+		7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42E1DB99CD6001A9237 /* slap.wav */; };
+		7BE2C4311DB99FAE001A9237 /* fly.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4301DB99FAE001A9237 /* fly.wav */; };
+		7BE2C4331DB9A452001A9237 /* bumblebee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4321DB9A452001A9237 /* bumblebee.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,11 +88,9 @@
 		7B36D7551DB2E9770035D6D6 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = background.wav; path = Sounds/background.wav; sourceTree = "<group>"; };
 		7B36D7561DB2E9770035D6D6 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = Sounds/coin.wav; sourceTree = "<group>"; };
 		7B36D7571DB2E9770035D6D6 /* mosquito.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = mosquito.wav; path = Sounds/mosquito.wav; sourceTree = "<group>"; };
-		7B36D7581DB2E9770035D6D6 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap.wav; path = Sounds/slap.wav; sourceTree = "<group>"; };
 		7B36D7591DB2E9770035D6D6 /* whack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = whack.wav; path = Sounds/whack.wav; sourceTree = "<group>"; };
 		7B36D75F1DB2F03D0035D6D6 /* LevelTwoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTwoScene.swift; sourceTree = "<group>"; };
 		7B36D7611DB301F50035D6D6 /* LevelThreeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelThreeScene.swift; sourceTree = "<group>"; };
-		7B4F85F51DB43AA200748F0E /* bumblebee.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = bumblebee.m4a; path = Sounds/bumblebee.m4a; sourceTree = "<group>"; };
 		7B4F85F71DB452F400748F0E /* LevelFourScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelFourScene.swift; sourceTree = "<group>"; };
 		7B4F85F91DB45DE300748F0E /* LevelFiveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelFiveScene.swift; sourceTree = "<group>"; };
 		7B4F85FB1DB4605000748F0E /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -103,8 +101,10 @@
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
-		7BE2C4281DB98C00001A9237 /* fly.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = fly.m4a; path = Sounds/fly.m4a; sourceTree = "<group>"; };
 		7BE2C42A1DB9950B001A9237 /* thunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = thunk.wav; path = Sounds/thunk.wav; sourceTree = "<group>"; };
+		7BE2C42E1DB99CD6001A9237 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap.wav; path = Sounds/slap.wav; sourceTree = "<group>"; };
+		7BE2C4301DB99FAE001A9237 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = Sounds/fly.wav; sourceTree = "<group>"; };
+		7BE2C4321DB9A452001A9237 /* bumblebee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bumblebee.wav; path = Sounds/bumblebee.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,13 +135,13 @@
 		668367171DA8647000521D03 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				7BE2C4321DB9A452001A9237 /* bumblebee.wav */,
+				7BE2C4301DB99FAE001A9237 /* fly.wav */,
+				7BE2C42E1DB99CD6001A9237 /* slap.wav */,
 				7BE2C42A1DB9950B001A9237 /* thunk.wav */,
-				7BE2C4281DB98C00001A9237 /* fly.m4a */,
-				7B4F85F51DB43AA200748F0E /* bumblebee.m4a */,
 				7B36D7551DB2E9770035D6D6 /* background.wav */,
 				7B36D7561DB2E9770035D6D6 /* coin.wav */,
 				7B36D7571DB2E9770035D6D6 /* mosquito.wav */,
-				7B36D7581DB2E9770035D6D6 /* slap.wav */,
 				7B36D7591DB2E9770035D6D6 /* whack.wav */,
 				7B36D74F1DB2E8140035D6D6 /* boss.wav */,
 				7B36D7501DB2E8140035D6D6 /* lose.wav */,
@@ -353,21 +353,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BE2C4291DB98C01001A9237 /* fly.m4a in Resources */,
 				7B36D75B1DB2E9770035D6D6 /* coin.wav in Resources */,
 				66B106971DA5DE85006F314A /* BaseScene.sks in Resources */,
 				66B1066F1DA5CE43006F314A /* LaunchScreen.storyboard in Resources */,
+				7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */,
 				7B36D7531DB2E8140035D6D6 /* lose.wav in Resources */,
 				7B36D75A1DB2E9770035D6D6 /* background.wav in Resources */,
 				7B36D7521DB2E8140035D6D6 /* boss.wav in Resources */,
 				7B36D7541DB2E8140035D6D6 /* win.wav in Resources */,
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
-				7B36D75D1DB2E9770035D6D6 /* slap.wav in Resources */,
 				7B36D75C1DB2E9770035D6D6 /* mosquito.wav in Resources */,
 				7B36D75E1DB2E9770035D6D6 /* whack.wav in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
-				7B4F85F61DB43AA200748F0E /* bumblebee.m4a in Resources */,
+				7BE2C4331DB9A452001A9237 /* bumblebee.wav in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
+				7BE2C4311DB99FAE001A9237 /* fly.wav in Resources */,
 				7BE2C42B1DB9950B001A9237 /* thunk.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

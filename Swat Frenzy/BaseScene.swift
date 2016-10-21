@@ -33,8 +33,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
    
     var backgroundSoundFX: AVAudioPlayer!
     var enemySoundFX: AVAudioPlayer!
-    var hitSoundFX: AVAudioPlayer!
-    var coinSoundFX: AVAudioPlayer!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -79,7 +77,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func initializeMusic() {
         // Play background music
-        playAudio(fileName: "background.wav", audioPlayer: 3, volume: 0.25)
+        playAudio(fileName: "background.wav", audioPlayer: 2, volume: 0.25)
     }
     
     func initializeUI() {
@@ -201,7 +199,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func takeDamage(amount: Int) {
         // Play whack sound
-        playAudio(fileName: "whack.wav", audioPlayer: 2, volume: 0.3)
+        run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
         player.currentHealth = player.currentHealth - amount
         let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / 100.0))
         healthBar?.run(
@@ -253,7 +251,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         addChild(coin)
         
         // Play coin sound
-        playAudio(fileName: "coin.wav", audioPlayer: 4, volume: 0.5)
+        run(SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false))
         
         // Increase gold amount
         player.goldAmount += 1
@@ -277,9 +275,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
                 userDef.set(currentLevel!+1, forKey: "currentLevel")
             }
-            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 0.4)
+            self.playAudio(fileName: "win.wav", audioPlayer: 1, volume: 1.0)
         } else {
-            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 0.4)
+            self.playAudio(fileName: "lose.wav", audioPlayer: 1, volume: 0.7)
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won, level: currentLevel!)
@@ -329,8 +327,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         enemy.removeAction(forKey: "move")
         
         // Play slap sound
-        playAudio(fileName: "slap.wav", audioPlayer: 2, volume: 0.1)
-
+        run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
         
         // Check if it drops a coin
         let coinDropped = random(min: 1, max: 100)
@@ -432,11 +429,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             let sound = try AVAudioPlayer(contentsOf: url)
             switch(audioPlayer) {
             case 1: enemySoundFX = sound
-            case 2: hitSoundFX = sound
-            case 3: backgroundSoundFX = sound
+            case 2: backgroundSoundFX = sound
                     // Repeats on negative number
                     backgroundSoundFX.numberOfLoops = -1
-            case 4: coinSoundFX = sound
             default:
                 break
             }
