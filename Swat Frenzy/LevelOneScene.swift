@@ -24,7 +24,7 @@ class LevelOneScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Fly()
-                        self.playEnemySound(enemy: enemy)
+                        enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 2.0)

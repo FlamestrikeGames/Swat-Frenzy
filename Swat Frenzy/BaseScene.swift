@@ -127,18 +127,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         addChild(enemy)
         
         // Spawn attack timer circle
-        let circle = SKShapeNode(circleOfRadius: enemy.size.width / 2 + 5)
-        circle.fillColor = .clear
-        circle.strokeColor = .green
-        enemy.addChild(circle)
-    
-        circle.run(SKAction.sequence([
-                SKAction.wait(forDuration: enemy.aliveDuration / 3.0),
-                SKAction.run({circle.strokeColor = .yellow}),
-                SKAction.wait(forDuration: enemy.aliveDuration / 3.0),
-                SKAction.run({circle.strokeColor = .red})
-                ])
-        )
+        enemy.createCircleTimer()
         
         // Enemy flies toward player
         enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
@@ -152,28 +141,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 self.takeDamage(amount: Int(enemy.damage))
                 self.takeHit()
             }
-
         })
         
-        enemy.run(
-            SKAction.move(to: CGPoint(x: random(min: enemy.size.width, max: frame.size.width - enemy.size.width),
-                                      y: random(min: enemy.size.height * 2,
-                                                max: frame.size.height - (enemy.size.height * 2))),
-                          duration: TimeInterval(random(min: 1, max: 3))),
-            withKey: "move"
-        )
- 
-        /*
-        let path = UIBezierPath()
-        path.move(to: enemy.position)
-        path.addArc(withCenter: enemy.position, radius: 30, startAngle: 90, endAngle: 180, clockwise: true)
-        enemy.run(
-            SKAction.follow(path.cgPath, duration: 3)
-         //   SKAction.follow(path: path.cgPath, duration: TimeInterval(2)))
-
-        )
- */
+        enemy.beginMovement(vcFrameSize: frame.size)
     }
+    
     
     /* HELPER FUNCTIONS */
     
@@ -233,36 +205,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             }
         )
  
-    }
-    
-    func dropCoin(location: CGPoint) {
-        // Create sprite at location
-        let coin = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: location.x, y: location.y - 20)
-        coin.xScale = 0.3
-        coin.yScale = 0.3
-        
-        coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.frame.size.width / 2)
-        coin.physicsBody?.affectedByGravity = true
-        coin.physicsBody?.isDynamic = true
-        coin.physicsBody?.categoryBitMask = PhysicsCategory.None
-        coin.physicsBody?.contactTestBitMask = PhysicsCategory.None
-        coin.physicsBody?.collisionBitMask = PhysicsCategory.None
-        coin.physicsBody?.friction = 0
-        addChild(coin)
-        
-        // Play coin sound
-        run(SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false))
-        
-        // Increase gold amount
-        player.goldAmount += 1
-        goldLabel?.text = String(player.goldAmount)
-        
-        // Coin drops to ground (from gravity)
-        coin.run(SKAction.wait(forDuration: 1.0), completion: {
-            coin.removeFromParent()
-            }
-        )
     }
     
     func gameOver(won: Bool) {
@@ -328,14 +270,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
         
         // Check if it drops a coin
-        let coinDropped = random(min: 1, max: 100)
-        if coinDropped <= 75 {
+        let coinDrop = random(min: 1, max: 100)
+        if coinDrop <= 75 {
             // Drop coin
-            dropCoin(location: enemy.position)
+            enemy.dropCoin()
+            
+            // Increase gold amount
+            player.goldAmount += 1
+            goldLabel?.text = String(player.goldAmount)
         }
         
         // Calculate difference in x, y for direction of move
-        enemy.physicsBody?.linearDamping = 1.0
+       // enemy.physicsBody?.linearDamping = 1.0
         var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
         var dy = (enemy.position.y - weaponStartPosition.y) * 0.5
         // Limit impulse speeds so it doesn't blast off the screen
@@ -435,10 +381,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func playEnemySound(enemy: Enemy) {
-        let enemySound = SKAudioNode(fileNamed: enemy.soundEffectFile)
-        enemy.addChild(enemySound)
-        enemy.run(SKAction.play())
+    class func sharedInstance() -> BaseScene {
+        struct Singleton {
+            static var sharedInstance = BaseScene()
+        }
+        return Singleton.sharedInstance
     }
-    
 }

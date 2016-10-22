@@ -27,13 +27,13 @@ class LevelFiveScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Mosquito()
-                        self.playEnemySound(enemy: enemy)
+                        enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.25),
                     SKAction.run({
                         let enemy = Mosquito()
-                        self.playEnemySound(enemy: enemy)
+                        enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.0)

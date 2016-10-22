@@ -73,6 +73,7 @@ class GameOverScene: SKScene {
                 case 3: scene = LevelThreeScene(fileNamed: "BaseScene")
                 case 4: scene = LevelFourScene(fileNamed: "BaseScene")
                 case 5: scene = LevelFiveScene(fileNamed: "BaseScene")
+                case 6: scene = LevelSixScene(fileNamed: "BaseScene")
                     
                 default: scene = BaseScene(fileNamed: "BaseScene")
                     break

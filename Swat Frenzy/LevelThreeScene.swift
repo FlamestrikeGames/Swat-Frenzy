@@ -24,7 +24,7 @@ class LevelThreeScene: BaseScene {
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Bee()
-                        self.playEnemySound(enemy: enemy)
+                        enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.5)
