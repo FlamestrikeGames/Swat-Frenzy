@@ -16,6 +16,14 @@ class Enemy: SKSpriteNode {
     var aliveDuration: Double = 1.0
     var soundEffectFile: String = "coin.wav"
     
+    struct PhysicsCategory {
+        static let None      : UInt32 = 0
+        static let All       : UInt32 = UInt32.max
+        static let Enemy     : UInt32 = 0b1       // 1
+        static let Weapon    : UInt32 = 0b10      // 2
+        static let Board     : UInt32 = 0b100     // 3
+    }
+    
     init(image: String) {
         let texture = SKTexture(imageNamed: image)
         super.init(texture: texture, color: .clear, size: texture.size())
@@ -23,6 +31,20 @@ class Enemy: SKSpriteNode {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
+        var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
+        var y = (frame.size.height - (size.height * 3/2) - 25) * BaseScene.sharedInstance().random(min: 0, max: 1)
+        
+        if x < (size.width * 3/2) {
+            x += size.width * 3/2
+        }
+        if y < (size.height * 3/2) {
+            y += size.height * 3/2
+        }
+        
+        return CGPoint(x: x, y:y)
     }
     
     func createCircleTimer() {
@@ -60,9 +82,9 @@ class Enemy: SKSpriteNode {
         coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.frame.size.width / 2)
         coin.physicsBody?.affectedByGravity = true
         coin.physicsBody?.isDynamic = true
-        coin.physicsBody?.categoryBitMask = 0
-        coin.physicsBody?.contactTestBitMask = 0
-        coin.physicsBody?.collisionBitMask = 0
+        coin.physicsBody?.categoryBitMask = PhysicsCategory.None
+        coin.physicsBody?.contactTestBitMask = PhysicsCategory.None
+        coin.physicsBody?.collisionBitMask = PhysicsCategory.None
         coin.physicsBody?.friction = 0
         
         parent?.addChild(coin)

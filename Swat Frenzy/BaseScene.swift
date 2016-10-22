@@ -114,16 +114,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.usesPreciseCollisionDetection = true
         
         // Spawns enemy within the screen
-        var x = (frame.size.width - (enemy.size.width * 3/2)) * random(min: 0, max: 1)
-        var y = (frame.size.height - (enemy.size.height * 3/2) - (enemiesLeft?.frame.size.height)!) * random(min: 0, max: 1)
-        
-        if x < (enemy.size.width * 3/2) {
-            x += enemy.size.width * 3/2
-        }
-        if y < (enemy.size.height * 3/2) {
-            y += enemy.size.height * 3/2
-        }
-        enemy.position = CGPoint(x: x, y: y)
+
+        let spawnPosition = enemy.getSpawnPosition(vcFrameSize: frame.size)
+        enemy.position = spawnPosition
         addChild(enemy)
         
         // Spawn attack timer circle
