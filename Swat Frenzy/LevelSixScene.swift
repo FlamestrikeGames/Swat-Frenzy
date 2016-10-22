@@ -13,10 +13,8 @@ class LevelSixScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-      //  initializeBoard(location: CGPoint(x: self.frame.size.width / 4, y: self.frame.size.height / 2))
-      //  initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
-      //  initializeBoard(location: CGPoint(x: self.frame.size.width * 3 / 4, y: self.frame.size.height / 2))
-        
+        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
+
         currentLevel = 6
         enemiesToKill = 25
         enemiesLeft?.text = String(enemiesToKill!)
@@ -56,7 +54,7 @@ class LevelSixScene: BaseScene {
     
     func initializeBoard(location: CGPoint) {
         let board = SKSpriteNode(imageNamed: "woodenBoard")
-        board.size = CGSize(width: self.frame.size.height * 0.8, height: self.frame.size.width / 30)
+        board.size = CGSize(width: self.frame.size.height * 0.9, height: self.frame.size.width / 30)
         board.position = location
         board.zPosition = -100
         addChild(board)
@@ -67,7 +65,7 @@ class LevelSixScene: BaseScene {
         board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         board.physicsBody?.collisionBitMask = PhysicsCategory.None
         board.physicsBody?.affectedByGravity = false
-        board.zRotation = CGFloat(M_PI_2)
+        board.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI_4), duration: 1)))
     }
     
 }

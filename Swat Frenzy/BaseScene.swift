@@ -131,7 +131,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 enemy.removeAllChildren()
                 enemy.removeFromParent()
-                self.takeDamage(amount: Int(enemy.damage))
+                self.player.takeDamage(amount: Int(enemy.damage))
+                // Play whack sound
+                self.run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
+                self.resizeHealthBar()
+
                 self.takeHit()
             }
         })
@@ -163,10 +167,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    func takeDamage(amount: Int) {
-        // Play whack sound
-        run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
-        player.currentHealth = player.currentHealth - amount
+    func resizeHealthBar() {
         let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / 100.0))
         healthBar?.run(
             SKAction.resize(toWidth: newWidth, duration: 0.25), completion: {
@@ -263,14 +264,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
         
         // Check if it drops a coin
-        let coinDrop = random(min: 1, max: 100)
-        if coinDrop <= 75 {
+        let lootDrop = random(min: 1, max: 100)
+        if lootDrop <= 10 {
             // Drop coin
             enemy.dropCoin()
             
             // Increase gold amount
             player.goldAmount += 1
             goldLabel?.text = String(player.goldAmount)
+        } else if (player.currentHealth < 100 && lootDrop <= 90) {
+            // Gain health
+            player.gainHealth(amount: 10)
+            resizeHealthBar()
         }
         
         // Calculate difference in x, y for direction of move
