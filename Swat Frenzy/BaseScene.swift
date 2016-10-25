@@ -175,6 +175,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                     self.healthBar?.color = .red
                 } else if newWidth <= self.healthBaseWidth! * 0.66 {
                     self.healthBar?.color = .yellow
+                } else {
+                    self.healthBar?.color = .green
                 }
             }
         )
@@ -265,14 +267,15 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         // Check if it drops a coin
         let lootDrop = random(min: 1, max: 100)
-        if lootDrop <= 10 {
+        if lootDrop <= 75 {
             // Drop coin
             enemy.dropCoin()
             
             // Increase gold amount
-            player.goldAmount += 1
+            player.goldAmount += enemy.goldValue
             goldLabel?.text = String(player.goldAmount)
         } else if (player.currentHealth < 100 && lootDrop <= 90) {
+            // enemy.dropHeart()
             // Gain health
             player.gainHealth(amount: 10)
             resizeHealthBar()

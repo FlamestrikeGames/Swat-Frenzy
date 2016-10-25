@@ -33,22 +33,5 @@ class LevelOneScene: BaseScene {
                 )
             )
         })
-        
-
     }
-    
-    /* If we want to override the background initialization
-    override func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "bee")
-        let aspectRatio = background.frame.size.width / background.frame.size.height
-        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
-        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-        background.zPosition = -200
-        addChild(background)
-    }
-     
-     override func initializeMusic() {
-        playBackgroundMusic(fileName: "background.wav", volume: 0.25)
-     }
- */
 }

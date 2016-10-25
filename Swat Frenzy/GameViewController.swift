@@ -40,6 +40,8 @@ class GameViewController: UIViewController {
             case 4: scene = LevelFourScene(fileNamed: "BaseScene")
             case 5: scene = LevelFiveScene(fileNamed: "BaseScene")
             case 6: scene = LevelSixScene(fileNamed: "BaseScene")
+            case 7: scene = LevelSevenScene(fileNamed: "BaseScene")
+
 
                 
             default: scene = BaseScene(fileNamed: "BaseScene")

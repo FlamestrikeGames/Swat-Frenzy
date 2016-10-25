@@ -15,6 +15,7 @@ class Enemy: SKSpriteNode {
     var stunDuration: Double = 1.0
     var aliveDuration: Double = 1.0
     var soundEffectFile: String = "coin.wav"
+    var goldValue: Int = 1
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
