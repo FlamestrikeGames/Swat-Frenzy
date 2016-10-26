@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-//import AVFoundation
 
 class Enemy: SKSpriteNode {
     
@@ -34,6 +33,13 @@ class Enemy: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func playEnemySound() {
+        let enemySound = SKAudioNode(fileNamed: soundEffectFile)
+        enemySound.autoplayLooped = false
+        addChild(enemySound)
+        enemySound.run(SKAction.play())
+    }
+    
     func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
         var y = (frame.size.height - (size.height * 3/2) - 25) * BaseScene.sharedInstance().random(min: 0, max: 1)
@@ -55,9 +61,9 @@ class Enemy: SKSpriteNode {
         addChild(circle)
         
         circle.run(SKAction.sequence([
-            SKAction.wait(forDuration: self.aliveDuration / 3.0),
+            SKAction.wait(forDuration: aliveDuration / 3.0),
             SKAction.run({circle.strokeColor = .yellow}),
-            SKAction.wait(forDuration: self.aliveDuration / 3.0),
+            SKAction.wait(forDuration: aliveDuration / 3.0),
             SKAction.run({circle.strokeColor = .red})
             ])
         )
@@ -76,7 +82,7 @@ class Enemy: SKSpriteNode {
     func dropCoin() {
         // Create sprite at location
         let coin = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: self.position.x, y: self.position.y - 20)
+        coin.position = CGPoint(x: position.x, y: position.y - 20)
         coin.xScale = 0.3
         coin.yScale = 0.3
         
@@ -100,10 +106,21 @@ class Enemy: SKSpriteNode {
         )
     }
     
-    func playEnemySound() {
-        let enemySound = SKAudioNode(fileNamed: self.soundEffectFile)
-        enemySound.autoplayLooped = false
-        addChild(enemySound)
-        enemySound.run(SKAction.play())
+    func dropHeart() {
+        let heart = SKSpriteNode(imageNamed: "heart")
+        heart.position = CGPoint(x: position.x, y: position.y + 30)
+        heart.xScale = 0.8
+        heart.yScale = 0.8
+        parent?.addChild(heart)
+        
+        // Play heal sound
+        run(SKAction.playSoundFileNamed("heal.wav", waitForCompletion: false))
+        
+        // Heart moves up and disappears
+        heart.run(SKAction.move(to: CGPoint(x: position.x, y: position.y + 80), duration: 0.5), completion: {
+            heart.removeFromParent()
+            }
+        )
     }
+
 }

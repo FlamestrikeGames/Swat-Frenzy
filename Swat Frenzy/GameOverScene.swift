@@ -86,10 +86,6 @@ class GameOverScene: SKScene {
                 // Post notification
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
             }
-         
          }
-        
     }
-    
-    
 }

@@ -42,7 +42,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
 
-    /* GAME LOGIC */
+    // MARK: - Initialization
     
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
@@ -81,13 +81,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func initializeUI() {
         // Initialize physics
-        //physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
         // Makes sure that the node is found and is not null
         if let enemies = childNode(withName: "enemiesLeft") as? SKLabelNode {
             enemiesLeft = enemies
-            //enemiesLeft?.text = String(enemiesToKill!)
         }
         
         if let health = childNode(withName: "healthBar") as? SKSpriteNode {
@@ -101,6 +99,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // MARK: - Game Logic
     // Spawns an enemy
     func spawnEnemy(enemy: Enemy) {
         // Initialize enemy physics body
@@ -142,17 +141,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         enemy.beginMovement(vcFrameSize: frame.size)
     }
-    
-    
-    /* HELPER FUNCTIONS */
-    
-    func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    func random(min: CGFloat, max: CGFloat) -> CGFloat {
-        return random() * (max - min) + min
-    }
 
     func killEnemy(enemy: SKSpriteNode) {
         enemy.removeAllActions()
@@ -167,10 +155,24 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
+    func takeHit() {
+        // display red screen
+        let takeHitGraphic = SKSpriteNode(color: .red, size: frame.size)
+        takeHitGraphic.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        takeHitGraphic.alpha = 0.5
+        addChild(takeHitGraphic)
+        
+        takeHitGraphic.run(
+            SKAction.wait(forDuration: 0.10), completion: {
+                takeHitGraphic.removeFromParent()
+            }
+        )
+    }
+    
     func resizeHealthBar() {
         let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / 100.0))
         healthBar?.run(
-            SKAction.resize(toWidth: newWidth, duration: 0.25), completion: {
+            SKAction.resize(toWidth: newWidth, duration: 0.2), completion: {
                 if( newWidth <= self.healthBaseWidth! * 0.33) {
                     self.healthBar?.color = .red
                 } else if newWidth <= self.healthBaseWidth! * 0.66 {
@@ -180,27 +182,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         )
-        
         // Check if player lost
         if(player.currentHealth <= 0) {
             // Player loses!
             gameOver(won: false)
         }
-    }
-    
-    func takeHit() {
-        // display red screen
-        let takeHit = SKSpriteNode(color: .red, size: frame.size)
-        takeHit.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-        takeHit.alpha = 0.5
-        addChild(takeHit)
-        
-        takeHit.run(
-            SKAction.wait(forDuration: 0.10), completion: {
-                takeHit.removeFromParent()
-            }
-        )
- 
     }
     
     func gameOver(won: Bool) {
@@ -220,7 +206,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 
-    // MARK: Physics
+    // MARK: - Physics
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -274,15 +260,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             // Increase gold amount
             player.goldAmount += enemy.goldValue
             goldLabel?.text = String(player.goldAmount)
-        } else if (player.currentHealth < 100 && lootDrop <= 90) {
-            // enemy.dropHeart()
+        } else if (player.currentHealth < 100 && lootDrop <= 85) {
+            enemy.dropHeart()
             // Gain health
             player.gainHealth(amount: 10)
             resizeHealthBar()
         }
         
         // Calculate difference in x, y for direction of move
-       // enemy.physicsBody?.linearDamping = 1.0
         var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
         var dy = (enemy.position.y - weaponStartPosition.y) * 0.5
         // Limit impulse speeds so it doesn't blast off the screen
@@ -294,7 +279,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
 
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
-        // Waits 0.25s and then stops the enemy in place and checks if it is off the screen
+        // Waits stunDuration and then stops the enemy in place and checks if it is off the screen
         enemy.run(SKAction.wait(forDuration: enemy.stunDuration), completion: {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
@@ -306,7 +291,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         removeWeapon()
     }
     
-    // MARK: Touches
+    // MARK: - Touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /* For weapon animation. */
         let firstTouch = touches.first! as UITouch
@@ -347,7 +332,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // MARK: Weapon
+    // MARK: - Weapon
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.red)
@@ -364,7 +349,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // MARK: Audio
+    // MARK: - Audio
     
     func playBackgroundMusic(fileName: String, volume: Float) {
         let path = Bundle.main.path(forResource: fileName, ofType:nil)!
@@ -380,6 +365,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         } catch {
             // couldn't load file :(
         }
+    }
+    
+    // MARK: - Helper Functions
+    
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
     }
     
     class func sharedInstance() -> BaseScene {

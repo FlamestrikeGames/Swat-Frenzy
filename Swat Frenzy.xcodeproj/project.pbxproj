@@ -46,6 +46,7 @@
 		7BBF4D731DC0105700A4FA77 /* LevelSevenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF4D721DC0105700A4FA77 /* LevelSevenScene.swift */; };
 		7BBF4D751DC010B500A4FA77 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF4D741DC010B500A4FA77 /* Snake.swift */; };
 		7BBF4D771DC0191000A4FA77 /* hiss.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BBF4D761DC0191000A4FA77 /* hiss.wav */; };
+		7BBF4D791DC0330700A4FA77 /* heal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BBF4D781DC0330600A4FA77 /* heal.wav */; };
 		7BE2C42B1DB9950B001A9237 /* thunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42A1DB9950B001A9237 /* thunk.wav */; };
 		7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42E1DB99CD6001A9237 /* slap.wav */; };
 		7BE2C4311DB99FAE001A9237 /* fly.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4301DB99FAE001A9237 /* fly.wav */; };
@@ -115,6 +116,7 @@
 		7BBF4D721DC0105700A4FA77 /* LevelSevenScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSevenScene.swift; sourceTree = "<group>"; };
 		7BBF4D741DC010B500A4FA77 /* Snake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		7BBF4D761DC0191000A4FA77 /* hiss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hiss.wav; path = Sounds/hiss.wav; sourceTree = "<group>"; };
+		7BBF4D781DC0330600A4FA77 /* heal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = heal.wav; path = Sounds/heal.wav; sourceTree = "<group>"; };
 		7BE2C42A1DB9950B001A9237 /* thunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = thunk.wav; path = Sounds/thunk.wav; sourceTree = "<group>"; };
 		7BE2C42E1DB99CD6001A9237 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap.wav; path = Sounds/slap.wav; sourceTree = "<group>"; };
 		7BE2C4301DB99FAE001A9237 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = Sounds/fly.wav; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		7BBF4D701DBAEB7E00A4FA77 /* SoundFX */ = {
 			isa = PBXGroup;
 			children = (
+				7BBF4D781DC0330600A4FA77 /* heal.wav */,
 				7B36D7561DB2E9770035D6D6 /* coin.wav */,
 				7BE2C42A1DB9950B001A9237 /* thunk.wav */,
 				7B36D7591DB2E9770035D6D6 /* whack.wav */,
@@ -408,6 +411,7 @@
 				7B36D7521DB2E8140035D6D6 /* boss.wav in Resources */,
 				7B36D7541DB2E8140035D6D6 /* win.wav in Resources */,
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
+				7BBF4D791DC0330700A4FA77 /* heal.wav in Resources */,
 				7B36D75C1DB2E9770035D6D6 /* mosquito.wav in Resources */,
 				7B36D75E1DB2E9770035D6D6 /* whack.wav in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,

@@ -12,9 +12,7 @@ class LevelSevenScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
-        //initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
-        
+                
         currentLevel = 7
         enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)
@@ -48,9 +46,6 @@ class LevelSevenScene: BaseScene {
         background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
         background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         background.zPosition = -200
-        //background.alpha = 0.5
         addChild(background)
     }
-
-    
 }
