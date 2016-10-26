@@ -20,6 +20,8 @@ class LevelFiveScene: BaseScene {
         currentLevel = 5
         enemiesToKill = 25
         enemiesLeft?.text = String(enemiesToKill!)
+        enemySprite?.texture = SKTexture(imageNamed: "mosquito")
+
         
         run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies

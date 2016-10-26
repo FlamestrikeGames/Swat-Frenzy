@@ -18,6 +18,8 @@ class LevelSixScene: BaseScene {
         currentLevel = 6
         enemiesToKill = 25
         enemiesLeft?.text = String(enemiesToKill!)
+        enemySprite?.texture = SKTexture(imageNamed: "spider")
+
         
         run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies

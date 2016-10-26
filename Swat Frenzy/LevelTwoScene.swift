@@ -16,6 +16,7 @@ class LevelTwoScene: BaseScene {
         currentLevel = 2
         enemiesToKill = 20
         enemiesLeft?.text = String(enemiesToKill!)
+        enemySprite?.texture = SKTexture(imageNamed: "fly")
         
         // Let user get ready for level to start
         run(SKAction.wait(forDuration: 3.0), completion: {

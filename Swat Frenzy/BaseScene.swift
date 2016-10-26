@@ -12,6 +12,8 @@ import AVFoundation
 class BaseScene: SKScene, SKPhysicsContactDelegate {
     /* INITIALIZATION */
     var enemiesLeft: SKLabelNode?
+    var enemySprite: SKSpriteNode?
+    var enemySprite2: SKSpriteNode?
     var healthBar: SKSpriteNode?
     var healthBaseWidth: CGFloat?
     var goldLabel: SKLabelNode?
@@ -40,6 +42,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         static let Weapon    : UInt32 = 0b10      // 2
         static let Board     : UInt32 = 0b100     // 3
     }
+    
+ //   let gameLayer = SKNode()
+ //   let pauseLayer = SKNode()
     
 
     // MARK: - Initialization
@@ -96,6 +101,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         if let gold = childNode(withName: "goldAmount") as? SKLabelNode {
             goldLabel = gold
             goldLabel?.text = String(player.goldAmount)
+        }
+        
+        if let enemySpriteNode = childNode(withName: "enemySprite") as? SKSpriteNode {
+            enemySprite = enemySpriteNode
+        }
+        
+        if let enemySpriteNode2 = childNode(withName: "enemySprite2") as? SKSpriteNode {
+            enemySprite2 = enemySpriteNode2
         }
     }
     
@@ -252,15 +265,17 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
         
         // Check if it drops a coin
-        let lootDrop = random(min: 1, max: 100)
-        if lootDrop <= 75 {
+        let coinDrop = random(min: 1, max: 100)
+        let heartDrop = random(min: 1, max: 100)
+        if coinDrop <= 75 {
             // Drop coin
             enemy.dropCoin()
             
             // Increase gold amount
             player.goldAmount += enemy.goldValue
             goldLabel?.text = String(player.goldAmount)
-        } else if (player.currentHealth < 100 && lootDrop <= 85) {
+        }
+        if (player.currentHealth < 100 && heartDrop <= 10) {
             enemy.dropHeart()
             // Gain health
             player.gainHealth(amount: 10)
@@ -296,9 +311,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         /* For weapon animation. */
         let firstTouch = touches.first! as UITouch
         let touchLocation = firstTouch.location(in: self)
-        weaponPosition = touchLocation
-        weaponStartPosition = touchLocation
-        presentWeaponAtPosition(position: weaponPosition)
+        let touchedNode = self.atPoint(touchLocation)
+        if (touchedNode.name == "pauseButton") {
+            self.scene?.isPaused = !self.scene!.isPaused
+            //showPauseMenu()
+        } else {
+            weaponPosition = touchLocation
+            weaponStartPosition = touchLocation
+            presentWeaponAtPosition(position: weaponPosition)
+        }
+
     }
     
     // For swipes
@@ -365,6 +387,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         } catch {
             // couldn't load file :(
         }
+    }
+    
+    // MARK: - Pause Menu
+    func showPauseMenu() {
+        
     }
     
     // MARK: - Helper Functions
