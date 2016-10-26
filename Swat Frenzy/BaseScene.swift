@@ -43,18 +43,20 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         static let Board     : UInt32 = 0b100     // 3
     }
     
- //   let gameLayer = SKNode()
- //   let pauseLayer = SKNode()
+    let gameLayer = SKNode()
+    let pauseLayer = SKNode()
     
 
     // MARK: - Initialization
     
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
+        addChild(gameLayer)
         initializePlayer()
         initializeBackground()
         initializeMusic()
         initializeUI()
+        initializePauseMenu()
     }
     
     func initializePlayer() {
@@ -76,7 +78,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
         background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         background.zPosition = -200
-        addChild(background)
+        gameLayer.addChild(background)
     }
     
     func initializeMusic() {
@@ -129,7 +131,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
         let spawnPosition = enemy.getSpawnPosition(vcFrameSize: frame.size)
         enemy.position = spawnPosition
-        addChild(enemy)
+        gameLayer.addChild(enemy)
         
         // Spawn attack timer circle
         enemy.createCircleTimer()
@@ -173,7 +175,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let takeHitGraphic = SKSpriteNode(color: .red, size: frame.size)
         takeHitGraphic.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         takeHitGraphic.alpha = 0.5
-        addChild(takeHitGraphic)
+        gameLayer.addChild(takeHitGraphic)
         
         takeHitGraphic.run(
             SKAction.wait(forDuration: 0.10), completion: {
@@ -313,14 +315,17 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let touchLocation = firstTouch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
         if (touchedNode.name == "pauseButton") {
-            self.scene?.isPaused = !self.scene!.isPaused
-            //showPauseMenu()
+            showPauseMenu()
+        } else if touchedNode.name == "mainMenu" {
+            backgroundSoundFX.stop()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
+        } else if touchedNode.name == "resume" {
+            removePauseMenu()
         } else {
             weaponPosition = touchLocation
             weaponStartPosition = touchLocation
             presentWeaponAtPosition(position: weaponPosition)
         }
-
     }
     
     // For swipes
@@ -358,7 +363,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
         weapon = SWBlade(position: position, target: self, color: UIColor.red)
-        self.addChild(weapon!)
+        gameLayer.addChild(weapon!)
         isWeaponDisplayed = true
     }
     
@@ -390,8 +395,59 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: - Pause Menu
-    func showPauseMenu() {
+    func initializePauseMenu() {
+        let menuBackground = SKSpriteNode(imageNamed: "menuBackground")
+        menuBackground.size = CGSize(width: self.frame.size.width / 2, height: self.frame.size.height / 2)
+        menuBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        menuBackground.zPosition = 50
+        pauseLayer.addChild(menuBackground)
         
+        let mainMenuLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+        mainMenuLabel.fontColor = .black
+        mainMenuLabel.text = "Main Menu"
+        mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2,
+                                         y: (self.frame.size.height / 2) + menuBackground.frame.size.height / 5 )
+        mainMenuLabel.zPosition = 51
+        
+        let border = SKShapeNode(rectOf: CGSize(width: mainMenuLabel.frame.size.width + 5,
+                                                height: mainMenuLabel.frame.size.height + 5),
+                                 cornerRadius: 10.0)
+        border.fillColor = .clear
+        border.strokeColor = .black
+        border.name = "mainMenu"
+        border.position.y += mainMenuLabel.frame.size.height / 2
+        mainMenuLabel.addChild(border)
+        
+        pauseLayer.addChild(mainMenuLabel)
+        
+        let resumeLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+        resumeLabel.fontColor = .black
+        resumeLabel.text = "Resume"
+        resumeLabel.position = CGPoint(x: self.frame.size.width / 2,
+                                       y: self.frame.size.height / 2)
+        resumeLabel.zPosition = 51
+        
+        let border2 = SKShapeNode(rectOf: CGSize(width: resumeLabel.frame.size.width + 5,
+                                                 height: resumeLabel.frame.size.height + 5),
+                                  cornerRadius: 10.0)
+        border2.fillColor = .clear
+        border2.strokeColor = .black
+        border2.name = "resume"
+        border2.position.y += resumeLabel.frame.size.height / 2
+        resumeLabel.addChild(border2)
+        pauseLayer.addChild(resumeLabel)
+    }
+
+    func showPauseMenu() {
+        gameLayer.isPaused = true
+        self.physicsWorld.speed = 0.0
+        addChild(pauseLayer)
+    }
+    
+    func removePauseMenu() {
+        pauseLayer.removeFromParent()
+        self.physicsWorld.speed = 1.0
+        gameLayer.isPaused = false
     }
     
     // MARK: - Helper Functions

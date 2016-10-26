@@ -22,9 +22,9 @@ class LevelFourScene: BaseScene {
 
         
         // Let user get ready for level to start
-        run(SKAction.wait(forDuration: 3.0), completion: {
+        gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies
-            self.run(SKAction.repeat(
+            self.gameLayer.run(SKAction.repeat(
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Mosquito()  

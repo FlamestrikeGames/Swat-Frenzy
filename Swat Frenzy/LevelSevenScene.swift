@@ -20,9 +20,9 @@ class LevelSevenScene: BaseScene {
         enemySprite2?.texture = SKTexture(imageNamed: "bee")
         enemySprite2?.alpha = 1
         
-        run(SKAction.wait(forDuration: 3.0), completion: {
+        gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies
-            self.run(SKAction.repeat(
+            self.gameLayer.run(SKAction.repeat(
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Snake()
