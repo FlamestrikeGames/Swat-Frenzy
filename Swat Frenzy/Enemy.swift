@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class Enemy: SKSpriteNode {
     
@@ -15,6 +16,7 @@ class Enemy: SKSpriteNode {
     var aliveDuration: Double = 1.0
     var soundEffectFile: String = "coin.wav"
     var goldValue: Int = 1
+    var enemySoundPlayer: AVAudioPlayer!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -32,17 +34,33 @@ class Enemy: SKSpriteNode {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func playEnemySound() {
-        let enemySound = SKAudioNode(fileNamed: soundEffectFile)
-        enemySound.autoplayLooped = false
-        addChild(enemySound)
-        enemySound.run(SKAction.play())
+        let path = Bundle.main.path(forResource: soundEffectFile, ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            enemySoundPlayer = sound
+            startEnemySound()
+        } catch {
+            // couldn't load file :(
+        }
+    }
+  
+    func startEnemySound() {
+        enemySoundPlayer.play()
+    }
+    
+    func pauseEnemySound() {
+        if(enemySoundPlayer.isPlaying) {
+            enemySoundPlayer.pause()
+        }
     }
     
     func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
-        var y = (frame.size.height - (size.height * 3/2) - 25) * BaseScene.sharedInstance().random(min: 0, max: 1)
+        var y = (vcFrameSize.height - (size.height * 3/2) - 25) * BaseScene.sharedInstance().random(min: 0, max: 1)
         
         if x < (size.width * 3/2) {
             x += size.width * 3/2

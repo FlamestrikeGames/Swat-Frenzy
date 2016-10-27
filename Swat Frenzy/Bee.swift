@@ -9,7 +9,7 @@
 import UIKit
 
 class Bee: Enemy {
-    
+
     init() {
         super.init(image: "bee")
         

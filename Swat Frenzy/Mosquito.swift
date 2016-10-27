@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Mosquito: Enemy {
     
@@ -23,5 +24,20 @@ class Mosquito: Enemy {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func playEnemySound() {
+        let path = Bundle.main.path(forResource: soundEffectFile, ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            enemySoundPlayer = sound
+            startEnemySound()
+            enemySoundPlayer.volume = 0.1
+
+        } catch {
+            // couldn't load file :(
+        }
     }
 }

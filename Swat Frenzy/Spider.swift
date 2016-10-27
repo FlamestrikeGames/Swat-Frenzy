@@ -25,11 +25,7 @@ class Spider: Enemy {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func playEnemySound() {
-        run(SKAction.playSoundFileNamed("spider.wav", waitForCompletion: false))
-    }
-    
+
     override func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
         let y = (vcFrameSize.height - (size.height * 3/2) - 25)

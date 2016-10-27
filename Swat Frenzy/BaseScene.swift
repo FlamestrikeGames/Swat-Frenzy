@@ -206,6 +206,12 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver(won: Bool) {
         backgroundSoundFX.stop()
+        
+        for child in gameLayer.children {
+            if let enemy = child as? Enemy {
+                enemy.pauseEnemySound()
+            }
+        }
 
         // Save gold to user defaults if player won
         if (won) {
@@ -314,9 +320,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let firstTouch = touches.first! as UITouch
         let touchLocation = firstTouch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
-        if (touchedNode.name == "pauseButton") {
+        if (touchedNode.name == "pauseButton" && !gameLayer.isPaused) {
             showPauseMenu()
-        } else if touchedNode.name == "mainMenu" {
+        } else if touchedNode.name == "levelSelect" {
             backgroundSoundFX.stop()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
         } else if touchedNode.name == "resume" {
@@ -404,7 +410,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         let mainMenuLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         mainMenuLabel.fontColor = .black
-        mainMenuLabel.text = "Main Menu"
+        mainMenuLabel.text = "Level Select"
         mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2,
                                          y: (self.frame.size.height / 2) + menuBackground.frame.size.height / 5 )
         mainMenuLabel.zPosition = 51
@@ -414,7 +420,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                                  cornerRadius: 10.0)
         border.fillColor = .clear
         border.strokeColor = .black
-        border.name = "mainMenu"
+        border.name = "levelSelect"
         border.position.y += mainMenuLabel.frame.size.height / 2
         mainMenuLabel.addChild(border)
         
@@ -440,12 +446,25 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
 
     func showPauseMenu() {
         gameLayer.isPaused = true
+        backgroundSoundFX.pause()
+        for child in gameLayer.children {
+            if let enemy = child as? Enemy {
+                enemy.pauseEnemySound()
+            }
+            
+        }
         self.physicsWorld.speed = 0.0
         addChild(pauseLayer)
     }
     
     func removePauseMenu() {
+        backgroundSoundFX.play()
         pauseLayer.removeFromParent()
+        for child in gameLayer.children {
+            if let enemy = child as? Enemy {
+                enemy.startEnemySound()
+            }
+        }
         self.physicsWorld.speed = 1.0
         gameLayer.isPaused = false
     }
