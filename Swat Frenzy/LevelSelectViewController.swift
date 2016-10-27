@@ -9,7 +9,7 @@
 import UIKit
 
 class LevelSelectViewController: UICollectionViewController {
-    let maxLevels = 12
+    let maxLevels = 9
     var currentLevel: Int!
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -18,14 +18,15 @@ class LevelSelectViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 15.0
-        let width = (view.frame.size.width - 3*space - 60) / 4.0
-        let height = (view.frame.size.height - 2*space - 20) / 3.0
+        let width = (view.frame.size.width - 2*space - 150) / 3.0
+        let height = (view.frame.size.height - 2*space - 60) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: width,height: height)
         
-        flowLayout.sectionInset = UIEdgeInsetsMake(10, 30, 10, 30)
+        // up right down left
+        flowLayout.sectionInset = UIEdgeInsetsMake(30, 75, 30, 75)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,19 @@ class LevelSelectViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomLevelCell", for: indexPath) as! CustomLevelCell
         
         cell.setLevel(level: indexPath.row + 1)
+        var imageName: String
+        switch(indexPath.row+1) {
+        case 1: imageName = "background"
+        case 2: imageName = "woodsBackground"
+        case 3: imageName = "houseBackground"
+        case 4: imageName = "insideHouse1"
+        case 5: imageName = "insideHouse2"
+        case 6: imageName = "basement"
+        case 7: imageName = "gardenBackground"
+            
+        default: imageName = "background"
+        }
+        let image = UIImage(named: imageName)
         
         if(currentLevel < indexPath.row + 1) {
             cell.isUserInteractionEnabled = false
@@ -59,6 +73,7 @@ class LevelSelectViewController: UICollectionViewController {
         } else {
             cell.isUserInteractionEnabled = true
             cell.lockedLabel.isHidden = true
+            cell.setBackground(background: image!)
         }
         
         return cell

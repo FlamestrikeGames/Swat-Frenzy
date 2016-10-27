@@ -10,10 +10,15 @@ import UIKit
 
 class CustomLevelCell: UICollectionViewCell {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var lockedLabel: UILabel!
     
     func setLevel(level: Int) {
         levelLabel.text = "Level " + String(level)
+    }
+    
+    func setBackground(background: UIImage) {
+        backgroundImage.image = background
     }
 }

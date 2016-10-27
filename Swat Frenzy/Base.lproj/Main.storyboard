@@ -80,6 +80,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="99" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qea-rA-4t4">
+                                            <color key="backgroundColor" red="0.14653439139999999" green="0.1873240581" blue="0.31926688759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24g-SV-Lum">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -96,10 +99,15 @@
                                 <constraints>
                                     <constraint firstItem="aS3-U0-1i2" firstAttribute="top" secondItem="24g-SV-Lum" secondAttribute="bottom" constant="4" id="2re-1S-c5j"/>
                                     <constraint firstItem="aS3-U0-1i2" firstAttribute="centerX" secondItem="5zy-mF-gQn" secondAttribute="centerX" id="GEr-R8-vrg"/>
+                                    <constraint firstItem="Qea-rA-4t4" firstAttribute="top" secondItem="5zy-mF-gQn" secondAttribute="top" id="KAB-Gm-Ixg"/>
                                     <constraint firstItem="24g-SV-Lum" firstAttribute="centerX" secondItem="5zy-mF-gQn" secondAttribute="centerX" id="Pdb-pt-Gr7"/>
+                                    <constraint firstItem="Qea-rA-4t4" firstAttribute="centerY" secondItem="24g-SV-Lum" secondAttribute="centerY" id="VLS-ek-UD4"/>
+                                    <constraint firstItem="Qea-rA-4t4" firstAttribute="centerX" secondItem="aS3-U0-1i2" secondAttribute="centerX" id="dkX-bR-HGz"/>
                                     <constraint firstItem="24g-SV-Lum" firstAttribute="centerY" secondItem="5zy-mF-gQn" secondAttribute="centerY" id="iW3-5l-Euc"/>
+                                    <constraint firstItem="Qea-rA-4t4" firstAttribute="leading" secondItem="5zy-mF-gQn" secondAttribute="leading" id="tsZ-PN-1u9"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="backgroundImage" destination="Qea-rA-4t4" id="sVM-Ym-4N7"/>
                                     <outlet property="levelLabel" destination="24g-SV-Lum" id="iHt-k9-MGw"/>
                                     <outlet property="lockedLabel" destination="aS3-U0-1i2" id="ig3-qf-xXe"/>
                                 </connections>
