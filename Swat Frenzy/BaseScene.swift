@@ -275,7 +275,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Check if it drops a coin
         let coinDrop = random(min: 1, max: 100)
         let heartDrop = random(min: 1, max: 100)
-        if coinDrop <= 75 {
+        if coinDrop <= 60 {
             // Drop coin
             enemy.dropCoin()
             

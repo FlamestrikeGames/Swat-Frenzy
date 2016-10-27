@@ -61,8 +61,9 @@ class LevelSelectViewController: UICollectionViewController {
         case 5: imageName = "insideHouse2"
         case 6: imageName = "basement"
         case 7: imageName = "gardenBackground"
-            
+        case 8: imageName = "waspNestBackground"
         default: imageName = "background"
+            
         }
         let image = UIImage(named: imageName)
         
@@ -70,6 +71,7 @@ class LevelSelectViewController: UICollectionViewController {
             cell.isUserInteractionEnabled = false
             //  Display that the cell is locked
             cell.lockedLabel.isHidden = false
+            cell.backgroundImage.image = nil
         } else {
             cell.isUserInteractionEnabled = true
             cell.lockedLabel.isHidden = true
