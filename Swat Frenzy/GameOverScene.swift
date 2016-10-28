@@ -8,10 +8,12 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class GameOverScene: SKScene {
     
     var level: Int!
+    var backgroundSoundFX: AVAudioPlayer!
     
     init(size: CGSize, won:Bool, level: Int) {
         
@@ -47,10 +49,9 @@ class GameOverScene: SKScene {
         addChild(levelSelectButton)
         
         if(won) {
-            self.run(SKAction.playSoundFileNamed("win.wav", waitForCompletion: false))
+            playBackgroundMusic(fileName: "win.wav", volume: 1.0)
         } else {
-            self.run(SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false))
-
+            playBackgroundMusic(fileName: "lose.wav", volume: 1.0)
         }
     }
     
@@ -86,8 +87,25 @@ class GameOverScene: SKScene {
                 self.view?.presentScene(scene!, transition:reveal)
             } else if(touchedNode.name == "levelSelect") {
                 // Post notification
+                backgroundSoundFX.stop()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
             }
          }
+    }
+    
+    func playBackgroundMusic(fileName: String, volume: Float) {
+        let path = Bundle.main.path(forResource: fileName, ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            backgroundSoundFX = sound
+            // Repeats on negative number
+            backgroundSoundFX.numberOfLoops = -1
+            sound.play()
+            sound.volume = volume
+        } catch {
+            // couldn't load file :(
+        }
     }
 }

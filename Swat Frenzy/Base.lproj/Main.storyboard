@@ -19,17 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swat Frenzy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFu-Sk-jpw">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="453" id="UAt-Ea-La0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="53"/>
+                                <color key="textColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2p-Dh-9hX">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8Nq-1h-gTF"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
@@ -41,16 +35,14 @@
                                 <state key="normal" title="Options"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="leading" secondItem="HFa-9P-Gpj" secondAttribute="leading" id="29T-D3-2mx"/>
-                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="trailing" secondItem="HFa-9P-Gpj" secondAttribute="trailing" id="CC1-nu-iKl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="207" id="COd-jt-Gec"/>
-                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="8" symbolic="YES" id="Fyy-VM-r3x"/>
-                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="top" secondItem="g2p-Dh-9hX" secondAttribute="bottom" constant="17" id="et1-Og-ZJX"/>
-                            <constraint firstItem="KFu-Sk-jpw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="4" id="hhh-nS-ynP"/>
-                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerX" secondItem="KFu-Sk-jpw" secondAttribute="centerX" constant="-4" id="ixX-iX-0O0"/>
-                            <constraint firstItem="KFu-Sk-jpw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="vGE-dR-2OH"/>
+                            <constraint firstItem="KFu-Sk-jpw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5N1-op-pr3"/>
+                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="30" id="Mfm-lf-cJW"/>
+                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QnF-A3-Dqn"/>
+                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bA8-mt-tBC"/>
+                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="top" secondItem="g2p-Dh-9hX" secondAttribute="bottom" constant="15" id="jRO-JI-Fgi"/>
+                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s5N-zD-Mh2"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -72,6 +64,28 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="yIY-IS-qmr">
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-ZM-JIV">
+                                    <frame key="frameInset" minX="8" minY="165" width="57" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="57" id="3he-hy-95r"/>
+                                        <constraint firstAttribute="height" constant="44" id="8ru-xg-MQi"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="backButton"/>
+                                    <connections>
+                                        <action selector="backButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="Q5J-U2-odb"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="Zu9-tT-903"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="fxn-x5-Ixr"/>
+                            </constraints>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomLevelCell" id="5zy-mF-gQn" customClass="CustomLevelCell" customModule="Swat_Frenzy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="99" height="100"/>
@@ -145,4 +159,7 @@
             <point key="canvasLocation" x="1647" y="125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backButton" width="320" height="303"/>
+    </resources>
 </document>

@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LevelSelectViewController: UICollectionViewController {
     let maxLevels = 9
     var currentLevel: Int!
+    var backgroundSoundFX: AVAudioPlayer!
+
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +45,11 @@ class LevelSelectViewController: UICollectionViewController {
             userDef.set(1, forKey: "currentLevel")
         }
         collectionView?.reloadData()
+        playBackgroundMusic(fileName: "introMusic.wav", volume: 0.5)
+    }
+    
+    @IBAction func backButtonTouch(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -87,6 +96,24 @@ class LevelSelectViewController: UICollectionViewController {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         viewController.level = indexPath.row + 1
         
+        backgroundSoundFX.stop()
+        
         present(viewController, animated: true, completion: nil)
+    }
+    
+    func playBackgroundMusic(fileName: String, volume: Float) {
+        let path = Bundle.main.path(forResource: fileName, ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            backgroundSoundFX = sound
+            // Repeats on negative number
+            backgroundSoundFX.numberOfLoops = -1
+            sound.play()
+            sound.volume = volume
+        } catch {
+            // couldn't load file :(
+        }
     }
 }
