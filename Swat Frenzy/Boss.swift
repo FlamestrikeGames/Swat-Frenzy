@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 class Boss: Enemy {
     
@@ -52,5 +53,24 @@ class Boss: Enemy {
     
     func takeDamage(amount: Int) {
         currentHealth -= amount
+    }
+    
+    override func createCircleTimer() {
+        let circle = SKShapeNode(circleOfRadius: size.height / 2 - 10)
+        circle.fillColor = .clear
+        circle.strokeColor = .green
+        addChild(circle)
+        
+        circle.run(SKAction.repeatForever(
+            SKAction.sequence([
+            SKAction.wait(forDuration: 0.25),
+            SKAction.run({circle.strokeColor = .yellow}),
+            SKAction.wait(forDuration: 0.25),
+            SKAction.run({circle.strokeColor = .red}),
+            SKAction.wait(forDuration: 0.25),
+            SKAction.run({circle.strokeColor = .green})
+            ])
+            )
+        )
     }
 }

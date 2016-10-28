@@ -67,6 +67,8 @@ class LevelNineScene: BaseScene {
         boss.position = spawnPosition
         gameLayer.addChild(boss)
         
+        boss.createCircleTimer()
+        
         let bossWidth = boss.frame.size.width
         let bossHeight = boss.frame.size.height
         
@@ -92,6 +94,8 @@ class LevelNineScene: BaseScene {
             ])
         ))
     }
+    
+
     
     override func initializeMusic() {
         // Play background music

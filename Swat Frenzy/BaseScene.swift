@@ -347,8 +347,11 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Update weapon position
         let firstTouch = touches.first! as UITouch
-        weaponPosition = firstTouch.location(in: self)
+        let touchLocation = firstTouch.location(in: self)
         
+        // Moves weapon to new position using SKAction
+        moveToPosition(oldPosition: weaponPosition, newPosition: touchLocation)
+        weaponPosition = touchLocation
         // Creates physics on weapon the first time it is moved
         if(!weaponPhysicsEnabled && isWeaponDisplayed) {
             weapon?.enablePhysics(categoryBitMask: PhysicsCategory.Weapon, contactTestBitmask: PhysicsCategory.Enemy, collisionBitmask: PhysicsCategory.None)
@@ -366,14 +369,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         removeWeapon()
     }
     
-    override func update(_ currentTime: CFTimeInterval) {
-        // If the weapon is available (When user touches screen)
-        if weapon != nil && isWeaponDisplayed {
-            // Update the weapon position
-            weapon!.position = CGPoint(x: weaponPosition.x, y:weaponPosition.y)
-        }
-    }
-    
     // MARK: - Weapon
     // Initializes weapon at touch location
     func presentWeaponAtPosition(position: CGPoint) {
@@ -389,6 +384,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             weaponPhysicsEnabled = false
             weapon!.removeFromParent()
         }
+    }
+    
+    func moveToPosition(oldPosition: CGPoint, newPosition: CGPoint) {
+        let xDistance = fabs(oldPosition.x - newPosition.x)
+        let yDistance = fabs(oldPosition.y - newPosition.y)
+        let distance = sqrt(xDistance * xDistance + yDistance * yDistance)
+        let sceneDiagonal = sqrt(self.frame.size.width * self.frame.size.width + self.frame.size.height * self.frame.size.height)
+        weapon!.run(SKAction.move(to: newPosition, duration: Double(distance / sceneDiagonal / 2)))
     }
     
     // MARK: - Audio
