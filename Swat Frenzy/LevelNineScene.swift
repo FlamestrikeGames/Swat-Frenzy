@@ -20,28 +20,22 @@ class LevelNineScene: BaseScene {
         super.didMove(to: view)
         
         currentLevel = 9
-        enemiesToKill = 35
-        //enemiesLeft?.text = String(enemiesToKill!)
-        //enemySprite?.texture = SKTexture(imageNamed: "wasp")
         enemySprite?.isHidden = true
         enemiesLeft?.isHidden = true
-        
         initializeEnemyHealthBar()
-        
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn boss
             self.spawnBoss()
-            self.gameLayer.run(SKAction.repeat(
+            self.gameLayer.run(SKAction.repeatForever(
                 SKAction.sequence([
-                    SKAction.wait(forDuration: 3.0),
+                    SKAction.wait(forDuration: 2.0),
                     SKAction.run({
                         let enemy = Wasp()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     })
-                    ]),
-                count: self.enemiesToKill! + 10
+                ])
                 )
             )
         })
@@ -85,10 +79,10 @@ class LevelNineScene: BaseScene {
                                                                  max: self.frame.size.width - bossWidth / 2),
                                                   y: self.random(min: bossHeight / 2,
                                                                  max: self.frame.size.height - (bossHeight / 2) - 50)),
-                                      duration: 1.5)
+                                      duration: 0.75)
                     )
                 }),
-                SKAction.wait(forDuration: 1.5),
+                SKAction.wait(forDuration: 0.75),
                 SKAction.run({
                     self.boss.run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
                     self.player.takeDamage(amount: Int(self.boss.damage))
@@ -137,8 +131,13 @@ class LevelNineScene: BaseScene {
                 }
             }
         )
-        // Check if player won
+        // Check if boss is dead
         if(boss.currentHealth <= 0) {
+            boss.dropCoin()
+            
+            // Increase gold amount
+            player.goldAmount += boss.goldValue
+            goldLabel?.text = String(player.goldAmount)
             // Player wins!
             gameOver(won: true)
         }
@@ -177,14 +176,14 @@ class LevelNineScene: BaseScene {
             // do something when hitting boss
             // play damage sound
             bossBody.run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
-            boss.takeDamage(amount: 10)
+            boss.takeDamage(amount: 5)
             resizeEnemyHealthBar()
             
             let heartDrop = random(min: 1, max: 100)
-            if (player.currentHealth < 100 && heartDrop <= 25) {
+            if (player.currentHealth < 100 && heartDrop <= 10) {
                 boss.dropHeart()
                 // Gain health
-                player.gainHealth(amount: 5)
+                player.gainHealth(amount: 6)
                 resizeHealthBar()
             }
         }

@@ -16,7 +16,7 @@ class Spider: Enemy {
         
         name = "spider"
         damage = 20.0
-        stunDuration = 0.5
+        stunDuration = 0.25
         aliveDuration = 4
         soundEffectFile = "spider.wav"
         goldValue = 4

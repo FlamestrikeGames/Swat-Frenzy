@@ -28,7 +28,7 @@ class Snake: Enemy {
     
     override func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
-        let y = size.height * 3/2
+        let y = size.height * 3/2 + size.height * BaseScene.sharedInstance().random(min: 0, max: 1)
         
         if x < (size.width * 3/2) {
             x += size.width * 3/2
@@ -38,7 +38,8 @@ class Snake: Enemy {
     
     override func beginMovement(vcFrameSize: CGSize) {
         let moveX = BaseScene.sharedInstance().random(min: size.width*2, max: vcFrameSize.width - size.width*2)
-        let moveY = BaseScene.sharedInstance().random(min: size.height * 2, max: vcFrameSize.height - (size.height * 3))
+        let moveY = BaseScene.sharedInstance().random(min: vcFrameSize.height / 2,
+                                                      max: vcFrameSize.height - (size.height) - 50)
         let moveDuration = 0.5 + ((abs(self.position.x - moveX) + abs(self.position.y - moveY)) / 1000)
         run(SKAction.move(to: CGPoint(x: moveX,y: moveY), duration: TimeInterval(moveDuration)),
             withKey: "move"

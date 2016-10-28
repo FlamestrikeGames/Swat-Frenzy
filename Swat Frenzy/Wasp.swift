@@ -14,9 +14,9 @@ class Wasp: Enemy {
         super.init(image: "wasp")
         
         name = "wasp"
-        damage = 25.0
+        damage = 20.0
         stunDuration = 0.1
-        aliveDuration = 5.0
+        aliveDuration = 4.0
         soundEffectFile = "wasp.wav"
         goldValue = 6
     }

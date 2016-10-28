@@ -295,7 +295,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         if (player.currentHealth < 100 && heartDrop <= 10) {
             enemy.dropHeart()
             // Gain health
-            player.gainHealth(amount: 10)
+            player.gainHealth(amount: 5)
             resizeHealthBar()
         }
         

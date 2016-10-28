@@ -17,7 +17,7 @@ class Boss: Enemy {
         super.init(image: "boss")
         
         name = "boss"
-        damage = 5.0
+        damage = 2.0
         stunDuration = 0.0
         aliveDuration = 60.0
         soundEffectFile = "wasp.wav"

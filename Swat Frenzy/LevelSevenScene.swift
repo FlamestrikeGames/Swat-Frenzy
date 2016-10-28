@@ -20,6 +20,9 @@ class LevelSevenScene: BaseScene {
         enemySprite2?.texture = SKTexture(imageNamed: "bee")
         enemySprite2?.alpha = 1
         
+        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 4))
+
+        
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies
             self.gameLayer.run(SKAction.repeat(
@@ -50,5 +53,20 @@ class LevelSevenScene: BaseScene {
         background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         background.zPosition = -200
         addChild(background)
+    }
+    
+    func initializeBoard(location: CGPoint) {
+        let board = SKSpriteNode(imageNamed: "woodenBoard")
+        board.size = CGSize(width: self.frame.size.width * 0.9, height: self.frame.size.height / 15)
+        board.position = location
+        board.zPosition = -100
+        addChild(board)
+        
+        board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
+        board.physicsBody?.isDynamic = true
+        board.physicsBody?.categoryBitMask = PhysicsCategory.Board
+        board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
+        board.physicsBody?.collisionBitMask = PhysicsCategory.None
+        board.physicsBody?.affectedByGravity = false
     }
 }
