@@ -62,6 +62,8 @@ class LevelSelectViewController: UICollectionViewController {
         case 6: imageName = "basement"
         case 7: imageName = "gardenBackground"
         case 8: imageName = "waspNestBackground"
+        case 9: imageName = "bossBackground"
+
         default: imageName = "background"
             
         }

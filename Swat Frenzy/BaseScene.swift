@@ -38,9 +38,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     struct PhysicsCategory {
         static let None      : UInt32 = 0
         static let All       : UInt32 = UInt32.max
-        static let Enemy     : UInt32 = 0b1       // 1
-        static let Weapon    : UInt32 = 0b10      // 2
-        static let Board     : UInt32 = 0b100     // 3
+        static let Enemy     : UInt32 = 0b1         // 1
+        static let Weapon    : UInt32 = 0b10        // 2
+        static let Board     : UInt32 = 0b100       // 4
+        static let Boss      : UInt32 = 0b1000      // 8
     }
     
     let gameLayer = SKNode()
@@ -262,6 +263,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             boardBody.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.1), completion: {
                 boardBody.run(SKAction.colorize(with: .black, colorBlendFactor: 0.0, duration: 0.1))
             })
+        }  else if ((firstBody.categoryBitMask & PhysicsCategory.Weapon != 0) &&
+            (secondBody.categoryBitMask & PhysicsCategory.Boss != 0)) {
+            // If weapon collides with boss
+            let bossBody = secondBody.node as! SKSpriteNode
+            bossBody.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.1), completion: {
+                bossBody.run(SKAction.colorize(with: .black, colorBlendFactor: 0.0, duration: 0.1))
+            })
+            // do something when hitting boss
         }
     }
     

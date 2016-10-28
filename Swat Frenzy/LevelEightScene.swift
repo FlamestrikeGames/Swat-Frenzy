@@ -27,13 +27,13 @@ class LevelEightScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0),
+                    SKAction.wait(forDuration: 1.5),
                     SKAction.run({
                         let enemy = Wasp()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 1.5)
                     ]),
                 count: self.enemiesToKill! + 10
                 )

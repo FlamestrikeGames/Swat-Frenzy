@@ -54,6 +54,8 @@
 		7BFF7D151DC1959300176B98 /* wasp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFF7D141DC1959300176B98 /* wasp.wav */; };
 		7BFF7D171DC195AC00176B98 /* Wasp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D161DC195AC00176B98 /* Wasp.swift */; };
 		7BFF7D191DC1965600176B98 /* LevelEightScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D181DC1965600176B98 /* LevelEightScene.swift */; };
+		7BFF7D1B1DC2ACDE00176B98 /* LevelNineScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D1A1DC2ACDE00176B98 /* LevelNineScene.swift */; };
+		7BFF7D1D1DC2B48800176B98 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D1C1DC2B48800176B98 /* Boss.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		7BFF7D141DC1959300176B98 /* wasp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = wasp.wav; path = Sounds/wasp.wav; sourceTree = "<group>"; };
 		7BFF7D161DC195AC00176B98 /* Wasp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wasp.swift; sourceTree = "<group>"; };
 		7BFF7D181DC1965600176B98 /* LevelEightScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelEightScene.swift; sourceTree = "<group>"; };
+		7BFF7D1A1DC2ACDE00176B98 /* LevelNineScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelNineScene.swift; sourceTree = "<group>"; };
+		7BFF7D1C1DC2B48800176B98 /* Boss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 				7B6136AE1DBADCB70071F95C /* Spider.swift */,
 				7BBF4D741DC010B500A4FA77 /* Snake.swift */,
 				7BFF7D161DC195AC00176B98 /* Wasp.swift */,
+				7BFF7D1C1DC2B48800176B98 /* Boss.swift */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				7B6136AC1DBADC250071F95C /* LevelSixScene.swift */,
 				7BBF4D721DC0105700A4FA77 /* LevelSevenScene.swift */,
 				7BFF7D181DC1965600176B98 /* LevelEightScene.swift */,
+				7BFF7D1A1DC2ACDE00176B98 /* LevelNineScene.swift */,
 				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
 			);
 			name = Scenes;
@@ -461,6 +467,7 @@
 				7BFF7D191DC1965600176B98 /* LevelEightScene.swift in Sources */,
 				7B36D7621DB301F50035D6D6 /* LevelThreeScene.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
+				7BFF7D1B1DC2ACDE00176B98 /* LevelNineScene.swift in Sources */,
 				7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */,
 				7B4F85FA1DB45DE300748F0E /* LevelFiveScene.swift in Sources */,
 				66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */,
@@ -476,6 +483,7 @@
 				7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,
 				7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */,
+				7BFF7D1D1DC2B48800176B98 /* Boss.swift in Sources */,
 				7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */,
 				7B4F86031DB5798C00748F0E /* Player.swift in Sources */,
 				7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */,
