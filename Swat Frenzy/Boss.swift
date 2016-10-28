@@ -11,6 +11,8 @@ import AVFoundation
 
 class Boss: Enemy {
     
+    var currentHealth: Int = 500
+    
     init() {
         super.init(image: "boss")
         
@@ -46,5 +48,9 @@ class Boss: Enemy {
         } catch {
             // couldn't load file :(
         }
+    }
+    
+    func takeDamage(amount: Int) {
+        currentHealth -= amount
     }
 }
