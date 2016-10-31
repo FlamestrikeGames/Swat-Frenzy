@@ -84,7 +84,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func initializeMusic() {
         // Play background music
-        playBackgroundMusic(fileName: "background.wav", volume: 0.3)
+        playBackgroundMusic(fileName: "arcadeMusic.wav", volume: 0.5)
     }
     
     func initializeUI() {
