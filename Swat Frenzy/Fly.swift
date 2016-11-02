@@ -9,9 +9,10 @@
 import UIKit
 
 class Fly: Enemy {
-    
+        
     init() {
         super.init(image: "fly")
+        initializeAtlas(enemyName: "Fly")
 
         name = "fly"
         damage = 10.0

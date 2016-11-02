@@ -156,6 +156,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         })
         
         enemy.beginMovement(vcFrameSize: frame.size)
+        enemy.animateEnemy()
     }
 
     func killEnemy(enemy: SKSpriteNode) {

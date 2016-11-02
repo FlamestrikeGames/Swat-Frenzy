@@ -17,6 +17,7 @@ class Enemy: SKSpriteNode {
     var soundEffectFile: String = "coin.wav"
     var goldValue: Int = 1
     var enemySoundPlayer: AVAudioPlayer!
+    var enemyAnimationFrames: [SKTexture]!
     
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -33,6 +34,18 @@ class Enemy: SKSpriteNode {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initializeAtlas(enemyName: String) {
+        let enemyAtlas = SKTextureAtlas(named: enemyName)
+        var enemyFrames = [SKTexture]()
+        
+        let numImages = enemyAtlas.textureNames.count
+        for i in 1...numImages/3{
+            let enemyTextureName = enemyName + String(i)
+            enemyFrames.append(enemyAtlas.textureNamed(enemyTextureName))
+        }
+        enemyAnimationFrames = enemyFrames
     }
 
     func playEnemySound() {
@@ -96,6 +109,11 @@ class Enemy: SKSpriteNode {
             withKey: "move"
         )
     }
+    
+    func animateEnemy() {
+        run(SKAction.repeatForever(SKAction.animate(with: enemyAnimationFrames, timePerFrame: 0.25, resize: false, restore: true)), withKey: "animateEnemy")
+    }
+    
     
     func dropCoin() {
         // Create sprite at location

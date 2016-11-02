@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Bee1@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bee.png",
+      "filename" : "Bee1@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Bee1@3x.png",
       "scale" : "3x"
     }
   ],

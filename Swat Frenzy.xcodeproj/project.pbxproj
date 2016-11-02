@@ -35,6 +35,8 @@
 		7B4F85FE1DB463B900748F0E /* Fly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FD1DB463B900748F0E /* Fly.swift */; };
 		7B4F86001DB4B6F300748F0E /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F85FF1DB4B6F300748F0E /* Bee.swift */; };
 		7B4F86031DB5798C00748F0E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F86021DB5798B00748F0E /* Player.swift */; };
+		7B5488901DCA96E700B7BE35 /* Fly.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B54888F1DCA96E700B7BE35 /* Fly.atlas */; };
+		7B5488921DCA993500B7BE35 /* Bee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B5488911DCA993500B7BE35 /* Bee.atlas */; };
 		7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */; };
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
@@ -112,6 +114,8 @@
 		7B4F85FD1DB463B900748F0E /* Fly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fly.swift; sourceTree = "<group>"; };
 		7B4F85FF1DB4B6F300748F0E /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 		7B4F86021DB5798B00748F0E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7B54888F1DCA96E700B7BE35 /* Fly.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Fly.atlas; sourceTree = "<group>"; };
+		7B5488911DCA993500B7BE35 /* Bee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Bee.atlas; sourceTree = "<group>"; };
 		7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		66B106601DA5CE43006F314A /* Swat Frenzy */ = {
 			isa = PBXGroup;
 			children = (
+				7B4D33CA1DCA876100BBECA5 /* SpriteAtlases */,
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
 				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
@@ -230,6 +235,15 @@
 			);
 			name = SwatFrenzyUITests;
 			path = "Swat FrenzyUITests";
+			sourceTree = "<group>";
+		};
+		7B4D33CA1DCA876100BBECA5 /* SpriteAtlases */ = {
+			isa = PBXGroup;
+			children = (
+				7B5488911DCA993500B7BE35 /* Bee.atlas */,
+				7B54888F1DCA96E700B7BE35 /* Fly.atlas */,
+			);
+			name = SpriteAtlases;
 			sourceTree = "<group>";
 		};
 		7B4F86011DB4BE7000748F0E /* Enemies */ = {
@@ -429,6 +443,7 @@
 				7BBF4D6E1DBAEB5900A4FA77 /* spider.wav in Resources */,
 				7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */,
 				7B36D7531DB2E8140035D6D6 /* lose.wav in Resources */,
+				7B5488901DCA96E700B7BE35 /* Fly.atlas in Resources */,
 				7B36D75A1DB2E9770035D6D6 /* background.wav in Resources */,
 				7B36D7521DB2E8140035D6D6 /* boss.wav in Resources */,
 				7B36D7541DB2E8140035D6D6 /* win.wav in Resources */,
@@ -437,6 +452,7 @@
 				7B36D75C1DB2E9770035D6D6 /* mosquito.wav in Resources */,
 				7B36D75E1DB2E9770035D6D6 /* whack.wav in Resources */,
 				66B1066C1DA5CE43006F314A /* Assets.xcassets in Resources */,
+				7B5488921DCA993500B7BE35 /* Bee.atlas in Resources */,
 				7BE2C4331DB9A452001A9237 /* bumblebee.wav in Resources */,
 				7BFF7D151DC1959300176B98 /* wasp.wav in Resources */,
 				66B106671DA5CE43006F314A /* Main.storyboard in Resources */,
