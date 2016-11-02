@@ -101,10 +101,15 @@ class Enemy: SKSpriteNode {
     }
     
     func beginMovement(vcFrameSize: CGSize) {
+        let x = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
+        let y = BaseScene.sharedInstance().random(min: size.height * 2, max: vcFrameSize.height - (size.height * 2))
+        
+        // change direction if moving left
+        if x < self.position.x {
+            self.xScale *= -1
+        }
         run(
-            SKAction.move(to: CGPoint(x: BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width),
-                                      y: BaseScene.sharedInstance().random(min: size.height * 2,
-                                                max: vcFrameSize.height - (size.height * 2))),
+            SKAction.move(to: CGPoint(x: x, y: y),
                           duration: TimeInterval(BaseScene.sharedInstance().random(min: 1, max: 3))),
             withKey: "move"
         )
