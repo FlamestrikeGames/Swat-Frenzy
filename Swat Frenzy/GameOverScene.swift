@@ -101,7 +101,6 @@ class GameOverScene: SKScene {
             let sound = try AVAudioPlayer(contentsOf: url)
             backgroundSoundFX = sound
             // Repeats on negative number
-            backgroundSoundFX.numberOfLoops = -1
             sound.play()
             sound.volume = volume
         } catch {

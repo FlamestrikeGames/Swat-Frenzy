@@ -74,11 +74,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "entranceToWoods")
         let aspectRatio = background.frame.size.width / background.frame.size.height
         background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
-        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        var positionY = self.frame.size.height / 2
+        // adjusts background position to the bottom of the screen
+        if background.size.height < self.frame.size.height {
+            positionY -= ((self.frame.size.height / 2) - (background.size.height / 2))
+        }
+        background.position = CGPoint(x: self.frame.size.width / 2, y: positionY)
         background.zPosition = -200
+        
+        
         gameLayer.addChild(background)
     }
     

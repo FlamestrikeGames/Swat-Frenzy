@@ -37,6 +37,8 @@
 		7B4F86031DB5798C00748F0E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F86021DB5798B00748F0E /* Player.swift */; };
 		7B5488901DCA96E700B7BE35 /* Fly.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B54888F1DCA96E700B7BE35 /* Fly.atlas */; };
 		7B5488921DCA993500B7BE35 /* Bee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B5488911DCA993500B7BE35 /* Bee.atlas */; };
+		7B5488941DCAAACB00B7BE35 /* Mosquito.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B5488931DCAAACB00B7BE35 /* Mosquito.atlas */; };
+		7B5488961DCAAAD000B7BE35 /* Spider.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B5488951DCAAAD000B7BE35 /* Spider.atlas */; };
 		7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */; };
 		7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */; };
 		7B5DE78C1DAF201100BA7226 /* LevelOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */; };
@@ -116,6 +118,8 @@
 		7B4F86021DB5798B00748F0E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7B54888F1DCA96E700B7BE35 /* Fly.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Fly.atlas; sourceTree = "<group>"; };
 		7B5488911DCA993500B7BE35 /* Bee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Bee.atlas; sourceTree = "<group>"; };
+		7B5488931DCAAACB00B7BE35 /* Mosquito.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Mosquito.atlas; sourceTree = "<group>"; };
+		7B5488951DCAAAD000B7BE35 /* Spider.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Spider.atlas; sourceTree = "<group>"; };
 		7B5DE7871DAF112700BA7226 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLevelCell.swift; sourceTree = "<group>"; };
 		7B5DE78B1DAF201100BA7226 /* LevelOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelOneScene.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 		7B4D33CA1DCA876100BBECA5 /* SpriteAtlases */ = {
 			isa = PBXGroup;
 			children = (
+				7B5488951DCAAAD000B7BE35 /* Spider.atlas */,
+				7B5488931DCAAACB00B7BE35 /* Mosquito.atlas */,
 				7B5488911DCA993500B7BE35 /* Bee.atlas */,
 				7B54888F1DCA96E700B7BE35 /* Fly.atlas */,
 			);
@@ -436,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5488961DCAAAD000B7BE35 /* Spider.atlas in Resources */,
 				7B36D75B1DB2E9770035D6D6 /* coin.wav in Resources */,
 				66B106971DA5DE85006F314A /* BaseScene.sks in Resources */,
 				7BA229641DC6978000C6EEC3 /* arcadeMusic.wav in Resources */,
@@ -447,6 +454,7 @@
 				7B36D75A1DB2E9770035D6D6 /* background.wav in Resources */,
 				7B36D7521DB2E8140035D6D6 /* boss.wav in Resources */,
 				7B36D7541DB2E8140035D6D6 /* win.wav in Resources */,
+				7B5488941DCAAACB00B7BE35 /* Mosquito.atlas in Resources */,
 				6683670F1DA72FDE00521D03 /* SWBlade-master in Resources */,
 				7BBF4D791DC0330700A4FA77 /* heal.wav in Resources */,
 				7B36D75C1DB2E9770035D6D6 /* mosquito.wav in Resources */,

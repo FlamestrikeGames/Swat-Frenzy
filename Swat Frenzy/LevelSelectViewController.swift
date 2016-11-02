@@ -63,7 +63,7 @@ class LevelSelectViewController: UICollectionViewController {
         cell.setLevel(level: indexPath.row + 1)
         var imageName: String
         switch(indexPath.row+1) {
-        case 1: imageName = "background"
+        case 1: imageName = "entranceToWoods"
         case 2: imageName = "woodsBackground"
         case 3: imageName = "houseBackground"
         case 4: imageName = "insideHouse1"

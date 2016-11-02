@@ -13,6 +13,7 @@ class Mosquito: Enemy {
     
     init() {
         super.init(image: "mosquito")
+        initializeAtlas(enemyName: "Mosquito")
         
         name = "mosquito"
         damage = 20.0

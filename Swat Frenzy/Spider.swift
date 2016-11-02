@@ -13,7 +13,8 @@ class Spider: Enemy {
     
     init() {
         super.init(image: "spider")
-        
+        initializeAtlas(enemyName: "Spider")
+
         name = "spider"
         damage = 20.0
         stunDuration = 0.25
