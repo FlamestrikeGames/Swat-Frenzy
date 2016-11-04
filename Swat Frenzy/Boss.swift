@@ -16,6 +16,7 @@ class Boss: Enemy {
     
     init() {
         super.init(image: "boss")
+        initializeAtlas(enemyName: "Boss")
         
         name = "boss"
         damage = 2.0
@@ -72,5 +73,9 @@ class Boss: Enemy {
             ])
             )
         )
+    }
+    
+    override func animateEnemy() {
+        run(SKAction.repeatForever(SKAction.animate(with: enemyAnimationFrames, timePerFrame: 0.1875, resize: false, restore: true)), withKey: "animateEnemy")
     }
 }

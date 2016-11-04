@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "EntranceToWoodsBackground@1x.png",
       "scale" : "1x"
     },
     {
@@ -11,6 +12,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "EntranceToWoodsBackground@3x.png",
       "scale" : "3x"
     }
   ],

@@ -124,8 +124,8 @@ class Enemy: SKSpriteNode {
         // Create sprite at location
         let coin = SKSpriteNode(imageNamed: "coin")
         coin.position = CGPoint(x: position.x, y: position.y - 20)
-        coin.xScale = 0.3
-        coin.yScale = 0.3
+        coin.xScale = 1.25
+        coin.yScale = 1.25
         
         coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.frame.size.width / 2)
         coin.physicsBody?.affectedByGravity = true
@@ -150,8 +150,9 @@ class Enemy: SKSpriteNode {
     func dropHeart() {
         let heart = SKSpriteNode(imageNamed: "heart")
         heart.position = CGPoint(x: position.x, y: position.y + 30)
-        heart.xScale = 0.8
-        heart.yScale = 0.8
+        heart.xScale = 1.25
+        heart.yScale = 1.25
+        heart.zPosition = 5
         parent?.addChild(heart)
         
         // Play heal sound

@@ -13,7 +13,8 @@ class Snake: Enemy {
     
     init() {
         super.init(image: "snake")
-        
+        initializeAtlas(enemyName: "Snake")
+
         name = "snake"
         damage = 25.0
         stunDuration = 0.15
@@ -41,6 +42,12 @@ class Snake: Enemy {
         let moveY = BaseScene.sharedInstance().random(min: vcFrameSize.height / 2,
                                                       max: vcFrameSize.height - (size.height) - 50)
         let moveDuration = 0.5 + ((abs(self.position.x - moveX) + abs(self.position.y - moveY)) / 1000)
+        
+        
+        // change direction if moving left
+        if moveX < self.position.x {
+            self.xScale *= -1
+        }
         run(SKAction.move(to: CGPoint(x: moveX,y: moveY), duration: TimeInterval(moveDuration)),
             withKey: "move"
         )

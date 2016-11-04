@@ -68,6 +68,7 @@ class LevelNineScene: BaseScene {
         gameLayer.addChild(boss)
         
         boss.createCircleTimer()
+        boss.animateEnemy()
         
         let bossWidth = boss.frame.size.width
         let bossHeight = boss.frame.size.height

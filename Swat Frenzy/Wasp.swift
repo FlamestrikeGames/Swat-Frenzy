@@ -12,7 +12,8 @@ class Wasp: Enemy {
     
     init() {
         super.init(image: "wasp")
-        
+        initializeAtlas(enemyName: "Wasp")
+
         name = "wasp"
         damage = 20.0
         stunDuration = 0.1

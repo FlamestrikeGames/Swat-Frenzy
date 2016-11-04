@@ -16,6 +16,7 @@ class LevelEightScene: BaseScene {
         currentLevel = 8
         enemiesToKill = 35
         enemiesLeft?.text = String(enemiesToKill!)
+        enemySprite?.run(SKAction.resize(toWidth: 50, duration: 0.0))
         enemySprite?.texture = SKTexture(imageNamed: "wasp")
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {

@@ -399,7 +399,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let yDistance = fabs(oldPosition.y - newPosition.y)
         let distance = sqrt(xDistance * xDistance + yDistance * yDistance)
         let sceneDiagonal = sqrt(self.frame.size.width * self.frame.size.width + self.frame.size.height * self.frame.size.height)
-        weapon!.run(SKAction.move(to: newPosition, duration: Double(distance / sceneDiagonal / 2)))
+        weapon?.run(SKAction.move(to: newPosition, duration: Double(distance / sceneDiagonal / 2)))
     }
     
     // MARK: - Audio
