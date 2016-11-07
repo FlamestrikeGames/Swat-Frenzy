@@ -12,6 +12,7 @@ class LevelOneScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        initializeBackground(withName: "entranceToWoods", withAlpha: 1.0)
         
         currentLevel = 1
         enemiesToKill = 10

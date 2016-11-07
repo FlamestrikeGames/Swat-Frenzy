@@ -12,7 +12,7 @@ class LevelSixScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
+        initializeBackground(withName: "basement", withAlpha: 0.7)
         initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
 
         currentLevel = 6
@@ -45,19 +45,9 @@ class LevelSixScene: BaseScene {
         })
     }
     
-    override func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "basement")
-        let aspectRatio = background.frame.size.width / background.frame.size.height
-        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
-        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-        background.zPosition = -200
-        background.alpha = 0.5
-        addChild(background)
-    }
-    
     func initializeBoard(location: CGPoint) {
         let board = SKSpriteNode(imageNamed: "woodenBoard")
-        board.size = CGSize(width: self.frame.size.height * 0.9, height: self.frame.size.width / 30)
+        board.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / 30)
         board.position = location
         board.zPosition = -100
         addChild(board)

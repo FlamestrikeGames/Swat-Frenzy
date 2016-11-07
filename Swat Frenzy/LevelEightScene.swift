@@ -12,6 +12,7 @@ class LevelEightScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        initializeBackground(withName: "waspNestBackground", withAlpha: 1.0)
         
         currentLevel = 8
         enemiesToKill = 35
@@ -41,15 +42,4 @@ class LevelEightScene: BaseScene {
             )
         })
     }
-    
-    override func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "waspNestBackground")
-        let aspectRatio = background.frame.size.width / background.frame.size.height
-        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio - 100)
-        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2 + 50)
-        background.zPosition = -200
-        background.alpha = 0.7
-        addChild(background)
-    }
-    
 }

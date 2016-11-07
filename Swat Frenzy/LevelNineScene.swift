@@ -18,6 +18,7 @@ class LevelNineScene: BaseScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        initializeBackground(withName: "bossBackground", withAlpha: 1.0)
         
         currentLevel = 9
         enemySprite?.isHidden = true
@@ -40,16 +41,7 @@ class LevelNineScene: BaseScene {
             )
         })
     }
-    
-    override func initializeBackground() {
-        let background = SKSpriteNode(imageNamed: "bossBackground")
-        let aspectRatio = background.frame.size.width / background.frame.size.height
-        background.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / aspectRatio)
-        background.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-        background.zPosition = -200
-        addChild(background)
-    }
-    
+
     func spawnBoss() {
         boss.xScale = 1.5
         boss.yScale = 1.5
