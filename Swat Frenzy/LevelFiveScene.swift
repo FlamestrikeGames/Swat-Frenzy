@@ -51,7 +51,7 @@ class LevelFiveScene: BaseScene {
         board.size = CGSize(width: self.frame.size.height * 0.8, height: self.frame.size.width / 30)
         board.position = location
         board.zPosition = -100
-        addChild(board)
+        gameLayer.addChild(board)
  
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
         board.physicsBody?.isDynamic = true

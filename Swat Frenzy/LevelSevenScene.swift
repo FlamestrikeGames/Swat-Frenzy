@@ -52,7 +52,7 @@ class LevelSevenScene: BaseScene {
         board.size = CGSize(width: self.frame.size.width * 0.9, height: self.frame.size.height / 15)
         board.position = location
         board.zPosition = -100
-        addChild(board)
+        gameLayer.addChild(board)
         
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
         board.physicsBody?.isDynamic = true

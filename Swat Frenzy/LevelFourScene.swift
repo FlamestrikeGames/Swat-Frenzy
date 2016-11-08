@@ -46,7 +46,7 @@ class LevelFourScene: BaseScene {
         board.zPosition = -100
         let angle = tan(((self.frame.size.height - (board.size.height)) / 2.0) /
                         (self.frame.size.width / 2.0))
-        addChild(board)
+        gameLayer.addChild(board)
         
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
         board.physicsBody?.isDynamic = true

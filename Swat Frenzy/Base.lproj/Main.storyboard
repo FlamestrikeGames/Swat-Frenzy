@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,13 +69,20 @@
                             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-ZM-JIV">
-                                    <frame key="frameInset" minX="8" minY="165" width="57" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-gV-2NY" userLabel="statsButton">
+                                    <frame key="frameInset" minX="8" minY="69" width="64" height="64"/>
+                                    <state key="normal" image="statsButton"/>
+                                    <connections>
+                                        <segue destination="qY2-Ff-0jG" kind="show" id="esl-aj-vmj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-ZM-JIV" userLabel="backButton">
+                                    <frame key="frameInset" minX="8" minY="159" width="57" height="57"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="57" id="3he-hy-95r"/>
-                                        <constraint firstAttribute="height" constant="44" id="8ru-xg-MQi"/>
+                                        <constraint firstAttribute="height" constant="57" id="Ehv-cX-Gkf"/>
+                                        <constraint firstAttribute="width" constant="57" id="fLr-AB-Pez"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="backButton"/>
+                                    <state key="normal" image="backButton"/>
                                     <connections>
                                         <action selector="backButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="Q5J-U2-odb"/>
                                     </connections>
@@ -82,8 +90,10 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="Zu9-tT-903"/>
-                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="fxn-x5-Ixr"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="15g-qJ-Qvp"/>
+                                <constraint firstItem="oPV-gV-2NY" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="8a0-ib-TM0"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="gej-Jt-5xz"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="top" secondItem="oPV-gV-2NY" secondAttribute="bottom" constant="32" id="uBs-H0-1Ae"/>
                             </constraints>
                         </view>
                         <cells>
@@ -140,6 +150,109 @@
             </objects>
             <point key="canvasLocation" x="853.22338830584715" y="122.40000000000001"/>
         </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="3RU-Zq-BXd">
+            <objects>
+                <viewController title="StatsViewController" id="qY2-Ff-0jG" userLabel="Stats View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MeA-UY-May"/>
+                        <viewControllerLayoutGuide type="bottom" id="VJM-39-oxB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aQX-2e-yir">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdb-Yy-rrb" userLabel="backButton">
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="backButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="5wp-aM-SGV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase Stats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gN-fY-3qb">
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsj-JD-ECy">
+                                <frame key="frameInset" minX="179" minY="156" width="82" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-ut-lyJ">
+                                <frame key="frameInset" minX="269" minY="104" width="82" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Power" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-eg-bt6">
+                                <frame key="frameInset" minX="179" minY="231" width="82" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Au-lZ-PLH">
+                                <frame key="frameInset" minX="441" minY="236" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUI-us-mUj">
+                                <frame key="frameInset" minX="441" minY="161" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-a8-D6d">
+                                <frame key="frameInset" minX="365" minY="114" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whj-Lv-fGg">
+                                <frame key="frameInset" minX="365" minY="166" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRw-Fk-vft">
+                                <frame key="frameInset" minX="365" minY="241" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkZ-sT-lAe">
+                                <frame key="frameInset" minX="289" minY="165" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-yo-ndo">
+                                <frame key="frameInset" minX="289" minY="240" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49805551767349243" green="0.78671354055404663" blue="0.59056597948074341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rdb-Yy-rrb" firstAttribute="top" secondItem="MeA-UY-May" secondAttribute="bottom" id="43L-wN-aJw"/>
+                            <constraint firstItem="0gN-fY-3qb" firstAttribute="top" secondItem="MeA-UY-May" secondAttribute="bottom" constant="11" id="wRx-Sp-Dfv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Rdb-Yy-rrb" secondAttribute="leading" id="zaC-yN-OTE"/>
+                            <constraint firstItem="0gN-fY-3qb" firstAttribute="centerX" secondItem="aQX-2e-yir" secondAttribute="centerX" id="zit-P2-SCA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dg-dt-r65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852.3238380809596" y="904.79999999999995"/>
+        </scene>
         <!--GameViewController-->
         <scene sceneID="uMj-V3-zIM">
             <objects>
@@ -160,6 +273,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backButton" width="320" height="303"/>
+        <image name="backButton" width="64" height="64"/>
+        <image name="statsButton" width="64" height="64"/>
     </resources>
 </document>
