@@ -14,6 +14,7 @@ class GameOverScene: SKScene {
     
     var level: Int!
     var backgroundSoundFX: AVAudioPlayer!
+    var player: Player!
     
     init(size: CGSize, won:Bool, level: Int) {
         
@@ -84,6 +85,8 @@ class GameOverScene: SKScene {
                     
                 }
                 scene?.scaleMode = .aspectFill
+                player.currentHealth = player.maxHealth
+                scene?.player = player
                 self.view?.presentScene(scene!, transition:reveal)
             } else if(touchedNode.name == "levelSelect") {
                 // Post notification

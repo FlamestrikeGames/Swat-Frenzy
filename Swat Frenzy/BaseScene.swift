@@ -53,23 +53,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // Triggers once we move into the game scene
     override func didMove(to view: SKView) {
         addChild(gameLayer)
-        initializePlayer()
         initializeMusic()
         initializeUI()
         initializePauseMenu()
-    }
-    
-    func initializePlayer() {
-        var gold: Int
-        // Retrieve from userDefaults
-        let userDef = UserDefaults.standard
-        
-        if let currentGold = userDef.value(forKey: "goldAmount") {
-            gold = currentGold as! Int
-        } else {
-            gold = 0
-        }
-        player = Player(goldAmount: gold)
     }
     
     func initializeBackground(withName: String, withAlpha: CGFloat) {
@@ -193,7 +179,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func resizeHealthBar() {
-        let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / 100.0))
+        let newWidth = (healthBaseWidth! * CGFloat(Float(player.currentHealth) / Float(player.maxHealth)))
         healthBar?.run(
             SKAction.resize(toWidth: newWidth, duration: 0.2), completion: {
                 if( newWidth <= self.healthBaseWidth! * 0.33) {
@@ -232,6 +218,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won, level: currentLevel!)
+        gameOverScene.player = player
         self.view?.presentScene(gameOverScene, transition: reveal)
     }
 
@@ -299,7 +286,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             player.goldAmount += enemy.goldValue
             goldLabel?.text = String(player.goldAmount)
         }
-        if (player.currentHealth < 100 && heartDrop <= 10) {
+        if (player.currentHealth < player.maxHealth && heartDrop <= 10) {
             enemy.dropHeart()
             // Gain health
             player.gainHealth(amount: 5)

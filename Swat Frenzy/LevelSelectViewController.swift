@@ -13,6 +13,7 @@ class LevelSelectViewController: UICollectionViewController {
     let maxLevels = 9
     var currentLevel: Int!
     var backgroundSoundFX: AVAudioPlayer!
+    var player: Player!
 
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -20,6 +21,7 @@ class LevelSelectViewController: UICollectionViewController {
     @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializePlayer()
         
         let space: CGFloat = 15.0
         let width = (view.frame.size.width - 2*space - 150) / 3.0
@@ -46,6 +48,13 @@ class LevelSelectViewController: UICollectionViewController {
         }
         collectionView?.reloadData()
         playBackgroundMusic(fileName: "introMusic.wav", volume: 0.5)
+        player.currentHealth = player.maxHealth
+    }
+    
+    @IBAction func statsButtonTouch(_ sender: AnyObject) {
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "StatsViewController") as! StatsViewController
+        viewController.player = player
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func backButtonTouch(_ sender: AnyObject) {
@@ -95,10 +104,36 @@ class LevelSelectViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         viewController.level = indexPath.row + 1
+        viewController.player = player
         
         backgroundSoundFX.stop()
         
         present(viewController, animated: true, completion: nil)
+    }
+    
+    func initializePlayer() {
+        var gold, bonusHealth, bonusPower: Int
+        // Retrieve from userDefaults
+        let userDef = UserDefaults.standard
+        
+        if let currentGold = userDef.value(forKey: "goldAmount") {
+            gold = currentGold as! Int
+        } else {
+            gold = 0
+        }
+        
+        if let bonusHealth1 = userDef.value(forKey: "bonusHealth") {
+            bonusHealth = bonusHealth1 as! Int
+        } else {
+            bonusHealth = 0
+        }
+        
+        if let bonusPower1 = userDef.value(forKey: "bonusPower") {
+            bonusPower = bonusPower1 as! Int
+        } else {
+            bonusPower = 0
+        }
+        player = Player(gold: gold, bonusPower: bonusPower, bonusHealth: bonusHealth)
     }
     
     func playBackgroundMusic(fileName: String, volume: Float) {

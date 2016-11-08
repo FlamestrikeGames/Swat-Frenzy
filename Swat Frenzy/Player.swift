@@ -9,17 +9,23 @@
 import SpriteKit
 
 class Player {
-    var currentHealth: Int = 100
-    var goldAmount: Int = 0
+    var maxHealth: Int = 50
+    var currentHealth: Int
+
+    var goldAmount: Int
+    var power: Int = 1
     
-    init(goldAmount: Int) {
-        self.goldAmount = goldAmount
+    init(gold: Int, bonusPower: Int, bonusHealth: Int) {
+        goldAmount = gold
+        maxHealth += bonusHealth
+        currentHealth = maxHealth
+        power += bonusPower
     }
     
     func gainHealth(amount: Int) {
         currentHealth += amount
-        if (currentHealth > 100) {
-            currentHealth = 100
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth
         }
         // play animation to regain health
         // play sound of healing

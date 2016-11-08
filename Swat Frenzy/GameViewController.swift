@@ -12,6 +12,7 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     var level: Int!
+    var player: Player!
     
     func dismissSelf() {
         dismiss(animated: true, completion: nil)
@@ -54,6 +55,7 @@ class GameViewController: UIViewController {
             skView.showsPhysics = false
             skView.ignoresSiblingOrder = true
             scene?.scaleMode = .aspectFill
+            scene?.player = player
             skView.presentScene(scene)
         }
     }

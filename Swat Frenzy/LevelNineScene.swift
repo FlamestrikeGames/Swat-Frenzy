@@ -177,7 +177,7 @@ class LevelNineScene: BaseScene {
             resizeEnemyHealthBar()
             
             let heartDrop = random(min: 1, max: 100)
-            if (player.currentHealth < 100 && heartDrop <= 10) {
+            if (player.currentHealth < player.maxHealth && heartDrop <= 10) {
                 boss.dropHeart()
                 // Gain health
                 player.gainHealth(amount: 6)

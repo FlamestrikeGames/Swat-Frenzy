@@ -73,7 +73,7 @@
                                     <frame key="frameInset" minX="8" minY="69" width="64" height="64"/>
                                     <state key="normal" image="statsButton"/>
                                     <connections>
-                                        <segue destination="qY2-Ff-0jG" kind="show" id="esl-aj-vmj"/>
+                                        <action selector="statsButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="hRJ-7v-69o"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-ZM-JIV" userLabel="backButton">
@@ -153,7 +153,7 @@
         <!--Stats View Controller-->
         <scene sceneID="3RU-Zq-BXd">
             <objects>
-                <viewController title="StatsViewController" id="qY2-Ff-0jG" userLabel="Stats View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatsViewController" title="StatsViewController" id="qY2-Ff-0jG" userLabel="Stats View Controller" customClass="StatsViewController" customModule="Swat_Frenzy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MeA-UY-May"/>
                         <viewControllerLayoutGuide type="bottom" id="VJM-39-oxB"/>
@@ -165,7 +165,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdb-Yy-rrb" userLabel="backButton">
                                 <state key="normal" image="backButton"/>
                                 <connections>
-                                    <action selector="backButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="5wp-aM-SGV"/>
+                                    <action selector="backButtonTouch:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="1yp-ml-8mM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase Stats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gN-fY-3qb">
@@ -174,80 +174,109 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsj-JD-ECy">
-                                <frame key="frameInset" minX="179" minY="156" width="82" height="39"/>
+                                <frame key="frameInset" minX="179" minY="179" width="82" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-ut-lyJ">
-                                <frame key="frameInset" minX="269" minY="104" width="82" height="39"/>
+                                <frame key="frameInset" minX="269" minY="127" width="82" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Power" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-eg-bt6">
-                                <frame key="frameInset" minX="179" minY="231" width="82" height="39"/>
+                                <frame key="frameInset" minX="179" minY="254" width="82" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Au-lZ-PLH">
-                                <frame key="frameInset" minX="441" minY="236" width="46" height="30"/>
+                                <frame key="frameInset" minX="441" minY="259" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addPower:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="nP0-gt-1Co"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUI-us-mUj">
-                                <frame key="frameInset" minX="441" minY="161" width="46" height="30"/>
+                                <frame key="frameInset" minX="441" minY="184" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addHealth:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="SLs-oV-BBZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-a8-D6d">
-                                <frame key="frameInset" minX="365" minY="114" width="42" height="21"/>
+                                <frame key="frameInset" minX="365" minY="137" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whj-Lv-fGg">
-                                <frame key="frameInset" minX="365" minY="166" width="42" height="21"/>
+                                <frame key="frameInset" minX="365" minY="189" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRw-Fk-vft">
-                                <frame key="frameInset" minX="365" minY="241" width="42" height="21"/>
+                                <frame key="frameInset" minX="365" minY="264" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkZ-sT-lAe">
-                                <frame key="frameInset" minX="289" minY="165" width="42" height="21"/>
+                                <frame key="frameInset" minX="289" minY="188" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-yo-ndo">
-                                <frame key="frameInset" minX="289" minY="240" width="42" height="21"/>
+                                <frame key="frameInset" minX="289" minY="263" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swat Coins:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBC-xy-3YX">
+                                <frame key="frameInset" minX="26" minY="83" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3T-cS-Nkq">
+                                <frame key="frameInset" minX="127" minY="83" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.91923777633667103" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.49805551767349243" green="0.78671354055404663" blue="0.59056597948074341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rdb-Yy-rrb" firstAttribute="top" secondItem="MeA-UY-May" secondAttribute="bottom" id="43L-wN-aJw"/>
-                            <constraint firstItem="0gN-fY-3qb" firstAttribute="top" secondItem="MeA-UY-May" secondAttribute="bottom" constant="11" id="wRx-Sp-Dfv"/>
+                            <constraint firstItem="0gN-fY-3qb" firstAttribute="top" secondItem="MeA-UY-May" secondAttribute="bottom" constant="55" id="wRx-Sp-Dfv"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rdb-Yy-rrb" secondAttribute="leading" id="zaC-yN-OTE"/>
                             <constraint firstItem="0gN-fY-3qb" firstAttribute="centerX" secondItem="aQX-2e-yir" secondAttribute="centerX" id="zit-P2-SCA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addHealthButton" destination="kUI-us-mUj" id="WAF-Sh-SHy"/>
+                        <outlet property="addPowerButton" destination="9Au-lZ-PLH" id="ahZ-IL-1uc"/>
+                        <outlet property="costToIncHealth" destination="Whj-Lv-fGg" id="wJ1-DY-523"/>
+                        <outlet property="costToIncPower" destination="YRw-Fk-vft" id="PrX-mu-hrJ"/>
+                        <outlet property="currentPlayerMaxHealth" destination="LkZ-sT-lAe" id="JKs-AJ-owh"/>
+                        <outlet property="currentPlayerPower" destination="P0E-yo-ndo" id="EPw-YP-KKy"/>
+                        <outlet property="playerGold" destination="D3T-cS-Nkq" id="bLQ-hM-sDa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dg-dt-r65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
