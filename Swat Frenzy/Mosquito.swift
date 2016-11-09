@@ -16,7 +16,7 @@ class Mosquito: Enemy {
         initializeAtlas(enemyName: "Mosquito")
         
         name = "mosquito"
-        damage = 20.0
+        damage = 15.0
         stunDuration = 0.25
         aliveDuration = 3.5
         soundEffectFile = "mosquito.wav"

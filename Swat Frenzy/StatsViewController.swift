@@ -22,6 +22,7 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeValues()
+        checkValues()
         // disable button if not enough gold
         playerGold.text = String(player.goldAmount)
 

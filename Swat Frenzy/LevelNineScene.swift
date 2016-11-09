@@ -116,7 +116,7 @@ class LevelNineScene: BaseScene {
     }
     
     func resizeEnemyHealthBar() {
-        let newWidth = (enemyHealthBaseWidth! * CGFloat(Float(boss.currentHealth) / 500.0))
+        let newWidth = (enemyHealthBaseWidth! * CGFloat(Float(boss.currentHealth) / 7500.0))
         enemyHealthBar?.run(
             SKAction.resize(toWidth: newWidth, duration: 0.2), completion: {
                 if( newWidth <= self.enemyHealthBaseWidth! * 0.33) {
@@ -173,7 +173,7 @@ class LevelNineScene: BaseScene {
             // do something when hitting boss
             // play damage sound
             bossBody.run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
-            boss.takeDamage(amount: 5)
+            boss.takeDamage(amount: player.power)
             resizeEnemyHealthBar()
             
             let heartDrop = random(min: 1, max: 100)

@@ -294,16 +294,26 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Calculate difference in x, y for direction of move
-        var dx = (enemy.position.x - weaponStartPosition.x) * 0.5
-        var dy = (enemy.position.y - weaponStartPosition.y) * 0.5
-        // Limit impulse speeds so it doesn't blast off the screen
-        if dx > 50.0 {
-            dx = 50.0
+        var dx = enemy.position.x - weaponStartPosition.x
+  //      print("dx initial power: ", dx)
+        var dy = enemy.position.y - weaponStartPosition.y
+        let playerPower = CGFloat(player.power) * 10.0 / 3.0
+        if dx < 0 {
+            dx -= playerPower
+        } else {
+            dx += playerPower
         }
-        if dy > 50.0 {
-            dy = 50.0
+ //       print("dx with playerpower: ", dx)
+        if dy < 0 {
+            dy -= playerPower
+        } else {
+            dy += playerPower
+            
         }
-
+        dx *= 0.15
+        dy *= 0.15
+//        print("dx final power: ", dx)
+        
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
         // Waits stunDuration and then stops the enemy in place and checks if it is off the screen
         enemy.run(SKAction.wait(forDuration: enemy.stunDuration), completion: {

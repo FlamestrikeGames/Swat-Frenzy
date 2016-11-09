@@ -16,7 +16,7 @@ class Wasp: Enemy {
 
         name = "wasp"
         damage = 20.0
-        stunDuration = 0.1
+        stunDuration = 0.15
         aliveDuration = 4.0
         soundEffectFile = "wasp.wav"
         goldValue = 6

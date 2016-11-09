@@ -16,7 +16,7 @@ class Spider: Enemy {
         initializeAtlas(enemyName: "Spider")
 
         name = "spider"
-        damage = 20.0
+        damage = 15.0
         stunDuration = 0.25
         aliveDuration = 4
         soundEffectFile = "spider.wav"

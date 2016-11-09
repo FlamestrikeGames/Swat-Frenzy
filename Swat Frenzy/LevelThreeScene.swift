@@ -22,7 +22,7 @@ class LevelThreeScene: BaseScene {
         // Let user get ready for level to start
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies
-            self.gameLayer.run(SKAction.repeat(
+            self.gameLayer.run(SKAction.repeatForever(
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Bee()
@@ -30,8 +30,7 @@ class LevelThreeScene: BaseScene {
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.5)
-                    ]),
-                count: self.enemiesToKill! + 10
+                    ])
                 )
             )
         })

@@ -16,8 +16,8 @@ class Snake: Enemy {
         initializeAtlas(enemyName: "Snake")
 
         name = "snake"
-        damage = 25.0
-        stunDuration = 0.15
+        damage = 20.0
+        stunDuration = 0.2
         aliveDuration = 4.0
         soundEffectFile = "hiss.wav"
         goldValue = 5

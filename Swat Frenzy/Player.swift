@@ -27,8 +27,6 @@ class Player {
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth
         }
-        // play animation to regain health
-        // play sound of healing
     }
     
     func takeDamage(amount: Int) {

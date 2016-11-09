@@ -22,7 +22,7 @@ class LevelEightScene: BaseScene {
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
             // Spawn enemies
-            self.gameLayer.run(SKAction.repeat(
+            self.gameLayer.run(SKAction.repeatForever(
                 SKAction.sequence([
                     SKAction.run({
                         let enemy = Wasp()
@@ -36,8 +36,7 @@ class LevelEightScene: BaseScene {
                         self.spawnEnemy(enemy: enemy)
                     }),
                     SKAction.wait(forDuration: 1.0)
-                    ]),
-                count: self.enemiesToKill! + 10
+                    ])
                 )
             )
         })
