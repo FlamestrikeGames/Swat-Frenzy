@@ -19,6 +19,7 @@ class LevelNineScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         initializeBackground(withName: "bossBackground", withAlpha: 1.0)
+        initializeBackgroundParticle()
         
         currentLevel = 9
         enemySprite?.isHidden = true
@@ -93,6 +94,13 @@ class LevelNineScene: BaseScene {
     override func initializeMusic() {
         // Play background music
         playBackgroundMusic(fileName: "boss.wav", volume: 0.5)
+    }
+    
+    func initializeBackgroundParticle() {
+        let snowParticle = SKEmitterNode(fileNamed: "snowParticle.sks")
+        snowParticle?.position.x = frame.size.width / 2
+        snowParticle?.position.y = frame.size.height
+        addChild(snowParticle!)
     }
     
     override func killEnemy(enemy: SKSpriteNode) {

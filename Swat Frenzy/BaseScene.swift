@@ -274,8 +274,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Remove move action from enemy
         enemy.removeAction(forKey: "move")
         
-        // Play slap sound
+        // Play slap sound and release particles
         run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
+        enemy.releaseHitParticles()
         
         // Check if it drops a coin
         let coinDrop = random(min: 1, max: 100)

@@ -69,31 +69,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-gV-2NY" userLabel="statsButton">
-                                    <frame key="frameInset" minX="8" minY="69" width="64" height="64"/>
-                                    <state key="normal" image="statsButton"/>
-                                    <connections>
-                                        <action selector="statsButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="hRJ-7v-69o"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1S-ZM-JIV" userLabel="backButton">
-                                    <frame key="frameInset" minX="8" minY="159" width="57" height="57"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="57" id="Ehv-cX-Gkf"/>
-                                        <constraint firstAttribute="width" constant="57" id="fLr-AB-Pez"/>
-                                    </constraints>
+                                    <frame key="frameInset" minX="30" minY="155" width="64" height="64"/>
                                     <state key="normal" image="backButton"/>
                                     <connections>
                                         <action selector="backButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="Q5J-U2-odb"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-gV-2NY" userLabel="statsButton">
+                                    <frame key="frameInset" minX="30" minY="252" width="64" height="64"/>
+                                    <state key="normal" image="statsButton"/>
+                                    <connections>
+                                        <action selector="statsButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="hRJ-7v-69o"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="15g-qJ-Qvp"/>
-                                <constraint firstItem="oPV-gV-2NY" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="8" id="8a0-ib-TM0"/>
-                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="gej-Jt-5xz"/>
-                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="top" secondItem="oPV-gV-2NY" secondAttribute="bottom" constant="32" id="uBs-H0-1Ae"/>
+                                <constraint firstItem="oPV-gV-2NY" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="30" id="8a0-ib-TM0"/>
+                                <constraint firstItem="oPV-gV-2NY" firstAttribute="top" secondItem="p1S-ZM-JIV" secondAttribute="bottom" constant="33" id="9Q8-IU-MoW"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="30" id="fLS-Pm-xza"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="n4P-47-QXX"/>
                             </constraints>
                         </view>
                         <cells>
@@ -109,7 +105,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24g-SV-Lum">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.9954350844341604" green="1" blue="0.95761424913254534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCKED" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-U0-1i2">

@@ -164,5 +164,15 @@ class Enemy: SKSpriteNode {
             }
         )
     }
+    
+    func releaseHitParticles() {
+        let emitterNode = SKEmitterNode(fileNamed: "hitParticle.sks")
+        emitterNode?.position = self.position
+        parent?.addChild(emitterNode!)
+        run(SKAction.wait(forDuration: 1), completion: {
+            emitterNode!.removeFromParent()
+            }
+        )
+    }
 
 }
