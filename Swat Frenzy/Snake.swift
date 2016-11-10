@@ -17,10 +17,10 @@ class Snake: Enemy {
 
         name = "snake"
         damage = 20.0
-        stunDuration = 0.2
+        stunDuration = 0.25
         aliveDuration = 4.0
         soundEffectFile = "hiss.wav"
-        goldValue = 5
+        goldValue = 8
     }
     
     required init(coder aDecoder: NSCoder) {

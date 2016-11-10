@@ -20,6 +20,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     var enemiesToKill: Int?
     var currentLevel: Int?
+    var goldGained: Int = 0
     
     var player: Player!
     
@@ -95,7 +96,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         if let gold = childNode(withName: "goldAmount") as? SKLabelNode {
             goldLabel = gold
-            goldLabel?.text = String(player.goldAmount)
+            goldLabel?.text = String(goldGained)
         }
         
         if let enemySpriteNode = childNode(withName: "enemySprite") as? SKSpriteNode {
@@ -210,6 +211,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Save gold to user defaults if player won
         if (won) {
             let userDef = UserDefaults.standard
+            player.goldAmount += goldGained
             userDef.set(player.goldAmount, forKey: "goldAmount")
             let maxLevel = userDef.value(forKey: "currentLevel") as? Int
             if(maxLevel != nil && maxLevel! < currentLevel!+1) {
@@ -283,8 +285,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             enemy.dropCoin()
             
             // Increase gold amount
-            player.goldAmount += enemy.goldValue
-            goldLabel?.text = String(player.goldAmount)
+            goldGained += enemy.goldValue
+            goldLabel?.text = String(goldGained)
         }
         if (player.currentHealth < player.maxHealth && heartDrop <= 10) {
             enemy.dropHeart()

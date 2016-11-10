@@ -20,7 +20,7 @@ class Spider: Enemy {
         stunDuration = 0.25
         aliveDuration = 4
         soundEffectFile = "spider.wav"
-        goldValue = 4
+        goldValue = 6
     }
     
     required init(coder aDecoder: NSCoder) {

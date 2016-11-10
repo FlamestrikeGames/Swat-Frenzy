@@ -86,7 +86,7 @@ class Enemy: SKSpriteNode {
     }
     
     func createCircleTimer() {
-        let circle = SKShapeNode(circleOfRadius: size.width / 2 + 5)
+        let circle = SKShapeNode(circleOfRadius: size.width / 2)
         circle.fillColor = .clear
         circle.strokeColor = .green
         addChild(circle)

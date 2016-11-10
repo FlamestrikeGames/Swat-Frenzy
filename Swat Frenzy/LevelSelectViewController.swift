@@ -31,8 +31,8 @@ class LevelSelectViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: width,height: height)
         
-        // up right down left
-        flowLayout.sectionInset = UIEdgeInsetsMake(30, 75, 30, 75)
+        // up left down right
+        flowLayout.sectionInset = UIEdgeInsetsMake(30, 125, 30, 25)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +46,7 @@ class LevelSelectViewController: UICollectionViewController {
             currentLevel = 1
             userDef.set(1, forKey: "currentLevel")
         }
+        
         collectionView?.reloadData()
         playBackgroundMusic(fileName: "introMusic.wav", volume: 0.5)
         player.currentHealth = player.maxHealth

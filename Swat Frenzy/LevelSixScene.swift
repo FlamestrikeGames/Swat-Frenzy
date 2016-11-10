@@ -57,7 +57,7 @@ class LevelSixScene: BaseScene {
         board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
         board.physicsBody?.collisionBitMask = PhysicsCategory.None
         board.physicsBody?.affectedByGravity = false
-        board.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI_4), duration: 1)))
+        board.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI_4), duration: 0.75)))
     }
     
 }

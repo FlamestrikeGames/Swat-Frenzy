@@ -15,7 +15,7 @@ class LevelEightScene: BaseScene {
         initializeBackground(withName: "waspNestBackground", withAlpha: 1.0)
         
         currentLevel = 8
-        enemiesToKill = 35
+        enemiesToKill = 50
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.run(SKAction.resize(toWidth: 50, duration: 0.0))
         enemySprite?.texture = SKTexture(imageNamed: "wasp")
@@ -29,13 +29,7 @@ class LevelEightScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0),
-                    SKAction.run({
-                        let enemy = Wasp()
-                        enemy.playEnemySound()
-                        self.spawnEnemy(enemy: enemy)
-                    }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 0.75)
                     ])
                 )
             )
