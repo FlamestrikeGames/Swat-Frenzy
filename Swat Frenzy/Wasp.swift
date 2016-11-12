@@ -17,9 +17,9 @@ class Wasp: Enemy {
         name = "wasp"
         damage = 20.0
         stunDuration = 0.15
-        aliveDuration = 4.5
+        aliveDuration = 5
         soundEffectFile = "wasp.wav"
-        goldValue = 10
+        goldValue = 12
     }
     
     required init(coder aDecoder: NSCoder) {

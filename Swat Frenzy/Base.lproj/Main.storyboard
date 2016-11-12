@@ -244,6 +244,9 @@
                                 <state key="normal" image="plus"/>
                                 <state key="selected" image="plusHighlighted"/>
                                 <state key="highlighted" image="plusHighlighted"/>
+                                <connections>
+                                    <action selector="addPower:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="7eB-aR-2LG"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-9V-eyM">
                                 <rect key="frame" x="281" y="85" width="50" height="50"/>

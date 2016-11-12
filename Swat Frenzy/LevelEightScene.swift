@@ -29,7 +29,7 @@ class LevelEightScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 0.75)
+                    SKAction.wait(forDuration: 0.9)
                     ])
                 )
             )

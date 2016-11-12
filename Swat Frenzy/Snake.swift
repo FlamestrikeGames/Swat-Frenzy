@@ -20,7 +20,7 @@ class Snake: Enemy {
         stunDuration = 0.25
         aliveDuration = 4.0
         soundEffectFile = "hiss.wav"
-        goldValue = 8
+        goldValue = 10
     }
     
     required init(coder aDecoder: NSCoder) {

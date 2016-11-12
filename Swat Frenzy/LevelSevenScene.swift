@@ -21,7 +21,7 @@ class LevelSevenScene: BaseScene {
         enemySprite2?.texture = SKTexture(imageNamed: "bee")
         enemySprite2?.alpha = 1
         
-        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 4))
+        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 3.75))
 
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
@@ -39,7 +39,7 @@ class LevelSevenScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 1.25)
                     ])
                 )
             )

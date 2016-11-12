@@ -23,15 +23,34 @@ class GameOverScene: SKScene {
         self.level = level
         backgroundColor = won ? SKColor.green : SKColor.red
         
-        let message = won ? "All enemies swatted! You win!" :
-                            "You suffered a horrible death!"
+        let winMessage = initializeVictoryMessage(forLevel: level)
+        
+        let message = won ? winMessage :
+                            ["You suffered a horrible death!"]
         
         let label = SKLabelNode(fontNamed: "Helvetica Neue Bold")
-        label.text = message
-        label.fontSize = 40
+        label.text = message.first
+        label.fontSize = 20
         label.fontColor = SKColor.black
-        label.position = CGPoint(x: size.width/2, y: size.height/2)
+        label.position = CGPoint(x: size.width/2, y: size.height/1.5)
         addChild(label)
+        
+        if (message.count > 1) {
+            let label2 = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+            label2.fontSize = 20
+            label2.fontColor = SKColor.black
+            label2.text = message[1]
+            label2.position = CGPoint(x: size.width/2, y: size.height/1.7)
+            addChild(label2)
+            if(message.count > 2) {
+                let label3 = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+                label3.text = message[2]
+                label3.fontSize = 20
+                label3.fontColor = SKColor.black
+                label3.position = CGPoint(x: size.width/2, y: size.height/2)
+                addChild(label3)
+            }
+        }
         
         let replayMessage = "Replay Level"
         let replayButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
@@ -94,6 +113,21 @@ class GameOverScene: SKScene {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
             }
          }
+    }
+    
+    func initializeVictoryMessage(forLevel: Int) -> [String]{
+        switch(forLevel) {
+        case 1: return ["Your friend John calls you from his house in panic!", "He exclaims, \"HELP! THE BUGS ARE EVERYWHERE AGH!\"", "You instantly head towards John's house in the woods."]
+        case 2: return ["You flex at the flies triumphantly as you head through the woods.", "John's house is in sight!"]
+        case 3: return ["Poor bees. What has gotten into them?", "John's house looks like it could fall over at any moment!", "What's going on here?"]
+        case 4: return ["You head towards John's bedroom while yelling for him.", "Where could he be!?"]
+        case 5: return ["You hear a girl scream from the basement.", "You rush down the stairs!"]
+        case 6: return ["It was John all along.", "He says shakily, \"Th.. the backyard... They are everywhere... It's impossible.\"", "You reassure him that you will take care of it and head outside."]
+        case 7: return ["A giant wasp's nest is in sight.", "You head over with caution."]
+        case 8: return ["A monstrous wasp appears before you and begins to attack!"]
+        case 9: return ["You have defeated all the enemies!", "Your friend has been saved.", "The end."]
+        default: return ["All enemies swatted! You win!"]
+        }
     }
     
     func playBackgroundMusic(fileName: String, volume: Float) {

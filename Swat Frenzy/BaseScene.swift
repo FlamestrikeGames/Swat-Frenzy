@@ -430,8 +430,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let mainMenuLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         mainMenuLabel.fontColor = .black
         mainMenuLabel.text = "Level Select"
-        mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2,
-                                         y: (self.frame.size.height / 2) + menuBackground.frame.size.height / 5 )
+        mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         mainMenuLabel.zPosition = 51
         
         let border = SKShapeNode(rectOf: CGSize(width: mainMenuLabel.frame.size.width + 5,
@@ -449,7 +448,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         resumeLabel.fontColor = .black
         resumeLabel.text = "Resume"
         resumeLabel.position = CGPoint(x: self.frame.size.width / 2,
-                                       y: self.frame.size.height / 2)
+                                       y: self.frame.size.height / 2  - menuBackground.frame.size.height / 5)
         resumeLabel.zPosition = 51
         
         let border2 = SKShapeNode(rectOf: CGSize(width: resumeLabel.frame.size.width + 5,

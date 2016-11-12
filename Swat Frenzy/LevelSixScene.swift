@@ -16,7 +16,7 @@ class LevelSixScene: BaseScene {
         initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
 
         currentLevel = 6
-        enemiesToKill = 25
+        enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.run(SKAction.resize(toWidth: 50, duration: 0.0))
         enemySprite?.texture = SKTexture(imageNamed: "spider")
@@ -31,13 +31,7 @@ class LevelSixScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.25),
-                    SKAction.run({
-                        let enemy = Spider()
-                        enemy.playEnemySound()
-                        self.spawnEnemy(enemy: enemy)
-                    }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 1.25)
                     ])
                 )
             )
@@ -48,7 +42,7 @@ class LevelSixScene: BaseScene {
         let board = SKSpriteNode(imageNamed: "woodenBoard")
         board.size = CGSize(width: self.frame.size.width, height: self.frame.size.width / 30)
         board.position = location
-        board.zPosition = -100
+        board.zPosition = -9
         gameLayer.addChild(board)
         
         board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)

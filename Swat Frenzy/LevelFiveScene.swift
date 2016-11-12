@@ -18,7 +18,7 @@ class LevelFiveScene: BaseScene {
         initializeBoard(location: CGPoint(x: self.frame.size.width * 3 / 4, y: self.frame.size.height / 2))
         
         currentLevel = 5
-        enemiesToKill = 25
+        enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "mosquito")
 
