@@ -56,7 +56,7 @@ class GameOverScene: SKScene {
             let nextLevelButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
             nextLevelButton.text = "Next Level"
             nextLevelButton.fontColor = SKColor.blue
-            nextLevelButton.position = CGPoint(x: size.width/2, y: size.height/3)
+            nextLevelButton.position = CGPoint(x: size.width * 4/5, y: size.height/6)
             nextLevelButton.name = "nextLevel"
             addChild(nextLevelButton)
         }
@@ -65,7 +65,7 @@ class GameOverScene: SKScene {
         let replayButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         replayButton.text = "Replay Level"
         replayButton.fontColor = SKColor.blue
-        replayButton.position = CGPoint(x: size.width/2, y: size.height/4)
+        replayButton.position = CGPoint(x: size.width/2, y: size.height/6)
         replayButton.name = "replay"
         addChild(replayButton)
         
@@ -73,7 +73,7 @@ class GameOverScene: SKScene {
         let levelSelectButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         levelSelectButton.text = levelSelect
         levelSelectButton.fontColor = SKColor.blue
-        levelSelectButton.position = CGPoint(x: size.width/2, y: size.height/6)
+        levelSelectButton.position = CGPoint(x: size.width * 1/5, y: size.height/6)
         levelSelectButton.name = "levelSelect"
         addChild(levelSelectButton)
         

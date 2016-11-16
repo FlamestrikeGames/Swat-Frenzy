@@ -17,6 +17,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var healthBar: SKSpriteNode?
     var healthBaseWidth: CGFloat?
     var goldLabel: SKLabelNode?
+    var uiBackground: SKSpriteNode?
     
     var enemiesToKill: Int?
     var currentLevel: Int?
@@ -106,6 +107,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         if let enemySpriteNode2 = childNode(withName: "enemySprite2") as? SKSpriteNode {
             enemySprite2 = enemySpriteNode2
         }
+        
+        if let uiBG = childNode(withName: "UIBackground") as? SKSpriteNode {
+            uiBackground = uiBG
+        }
     }
     
     // MARK: - Game Logic
@@ -123,7 +128,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         
         // Spawns enemy within the screen
 
-        let spawnPosition = enemy.getSpawnPosition(vcFrameSize: frame.size)
+        let spawnPosition = enemy.getSpawnPosition(vcFrameSize: frame.size, uiHeight: self.uiBackground!.frame.height)
         enemy.position = spawnPosition
         gameLayer.addChild(enemy)
         
@@ -133,8 +138,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Enemy flies toward player
         enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
             // Despawn enemy and take damage if action completes
-            if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
-                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
+            if(enemy.position.x <= 0 || enemy.position.y <= 0 || enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height - self.uiBackground!.frame.height) {
                 self.killEnemy(enemy: enemy)
             } else {
                 enemy.removeAllChildren()
@@ -281,7 +285,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Check if it drops a coin
         let coinDrop = random(min: 1, max: 100)
         let heartDrop = random(min: 1, max: 100)
-        if coinDrop <= 60 {
+        if coinDrop <= 75 {
             // Drop coin
             enemy.dropCoin()
             
@@ -316,14 +320,15 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         dx *= 0.15
         dy *= 0.15
 //        print("dx final power: ", dx)
+        enemy.physicsBody?.friction = 1.0
+        
         
         enemy.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
         // Waits stunDuration and then stops the enemy in place and checks if it is off the screen
         enemy.run(SKAction.wait(forDuration: enemy.stunDuration), completion: {
             enemy.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             // If the enemy center is off the screen
-            if(enemy.position.x <= 0 || enemy.position.y <= 0 ||
-                enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height) {
+            if(enemy.position.x <= 0 || enemy.position.y <= 0 || enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height - self.uiBackground!.frame.height) {
                 self.killEnemy(enemy: enemy)
             }
         })

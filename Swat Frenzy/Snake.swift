@@ -27,7 +27,7 @@ class Snake: Enemy {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
+    override func getSpawnPosition(vcFrameSize: CGSize, uiHeight: CGFloat) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
         let y = size.height * 3/2 + size.height * BaseScene.sharedInstance().random(min: 0, max: 1)
         

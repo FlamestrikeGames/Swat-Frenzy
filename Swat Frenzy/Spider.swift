@@ -27,9 +27,9 @@ class Spider: Enemy {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
+    override func getSpawnPosition(vcFrameSize: CGSize, uiHeight: CGFloat) -> CGPoint {
         var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
-        let y = (vcFrameSize.height - (size.height * 3/2) - 25)
+        let y = (vcFrameSize.height - (size.height * 3/2) - uiHeight)
         
         if x < (size.width * 3/2) {
             x += size.width * 3/2
