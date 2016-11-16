@@ -56,7 +56,7 @@ class LevelNineScene: BaseScene {
         boss.physicsBody?.affectedByGravity = false
         boss.physicsBody?.usesPreciseCollisionDetection = true
         
-        let spawnPosition = boss.getSpawnPosition(vcFrameSize: frame.size)
+        let spawnPosition = boss.getSpawnPosition(vcFrameSize: frame.size, uiHeight: uiBackground!.frame.height)
         boss.position = spawnPosition
         gameLayer.addChild(boss)
         

@@ -26,7 +26,7 @@ class GameOverScene: SKScene {
         let winMessage = initializeVictoryMessage(forLevel: level)
         
         let message = won ? winMessage :
-                            ["You suffered a horrible death!"]
+                            ["You suffered a horrible death! Try increasing your stats first!"]
         
         let label = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         label.text = message.first

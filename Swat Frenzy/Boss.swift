@@ -30,7 +30,7 @@ class Boss: Enemy {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func getSpawnPosition(vcFrameSize: CGSize) -> CGPoint {
+    override func getSpawnPosition(vcFrameSize: CGSize, uiHeight: CGFloat) -> CGPoint {
         let x = (vcFrameSize.width / 2)
         let y = (vcFrameSize.height / 2)
         return CGPoint(x: x, y:y)

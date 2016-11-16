@@ -21,11 +21,9 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.blueColor
         initializeValues()
         checkValues()
-        // disable button if not enough gold
-        playerGold.text = String(player.goldAmount)
-
     }
     
     @IBAction func backButtonTouch(_ sender: AnyObject) {
@@ -46,6 +44,7 @@ class StatsViewController: UIViewController {
     }
     
     func initializeValues() {
+        playerGold.text = String(player.goldAmount)
         costToIncHealth.text = String(player.maxHealth - 49)
         costToIncPower.text = String(player.power)
         currentPlayerMaxHealth.text = String(player.maxHealth)
@@ -62,10 +61,16 @@ class StatsViewController: UIViewController {
     
     func checkValues() {
         if player.goldAmount < Int(costToIncHealth.text!)! {
+            costToIncHealth.textColor = UIColor.red
             addHealthButton.isUserInteractionEnabled = false
+        } else {
+            costToIncHealth.textColor = UIColor.green
         }
         if player.goldAmount < Int(costToIncPower.text!)! {
+            costToIncPower.textColor = UIColor.red
             addPowerButton.isUserInteractionEnabled = false
+        } else {
+            costToIncPower.textColor = UIColor.green
         }
     }
     

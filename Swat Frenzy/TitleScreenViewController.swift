@@ -9,6 +9,11 @@
 import UIKit
 
 class TitleScreenViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Colors.blueColor
+    }
 
     @IBAction func resetGameProgress(_ sender: Any) {
         let userDef = UserDefaults.standard

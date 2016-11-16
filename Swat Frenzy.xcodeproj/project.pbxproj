@@ -50,6 +50,7 @@
 		7B6136AD1DBADC250071F95C /* LevelSixScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6136AC1DBADC250071F95C /* LevelSixScene.swift */; };
 		7B6136AF1DBADCB70071F95C /* Spider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6136AE1DBADCB70071F95C /* Spider.swift */; };
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
+		7B84E0711DDC409400159506 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B84E0701DDC409400159506 /* Colors.swift */; };
 		7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */; };
 		7BA229621DC418C800C6EEC3 /* introMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BA229611DC418C800C6EEC3 /* introMusic.wav */; };
 		7BA229641DC6978000C6EEC3 /* arcadeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BA229631DC6978000C6EEC3 /* arcadeMusic.wav */; };
@@ -137,6 +138,7 @@
 		7B6136AC1DBADC250071F95C /* LevelSixScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSixScene.swift; sourceTree = "<group>"; };
 		7B6136AE1DBADCB70071F95C /* Spider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spider.swift; sourceTree = "<group>"; };
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		7B84E0701DDC409400159506 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mosquito.swift; sourceTree = "<group>"; };
 		7BA229611DC418C800C6EEC3 /* introMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = introMusic.wav; path = Sounds/introMusic.wav; sourceTree = "<group>"; };
 		7BA229631DC6978000C6EEC3 /* arcadeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = arcadeMusic.wav; path = Sounds/arcadeMusic.wav; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				7B5565981DD400B0008640D1 /* Particles */,
 				668367101DA7337000521D03 /* SWBlade.swift */,
 				66B106611DA5CE43006F314A /* AppDelegate.swift */,
+				7B84E0701DDC409400159506 /* Colors.swift */,
 				7B5DE7891DAF128800BA7226 /* CustomLevelCell.swift */,
 				7B4F86021DB5798B00748F0E /* Player.swift */,
 				7B4F86011DB4BE7000748F0E /* Enemies */,
@@ -543,6 +546,7 @@
 				7B4F85FC1DB4605000748F0E /* Enemy.swift in Sources */,
 				7BBCEC871DD2813B00015BF1 /* StatsViewController.swift in Sources */,
 				7B6136AD1DBADC250071F95C /* LevelSixScene.swift in Sources */,
+				7B84E0711DDC409400159506 /* Colors.swift in Sources */,
 				668367111DA7337000521D03 /* SWBlade.swift in Sources */,
 				7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */,
 				66B106621DA5CE43006F314A /* AppDelegate.swift in Sources */,

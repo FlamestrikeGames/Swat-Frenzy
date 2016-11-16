@@ -21,6 +21,7 @@ class LevelSelectViewController: UICollectionViewController {
     @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.blueColor
         initializePlayer()
         
         let space: CGFloat = 15.0
