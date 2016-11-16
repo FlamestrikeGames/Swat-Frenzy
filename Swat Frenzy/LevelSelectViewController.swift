@@ -69,6 +69,7 @@ class LevelSelectViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomLevelCell", for: indexPath) as! CustomLevelCell
+        cell.initializeBackground()
         
         cell.setLevel(level: indexPath.row + 1)
         var imageName: String

@@ -476,6 +476,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func removePauseMenu() {
+        gameLayer.isPaused = false
         backgroundSoundFX.play()
         pauseLayer.removeFromParent()
         for child in gameLayer.children {
@@ -484,7 +485,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         self.physicsWorld.speed = 1.0
-        gameLayer.isPaused = false
     }
     
     // MARK: - Helper Functions

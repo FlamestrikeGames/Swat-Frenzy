@@ -14,11 +14,17 @@ class CustomLevelCell: UICollectionViewCell {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var lockedLabel: UILabel!
     
+    func initializeBackground() {
+        backgroundImage.layer.cornerRadius = 10.0
+        backgroundImage.layer.masksToBounds = true
+    }
+    
     func setLevel(level: Int) {
         levelLabel.text = "Level " + String(level)
     }
     
     func setBackground(background: UIImage) {
+
         backgroundImage.image = background
     }
 }

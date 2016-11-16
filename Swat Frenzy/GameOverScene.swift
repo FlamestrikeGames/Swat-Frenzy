@@ -52,9 +52,18 @@ class GameOverScene: SKScene {
             }
         }
         
-        let replayMessage = "Replay Level"
+        if(level != 9) {
+            let nextLevelButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
+            nextLevelButton.text = "Next Level"
+            nextLevelButton.fontColor = SKColor.blue
+            nextLevelButton.position = CGPoint(x: size.width/2, y: size.height/3)
+            nextLevelButton.name = "nextLevel"
+            addChild(nextLevelButton)
+        }
+
+        
         let replayButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
-        replayButton.text = replayMessage
+        replayButton.text = "Replay Level"
         replayButton.fontColor = SKColor.blue
         replayButton.position = CGPoint(x: size.width/2, y: size.height/4)
         replayButton.name = "replay"
@@ -64,7 +73,7 @@ class GameOverScene: SKScene {
         let levelSelectButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
         levelSelectButton.text = levelSelect
         levelSelectButton.fontColor = SKColor.blue
-        levelSelectButton.position = CGPoint(x: size.width/2, y: size.height/7)
+        levelSelectButton.position = CGPoint(x: size.width/2, y: size.height/6)
         levelSelectButton.name = "levelSelect"
         addChild(levelSelectButton)
         
@@ -85,9 +94,12 @@ class GameOverScene: SKScene {
          
             let touchLocation = touch.location(in: self)
             let touchedNode = self.atPoint(touchLocation)
-            if(touchedNode.name == "replay") {
+            if(touchedNode.name == "replay" || touchedNode.name == "nextLevel") {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 var scene: BaseScene?
+                if(touchedNode.name == "nextLevel") {
+                    level = level + 1
+                }
                 switch(level) {
                 case 1: scene = LevelOneScene(fileNamed: "BaseScene")
                 case 2: scene = LevelTwoScene(fileNamed: "BaseScene")
