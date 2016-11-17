@@ -60,17 +60,34 @@ class StatsViewController: UIViewController {
     }
     
     func checkValues() {
-        if player.goldAmount < Int(costToIncHealth.text!)! {
+        // check if increased to max
+        if(player.maxHealth - 49 >= 75) {
+            costToIncHealth.text = "MAX"
             costToIncHealth.textColor = UIColor.red
             addHealthButton.isUserInteractionEnabled = false
+            addHealthButton.alpha = 0.5
         } else {
-            costToIncHealth.textColor = UIColor.green
+            if player.goldAmount < Int(costToIncHealth.text!)! {
+                costToIncHealth.textColor = UIColor.red
+                addHealthButton.isUserInteractionEnabled = false
+                addHealthButton.alpha = 0.5
+            } else {
+                costToIncHealth.textColor = UIColor.green
+            }
         }
-        if player.goldAmount < Int(costToIncPower.text!)! {
+        if (player.power >= 100) {
+            costToIncPower.text = "MAX"
             costToIncPower.textColor = UIColor.red
             addPowerButton.isUserInteractionEnabled = false
+            addPowerButton.alpha = 0.5
         } else {
-            costToIncPower.textColor = UIColor.green
+            if player.goldAmount < Int(costToIncPower.text!)! {
+                costToIncPower.textColor = UIColor.red
+                addPowerButton.isUserInteractionEnabled = false
+                addPowerButton.alpha = 0.5
+            } else {
+                costToIncPower.textColor = UIColor.green
+            }
         }
     }
     

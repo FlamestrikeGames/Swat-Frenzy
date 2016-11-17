@@ -15,9 +15,9 @@ class Fly: Enemy {
         initializeAtlas(enemyName: "Fly")
 
         name = "fly"
-        damage = 10.0
-        stunDuration = 0.5
-        aliveDuration = 4.0
+        damage = 5.0
+        stunDuration = 0.6
+        aliveDuration = 5.0
         soundEffectFile = "fly.wav"
         goldValue = 2
     }

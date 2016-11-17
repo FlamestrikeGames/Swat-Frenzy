@@ -12,7 +12,7 @@ import SpriteKit
 
 class Boss: Enemy {
     
-    var currentHealth: Int = 7500
+    var currentHealth: Int = 10000
     
     init() {
         super.init(image: "boss")
@@ -23,7 +23,7 @@ class Boss: Enemy {
         stunDuration = 0.0
         aliveDuration = 300.0
         soundEffectFile = "wasp.wav"
-        goldValue = 100
+        goldValue = 500
     }
     
     required init(coder aDecoder: NSCoder) {

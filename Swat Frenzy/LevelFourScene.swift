@@ -16,7 +16,7 @@ class LevelFourScene: BaseScene {
         initializeBoard()
         
         currentLevel = 4
-        enemiesToKill = 25
+        enemiesToKill = 45
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "mosquito")
 
@@ -27,11 +27,14 @@ class LevelFourScene: BaseScene {
             self.gameLayer.run(SKAction.repeatForever(
                 SKAction.sequence([
                     SKAction.run({
-                        let enemy = Mosquito()  
+                        let enemy = Mosquito()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
+                        let enemy2 = Mosquito()
+                        enemy2.playEnemySound()
+                        self.spawnEnemy(enemy: enemy2)
                     }),
-                    SKAction.wait(forDuration: 1.5)
+                    SKAction.wait(forDuration: 1.75)
                     ])
                 )
             )

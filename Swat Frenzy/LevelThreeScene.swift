@@ -15,7 +15,7 @@ class LevelThreeScene: BaseScene {
         initializeBackground(withName: "houseBackground", withAlpha: 1.0)
         
         currentLevel = 3
-        enemiesToKill = 25
+        enemiesToKill = 40
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "bee")
         
@@ -28,8 +28,12 @@ class LevelThreeScene: BaseScene {
                         let enemy = Bee()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
+                        let enemy2 = Bee()
+                        enemy2.playEnemySound()
+                        self.spawnEnemy(enemy: enemy2)
+                        
                     }),
-                    SKAction.wait(forDuration: 1.5)
+                    SKAction.wait(forDuration: 2)
                     ])
                 )
             )

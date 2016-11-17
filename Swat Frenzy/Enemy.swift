@@ -100,9 +100,10 @@ class Enemy: SKSpriteNode {
         )
     }
     
-    func beginMovement(vcFrameSize: CGSize) {
+    func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
         let x = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
-        let y = BaseScene.sharedInstance().random(min: size.height * 2, max: vcFrameSize.height - (size.height * 2))
+        let y = BaseScene.sharedInstance().random(min: size.height * 2,
+                                                  max: vcFrameSize.height - (size.height * 2) - uiHeight)
         
         // change direction if moving left
         if x < self.position.x {

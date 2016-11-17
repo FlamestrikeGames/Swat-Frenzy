@@ -16,9 +16,9 @@ class Snake: Enemy {
         initializeAtlas(enemyName: "Snake")
 
         name = "snake"
-        damage = 20.0
+        damage = 15.0
         stunDuration = 0.25
-        aliveDuration = 4.0
+        aliveDuration = 5.0
         soundEffectFile = "hiss.wav"
         goldValue = 10
     }
@@ -37,10 +37,10 @@ class Snake: Enemy {
         return CGPoint(x: x, y:y)
     }
     
-    override func beginMovement(vcFrameSize: CGSize) {
+    override func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
         let moveX = BaseScene.sharedInstance().random(min: size.width*2, max: vcFrameSize.width - size.width*2)
         let moveY = BaseScene.sharedInstance().random(min: vcFrameSize.height / 2,
-                                                      max: vcFrameSize.height - (size.height) - 50)
+                                                      max: vcFrameSize.height - (size.height) - 50 - uiHeight)
         let moveDuration = 0.5 + ((abs(self.position.x - moveX) + abs(self.position.y - moveY)) / 1000)
         
         

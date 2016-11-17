@@ -15,7 +15,7 @@ class LevelSevenScene: BaseScene {
         initializeBackground(withName: "gardenBackground", withAlpha: 1.0)
                 
         currentLevel = 7
-        enemiesToKill = 30
+        enemiesToKill = 45
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "snake")
         enemySprite2?.texture = SKTexture(imageNamed: "bee")
@@ -33,13 +33,13 @@ class LevelSevenScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0),
+                    SKAction.wait(forDuration: 1.25),
                     SKAction.run({
                         let enemy = Bee()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.25)
+                    SKAction.wait(forDuration: 0.5)
                     ])
                 )
             )

@@ -15,9 +15,9 @@ class Bee: Enemy {
         initializeAtlas(enemyName: "Bee")
 
         name = "bee"
-        damage = 15.0
-        stunDuration = 0.25
-        aliveDuration = 3.0
+        damage = 7.5
+        stunDuration = 0.4
+        aliveDuration = 5.0
         soundEffectFile = "bumblebee.wav"
         goldValue = 4
     }

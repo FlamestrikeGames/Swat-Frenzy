@@ -16,7 +16,7 @@ class LevelSixScene: BaseScene {
         initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
 
         currentLevel = 6
-        enemiesToKill = 30
+        enemiesToKill = 45
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.run(SKAction.resize(toWidth: 50, duration: 0.0))
         enemySprite?.texture = SKTexture(imageNamed: "spider")
@@ -30,8 +30,11 @@ class LevelSixScene: BaseScene {
                         let enemy = Spider()
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
+                        let enemy2 = Spider()
+                        enemy2.playEnemySound()
+                        self.spawnEnemy(enemy: enemy2)
                     }),
-                    SKAction.wait(forDuration: 1.25)
+                    SKAction.wait(forDuration: 1.5)
                     ])
                 )
             )

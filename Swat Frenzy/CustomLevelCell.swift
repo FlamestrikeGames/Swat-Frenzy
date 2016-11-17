@@ -20,7 +20,7 @@ class CustomLevelCell: UICollectionViewCell {
     }
     
     func setLevel(level: Int) {
-        levelLabel.text = "Level " + String(level)
+        levelLabel.text = String(level)
     }
     
     func setBackground(background: UIImage) {

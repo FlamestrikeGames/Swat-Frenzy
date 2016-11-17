@@ -15,9 +15,9 @@ class Wasp: Enemy {
         initializeAtlas(enemyName: "Wasp")
 
         name = "wasp"
-        damage = 20.0
-        stunDuration = 0.15
-        aliveDuration = 5
+        damage = 17.5
+        stunDuration = 0.2
+        aliveDuration = 5.0
         soundEffectFile = "wasp.wav"
         goldValue = 12
     }

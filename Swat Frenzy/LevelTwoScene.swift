@@ -15,7 +15,7 @@ class LevelTwoScene: BaseScene {
         initializeBackground(withName: "woodsBackground", withAlpha: 1.0)
 
         currentLevel = 2
-        enemiesToKill = 20
+        enemiesToKill = 40
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "fly")
         
@@ -29,7 +29,7 @@ class LevelTwoScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.5)
+                    SKAction.wait(forDuration: 1.0)
                     ])
                 )
             )

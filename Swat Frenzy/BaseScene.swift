@@ -152,7 +152,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             }
         })
         
-        enemy.beginMovement(vcFrameSize: frame.size)
+        enemy.beginMovement(vcFrameSize: frame.size, uiHeight: uiBackground!.frame.height)
         enemy.animateEnemy()
     }
 
@@ -285,7 +285,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // Check if it drops a coin
         let coinDrop = random(min: 1, max: 100)
         let heartDrop = random(min: 1, max: 100)
-        if coinDrop <= 75 {
+        if coinDrop <= 80 {
             // Drop coin
             enemy.dropCoin()
             

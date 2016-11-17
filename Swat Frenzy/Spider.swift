@@ -16,9 +16,9 @@ class Spider: Enemy {
         initializeAtlas(enemyName: "Spider")
 
         name = "spider"
-        damage = 15.0
-        stunDuration = 0.25
-        aliveDuration = 4
+        damage = 12.5
+        stunDuration = 0.3
+        aliveDuration = 5.0
         soundEffectFile = "spider.wav"
         goldValue = 8
     }
@@ -37,9 +37,10 @@ class Spider: Enemy {
         return CGPoint(x: x, y:y)
     }
     
-    override func beginMovement(vcFrameSize: CGSize) {
+    override func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
         let moveX = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
-        let moveY = BaseScene.sharedInstance().random(min: size.height * 2, max: vcFrameSize.height - (size.height * 4))
+        let moveY = BaseScene.sharedInstance().random(min: size.height * 2,
+                                                      max: vcFrameSize.height - (size.height * 4) - uiHeight)
         let moveDuration = 0.5 + ((abs(self.position.x - moveX) + abs(self.position.y - moveY)) / 1000)
         run(SKAction.move(to: CGPoint(x: moveX,y: moveY), duration: TimeInterval(moveDuration)),
             withKey: "move"
