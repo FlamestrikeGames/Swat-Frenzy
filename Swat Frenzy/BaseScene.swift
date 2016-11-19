@@ -304,22 +304,23 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         var dx = enemy.position.x - weaponStartPosition.x
   //      print("dx initial power: ", dx)
         var dy = enemy.position.y - weaponStartPosition.y
-        let playerPower = CGFloat(player.power) * 10.0 / 3.0
+        let playerPower = CGFloat(player.power) * 5.0 / 3.0
+  //      print("playerPower is: ", player.power)
         if dx < 0 {
             dx -= playerPower
         } else {
             dx += playerPower
         }
- //       print("dx with playerpower: ", dx)
+  //      print("dx with playerpower: ", dx)
         if dy < 0 {
             dy -= playerPower
         } else {
             dy += playerPower
             
         }
-        dx *= 0.15
-        dy *= 0.15
-//        print("dx final power: ", dx)
+        dx *= 0.2
+        dy *= 0.2
+  //      print("dx final power: ", dx)
         enemy.physicsBody?.friction = 1.0
         
         

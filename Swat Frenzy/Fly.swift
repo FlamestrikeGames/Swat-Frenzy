@@ -19,7 +19,7 @@ class Fly: Enemy {
         stunDuration = 0.6
         aliveDuration = 5.0
         soundEffectFile = "fly.wav"
-        goldValue = 2
+        goldValue = 1
     }
     
     required init(coder aDecoder: NSCoder) {

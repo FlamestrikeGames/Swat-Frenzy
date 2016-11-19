@@ -225,6 +225,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addHealth:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="SLs-oV-BBZ"/>
+                                    <action selector="healthHoldDown:" destination="qY2-Ff-0jG" eventType="touchDown" id="iPw-2e-KWE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-a8-D6d">
@@ -274,7 +275,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xf-z5-PRX">
                                 <rect key="frame" x="426" y="277" width="32" height="32"/>
                                 <color key="backgroundColor" red="1" green="0.94509803920000002" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="plus"/>
+                                <state key="normal" image="plus">
+                                    <color key="titleColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <state key="selected" image="plusHighlighted"/>
                                 <state key="highlighted" image="plusHighlighted"/>
                                 <userDefinedRuntimeAttributes>
@@ -284,6 +287,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addPower:" destination="qY2-Ff-0jG" eventType="touchUpInside" id="7eB-aR-2LG"/>
+                                    <action selector="powerHoldDown:" destination="qY2-Ff-0jG" eventType="touchDown" id="YXL-08-4Fr"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-9V-eyM">

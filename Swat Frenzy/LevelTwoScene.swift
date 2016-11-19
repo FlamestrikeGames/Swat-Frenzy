@@ -15,7 +15,7 @@ class LevelTwoScene: BaseScene {
         initializeBackground(withName: "woodsBackground", withAlpha: 1.0)
 
         currentLevel = 2
-        enemiesToKill = 40
+        enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "fly")
         

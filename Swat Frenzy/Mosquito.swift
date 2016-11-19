@@ -20,7 +20,7 @@ class Mosquito: Enemy {
         stunDuration = 0.35
         aliveDuration = 5.0
         soundEffectFile = "mosquito.wav"
-        goldValue = 6
+        goldValue = 4
     }
     
     required init(coder aDecoder: NSCoder) {

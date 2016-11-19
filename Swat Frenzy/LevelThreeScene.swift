@@ -15,7 +15,7 @@ class LevelThreeScene: BaseScene {
         initializeBackground(withName: "houseBackground", withAlpha: 1.0)
         
         currentLevel = 3
-        enemiesToKill = 40
+        enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)
         enemySprite?.texture = SKTexture(imageNamed: "bee")
         

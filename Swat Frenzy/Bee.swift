@@ -19,7 +19,7 @@ class Bee: Enemy {
         stunDuration = 0.4
         aliveDuration = 5.0
         soundEffectFile = "bumblebee.wav"
-        goldValue = 4
+        goldValue = 2
     }
     
     required init(coder aDecoder: NSCoder) {

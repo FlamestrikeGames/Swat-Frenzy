@@ -192,6 +192,7 @@ class LevelNineScene: BaseScene {
                 bossBody.run(SKAction.colorize(with: .black, colorBlendFactor: 0.0, duration: 0.1))
             })
             // do something when hitting boss
+            boss.releaseHitParticles()
             // play damage sound
             bossBody.run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
             boss.takeDamage(amount: player.power)
