@@ -22,9 +22,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-9P-Gpj">
+                                <rect key="frame" x="226" y="297" width="215" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="zq7-O9-t2n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <state key="normal" title="Reset Game Progress">
+                                    <color key="titleColor" red="0.41703906299999999" green="0.81002040639999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetGameProgress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wby-Zn-7YM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swat Frenzy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFu-Sk-jpw">
+                                <rect key="frame" x="150" y="37.5" width="366.5" height="76.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="70"/>
+                                <color key="textColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFK-XJ-v7U">
+                                <rect key="frame" x="233" y="231" width="200" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1po-O4-ZfT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="How to play">
+                                    <color key="titleColor" red="0.98651319943265492" green="0.99689754890036708" blue="0.99689754890036708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayTutorial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eqf-ys-Dze"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2p-Dh-9hX">
-                                <rect key="frame" x="285" y="151.5" width="97" height="72"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="55"/>
+                                <rect key="frame" x="273.5" y="154" width="120" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="mka-VV-Ak4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="50"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.053398947306445572" green="0.84346664507772018" blue="0.030051673646560667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -32,33 +67,25 @@
                                     <segue destination="zrY-EM-e5f" kind="show" id="4Ci-bh-xhA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-9P-Gpj">
-                                <rect key="frame" x="228" y="305" width="211" height="40"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
-                                <state key="normal" title="Reset Game Progress">
-                                    <color key="titleColor" red="0.28952736501695819" green="0.74271076904025746" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetGameProgress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wby-Zn-7YM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swat Frenzy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFu-Sk-jpw">
-                                <rect key="frame" x="150" y="50" width="366.5" height="76.5"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="70"/>
-                                <color key="textColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23529411759999999" green="0.38823529410000002" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RFK-XJ-v7U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3wb-EH-yfd"/>
                             <constraint firstItem="KFu-Sk-jpw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5N1-op-pr3"/>
+                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="top" secondItem="RFK-XJ-v7U" secondAttribute="bottom" constant="10" id="M83-JS-IhS"/>
                             <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QnF-A3-Dqn"/>
                             <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bA8-mt-tBC"/>
-                            <constraint firstItem="KFu-Sk-jpw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="rz3-If-PvJ"/>
                             <constraint firstItem="HFa-9P-Gpj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s5N-zD-Mh2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HFa-9P-Gpj" secondAttribute="bottom" constant="30" id="thN-wG-cyP"/>
+                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="40" id="tSa-Jy-u0S"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HFa-9P-Gpj" secondAttribute="bottom" constant="38" id="thN-wG-cyP"/>
+                            <constraint firstItem="RFK-XJ-v7U" firstAttribute="top" secondItem="g2p-Dh-9hX" secondAttribute="bottom" constant="10" id="y7d-nz-Sh9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="g2p-Dh-9hX" id="WeI-Qj-w6Y"/>
+                        <outlet property="resetButton" destination="HFa-9P-Gpj" id="l5c-rA-teD"/>
+                        <outlet property="tutorialButton" destination="RFK-XJ-v7U" id="7cH-D7-h38"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
