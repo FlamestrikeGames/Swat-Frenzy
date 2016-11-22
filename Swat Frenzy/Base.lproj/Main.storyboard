@@ -91,6 +91,186 @@
             </objects>
             <point key="canvasLocation" x="135.38230884557723" y="124"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="8c3-cL-U17">
+            <objects>
+                <viewController storyboardIdentifier="tutorialViewController" id="fIx-wi-CYL" customClass="TutorialViewController" customModule="Swat_Frenzy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Yl-e7-KjA"/>
+                        <viewControllerLayoutGuide type="bottom" id="cR8-2O-sKN"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="ktl-Ge-moj">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-OB-g7c">
+                                <rect key="frame" x="30" y="40" width="607" height="295"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe enemies off the screen before they attack!                                    Pay attention to their circle indicators!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hsf-Fh-Hfj">
+                                        <rect key="frame" x="8" y="23" width="591" height="43.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete the objective to win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIZ-Gc-Eud">
+                                        <rect key="frame" x="180" y="238.5" width="248" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The bigger the swipe, the further they fly!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-j9-gC6">
+                                        <rect key="frame" x="128" y="136.5" width="352" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6O-ja-Z9g">
+                                        <rect key="frame" x="522" y="240" width="65" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="URP-BH-EyF"/>
+                                            <constraint firstAttribute="height" constant="35" id="cJu-Q8-4Yn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Got it!"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dismissTutorial:" destination="fIx-wi-CYL" eventType="touchUpInside" id="euM-vS-nBP"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial1" translatesAutoresizingMaskIntoConstraints="NO" id="Lm9-VD-uCy">
+                                        <rect key="frame" x="155" y="168" width="117" height="57"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial3" translatesAutoresizingMaskIntoConstraints="NO" id="VcS-Ui-0Zy">
+                                        <rect key="frame" x="199" y="84" width="37" height="37"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial4" translatesAutoresizingMaskIntoConstraints="NO" id="Amu-zw-ECM">
+                                        <rect key="frame" x="286" y="84" width="37" height="37"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial5" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-XP-nD5">
+                                        <rect key="frame" x="373" y="84" width="37" height="37"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial2" translatesAutoresizingMaskIntoConstraints="NO" id="UwV-WT-39r">
+                                        <rect key="frame" x="339" y="168" width="105" height="55"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.38823529410000002" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sM5-j9-gC6" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="70" id="9nT-ia-UrT"/>
+                                    <constraint firstItem="VcS-Ui-0Zy" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="17.5" id="AdL-2O-sQg"/>
+                                    <constraint firstItem="sM5-j9-gC6" firstAttribute="centerY" secondItem="gFf-OB-g7c" secondAttribute="centerY" id="C6Z-i9-PMr"/>
+                                    <constraint firstItem="ZIZ-Gc-Eud" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="F71-Eq-p0e"/>
+                                    <constraint firstItem="Zyk-XP-nD5" firstAttribute="leading" secondItem="Amu-zw-ECM" secondAttribute="trailing" constant="50" id="Lf1-1X-U0b"/>
+                                    <constraint firstItem="Amu-zw-ECM" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="17.5" id="NMF-K1-geZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hsf-Fh-Hfj" secondAttribute="trailing" constant="8" id="Q4e-ER-gLm"/>
+                                    <constraint firstItem="UwV-WT-39r" firstAttribute="top" secondItem="sM5-j9-gC6" secondAttribute="bottom" constant="10" id="RD5-4B-UmS"/>
+                                    <constraint firstItem="Hsf-Fh-Hfj" firstAttribute="leading" secondItem="gFf-OB-g7c" secondAttribute="leading" constant="8" id="Uf7-XM-4tm"/>
+                                    <constraint firstItem="Lm9-VD-uCy" firstAttribute="leading" secondItem="gFf-OB-g7c" secondAttribute="leading" constant="155" id="Wjf-1S-qDa"/>
+                                    <constraint firstItem="sM5-j9-gC6" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="X3K-rc-0ac"/>
+                                    <constraint firstAttribute="trailing" secondItem="O6O-ja-Z9g" secondAttribute="trailing" constant="20" id="adb-Cx-i36"/>
+                                    <constraint firstAttribute="trailing" secondItem="UwV-WT-39r" secondAttribute="trailing" constant="163" id="c9u-i5-1w2"/>
+                                    <constraint firstItem="Amu-zw-ECM" firstAttribute="leading" secondItem="VcS-Ui-0Zy" secondAttribute="trailing" constant="50" id="cjx-Zn-nbf"/>
+                                    <constraint firstItem="Amu-zw-ECM" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" constant="1" id="jnI-Zj-P3f"/>
+                                    <constraint firstItem="Zyk-XP-nD5" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="17.5" id="oaI-uS-cuW"/>
+                                    <constraint firstItem="ZIZ-Gc-Eud" firstAttribute="top" secondItem="sM5-j9-gC6" secondAttribute="bottom" constant="80" id="pOA-3a-a10"/>
+                                    <constraint firstItem="sM5-j9-gC6" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="t0c-BU-MaT"/>
+                                    <constraint firstItem="Lm9-VD-uCy" firstAttribute="top" secondItem="sM5-j9-gC6" secondAttribute="bottom" constant="10" id="uP2-2h-TVt"/>
+                                    <constraint firstAttribute="bottom" secondItem="O6O-ja-Z9g" secondAttribute="bottom" constant="20" id="xAU-UH-wOQ"/>
+                                    <constraint firstItem="Hsf-Fh-Hfj" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="y9l-kT-Chd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gFf-OB-g7c" secondAttribute="trailing" constant="10" id="NyC-lN-AhT"/>
+                            <constraint firstItem="gFf-OB-g7c" firstAttribute="top" secondItem="2Yl-e7-KjA" secondAttribute="bottom" constant="20" id="SEV-VZ-3Ea"/>
+                            <constraint firstItem="gFf-OB-g7c" firstAttribute="centerX" secondItem="ktl-Ge-moj" secondAttribute="centerX" id="i77-AA-udW"/>
+                            <constraint firstItem="gFf-OB-g7c" firstAttribute="centerY" secondItem="ktl-Ge-moj" secondAttribute="centerY" id="nYR-5S-RmF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNO-IQ-oDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.48275862068968" y="904.79999999999995"/>
+        </scene>
         <!--Level Select View Controller-->
         <scene sceneID="8aj-bQ-8x3">
             <objects>
@@ -428,5 +608,10 @@
         <image name="plusHighlighted" width="32" height="32"/>
         <image name="powerIcon" width="32" height="32"/>
         <image name="statsButton" width="64" height="64"/>
+        <image name="tutorial1" width="117" height="57"/>
+        <image name="tutorial2" width="105" height="55"/>
+        <image name="tutorial3" width="37" height="37"/>
+        <image name="tutorial4" width="37" height="37"/>
+        <image name="tutorial5" width="37" height="37"/>
     </resources>
 </document>

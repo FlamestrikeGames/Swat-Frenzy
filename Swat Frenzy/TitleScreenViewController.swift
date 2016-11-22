@@ -43,7 +43,11 @@ class TitleScreenViewController: UIViewController {
     }
 
     @IBAction func displayTutorial(_ sender: Any) {
-        
+        let tutorialVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tutorialViewController") as! TutorialViewController
+        self.addChildViewController(tutorialVC)
+        tutorialVC.view.frame = view.frame
+        view.addSubview(tutorialVC.view)
+        tutorialVC.didMove(toParentViewController: self)
     }
     
     @IBAction func resetGameProgress(_ sender: Any) {
