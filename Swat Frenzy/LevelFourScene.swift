@@ -14,7 +14,8 @@ class LevelFourScene: BaseScene {
         super.didMove(to: view)
         initializeBackground(withName: "insideHouse1", withAlpha: 0.7)
         initializeBoard()
-        
+        objective?.text = "Swat 45 Mosquitos off the screen!"
+
         currentLevel = 4
         enemiesToKill = 45
         enemiesLeft?.text = String(enemiesToKill!)

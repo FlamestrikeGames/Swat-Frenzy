@@ -18,6 +18,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var healthBaseWidth: CGFloat?
     var goldLabel: SKLabelNode?
     var uiBackground: SKSpriteNode?
+    var objective: SKLabelNode?
     
     var enemiesToKill: Int?
     var currentLevel: Int?
@@ -111,6 +112,22 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         if let uiBG = childNode(withName: "UIBackground") as? SKSpriteNode {
             uiBackground = uiBG
         }
+        
+        objective = SKLabelNode(fontNamed: "Marker Felt")
+        objective?.text = ""
+        objective?.fontSize = 40.0
+        objective?.fontColor = SKColor.white
+        objective?.position = CGPoint(x: size.width/2, y: size.height/2)
+        objective?.name = "objective"
+        objective?.zPosition = 0
+        addChild(objective!)
+        
+        objective?.alpha = 0.0
+        objective?.run(SKAction.fadeIn(withDuration: 1.5), completion: {
+            self.objective?.run(SKAction.fadeOut(withDuration: 1.5), completion: {
+                self.objective?.removeFromParent()
+            })
+        })
     }
     
     // MARK: - Game Logic
@@ -349,6 +366,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissSelf"), object: nil)
         } else if touchedNode.name == "resume" {
             removePauseMenu()
+        } else if touchedNode.name == "restartLevel" {
+            restartLevel()
         } else {
             weaponPosition = touchLocation
             weaponStartPosition = touchLocation
@@ -428,44 +447,68 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Pause Menu
     func initializePauseMenu() {
         let menuBackground = SKSpriteNode(imageNamed: "menuBackground")
-        menuBackground.size = CGSize(width: self.frame.size.width / 2, height: self.frame.size.height / 2)
+        menuBackground.size = CGSize(width: self.frame.size.width / 3, height: self.frame.size.height / 1.5)
         menuBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         menuBackground.zPosition = 50
         pauseLayer.addChild(menuBackground)
         
-        let mainMenuLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
-        mainMenuLabel.fontColor = .black
+        let mainMenuLabel = SKLabelNode(fontNamed: "Marker Felt")
+        mainMenuLabel.fontColor = Colors.blueColor
         mainMenuLabel.text = "Level Select"
-        mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        mainMenuLabel.position = CGPoint(x: self.frame.size.width / 2,
+                                         y: self.frame.size.height / 2  - mainMenuLabel.frame.height * 3)
         mainMenuLabel.zPosition = 51
         
-        let border = SKShapeNode(rectOf: CGSize(width: mainMenuLabel.frame.size.width + 5,
-                                                height: mainMenuLabel.frame.size.height + 5),
-                                 cornerRadius: 10.0)
+        let border = SKShapeNode(rectOf: CGSize(width: mainMenuLabel.frame.size.width + 20,
+                                                height: mainMenuLabel.frame.size.height + 10),
+                                 cornerRadius: 15.0)
         border.fillColor = .clear
         border.strokeColor = .black
         border.name = "levelSelect"
+        border.lineWidth = 2.0
         border.position.y += mainMenuLabel.frame.size.height / 2
         mainMenuLabel.addChild(border)
         
         pauseLayer.addChild(mainMenuLabel)
         
-        let resumeLabel = SKLabelNode(fontNamed: "Helvetica Neue Bold")
-        resumeLabel.fontColor = .black
+        let resumeLabel = SKLabelNode(fontNamed: "Marker Felt")
+        resumeLabel.fontColor = Colors.blueColor
         resumeLabel.text = "Resume"
         resumeLabel.position = CGPoint(x: self.frame.size.width / 2,
-                                       y: self.frame.size.height / 2  - menuBackground.frame.size.height / 5)
+                                       y: menuBackground.position.y + resumeLabel.frame.height)
         resumeLabel.zPosition = 51
         
-        let border2 = SKShapeNode(rectOf: CGSize(width: resumeLabel.frame.size.width + 5,
-                                                 height: resumeLabel.frame.size.height + 5),
-                                  cornerRadius: 10.0)
+        let border2 = SKShapeNode(rectOf: CGSize(width: resumeLabel.frame.size.width + 20,
+                                                 height: resumeLabel.frame.size.height + 10),
+                                  cornerRadius: 15.0)
         border2.fillColor = .clear
         border2.strokeColor = .black
         border2.name = "resume"
         border2.position.y += resumeLabel.frame.size.height / 2
+        border2.lineWidth = 2.0
+
         resumeLabel.addChild(border2)
         pauseLayer.addChild(resumeLabel)
+        
+        let restartLevel = SKLabelNode(fontNamed: "Marker Felt")
+        restartLevel.fontColor = Colors.blueColor
+        restartLevel.text = "Restart"
+        restartLevel.position = CGPoint(x: self.frame.size.width / 2,
+                                        y: self.frame.size.height / 2 - restartLevel.frame.height)
+        restartLevel.zPosition = 51
+        
+        let border3 = SKShapeNode(rectOf: CGSize(width: restartLevel.frame.size.width + 20,
+                                                height: restartLevel.frame.size.height + 10),
+                                 cornerRadius: 15.0)
+        border3.fillColor = .clear
+        border3.strokeColor = .black
+        border3.name = "restartLevel"
+        border3.position.y += restartLevel.frame.size.height / 2
+        border3.lineWidth = 2.0
+
+        restartLevel.addChild(border3)
+        
+        pauseLayer.addChild(restartLevel)
     }
 
     func showPauseMenu() {
@@ -491,6 +534,31 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         self.physicsWorld.speed = 1.0
+    }
+    
+    func restartLevel() {
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        var scene: BaseScene?
+        switch(currentLevel!) {
+        case 1: scene = LevelOneScene(fileNamed: "BaseScene")
+        case 2: scene = LevelTwoScene(fileNamed: "BaseScene")
+        case 3: scene = LevelThreeScene(fileNamed: "BaseScene")
+        case 4: scene = LevelFourScene(fileNamed: "BaseScene")
+        case 5: scene = LevelFiveScene(fileNamed: "BaseScene")
+        case 6: scene = LevelSixScene(fileNamed: "BaseScene")
+        case 7: scene = LevelSevenScene(fileNamed: "BaseScene")
+        case 8: scene = LevelEightScene(fileNamed: "BaseScene")
+        case 9: scene = LevelNineScene(fileNamed: "BaseScene")
+            
+        default: scene = BaseScene(fileNamed: "BaseScene")
+            break
+            
+        }
+        scene?.scaleMode = .aspectFill
+        player.currentHealth = player.maxHealth
+        scene?.player = player
+        self.view?.presentScene(scene!, transition:reveal)
+        
     }
     
     // MARK: - Helper Functions

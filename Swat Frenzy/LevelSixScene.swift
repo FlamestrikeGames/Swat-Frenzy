@@ -14,6 +14,7 @@ class LevelSixScene: BaseScene {
         super.didMove(to: view)
         initializeBackground(withName: "basement", withAlpha: 0.7)
         initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
+        objective?.text = "Swat 45 Spiders off the screen!"
 
         currentLevel = 6
         enemiesToKill = 45

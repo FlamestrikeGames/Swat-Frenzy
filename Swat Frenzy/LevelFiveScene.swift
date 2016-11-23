@@ -16,7 +16,8 @@ class LevelFiveScene: BaseScene {
         initializeBoard(location: CGPoint(x: self.frame.size.width / 4, y: self.frame.size.height / 2))
         initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2))
         initializeBoard(location: CGPoint(x: self.frame.size.width * 3 / 4, y: self.frame.size.height / 2))
-        
+        objective?.text = "Swat 45 Mosquitos off the screen!"
+
         currentLevel = 5
         enemiesToKill = 45
         enemiesLeft?.text = String(enemiesToKill!)

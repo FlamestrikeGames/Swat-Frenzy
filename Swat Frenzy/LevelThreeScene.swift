@@ -13,7 +13,8 @@ class LevelThreeScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         initializeBackground(withName: "houseBackground", withAlpha: 1.0)
-        
+        objective?.text = "Swat 30 Bees off the screen!"
+
         currentLevel = 3
         enemiesToKill = 30
         enemiesLeft?.text = String(enemiesToKill!)

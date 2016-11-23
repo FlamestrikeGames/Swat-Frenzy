@@ -20,6 +20,7 @@ class LevelNineScene: BaseScene {
         super.didMove(to: view)
         initializeBackground(withName: "bossBackground", withAlpha: 1.0)
         initializeBackgroundParticle()
+        objective?.text = "Defeat the boss!"
         
         currentLevel = 9
         enemySprite?.isHidden = true

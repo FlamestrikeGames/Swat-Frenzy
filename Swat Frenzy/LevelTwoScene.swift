@@ -13,6 +13,7 @@ class LevelTwoScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         initializeBackground(withName: "woodsBackground", withAlpha: 1.0)
+        objective?.text = "Swat 30 Flies off the screen!"
 
         currentLevel = 2
         enemiesToKill = 30

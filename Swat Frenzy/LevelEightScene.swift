@@ -13,7 +13,8 @@ class LevelEightScene: BaseScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         initializeBackground(withName: "waspNestBackground", withAlpha: 1.0)
-        
+        objective?.text = "Swat 60 Wasps off the screen!"
+
         currentLevel = 8
         enemiesToKill = 60
         enemiesLeft?.text = String(enemiesToKill!)
