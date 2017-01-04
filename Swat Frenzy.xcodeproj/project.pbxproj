@@ -65,6 +65,7 @@
 		7BE2C42F1DB99CD6001A9237 /* slap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C42E1DB99CD6001A9237 /* slap.wav */; };
 		7BE2C4311DB99FAE001A9237 /* fly.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4301DB99FAE001A9237 /* fly.wav */; };
 		7BE2C4331DB9A452001A9237 /* bumblebee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2C4321DB9A452001A9237 /* bumblebee.wav */; };
+		7BF0E17C1E1C66BB00880213 /* EndlessScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0E17B1E1C66BB00880213 /* EndlessScene.swift */; };
 		7BFF7D151DC1959300176B98 /* wasp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFF7D141DC1959300176B98 /* wasp.wav */; };
 		7BFF7D171DC195AC00176B98 /* Wasp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D161DC195AC00176B98 /* Wasp.swift */; };
 		7BFF7D191DC1965600176B98 /* LevelEightScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFF7D181DC1965600176B98 /* LevelEightScene.swift */; };
@@ -154,6 +155,7 @@
 		7BE2C42E1DB99CD6001A9237 /* slap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap.wav; path = Sounds/slap.wav; sourceTree = "<group>"; };
 		7BE2C4301DB99FAE001A9237 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = Sounds/fly.wav; sourceTree = "<group>"; };
 		7BE2C4321DB9A452001A9237 /* bumblebee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bumblebee.wav; path = Sounds/bumblebee.wav; sourceTree = "<group>"; };
+		7BF0E17B1E1C66BB00880213 /* EndlessScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndlessScene.swift; sourceTree = "<group>"; };
 		7BFF7D141DC1959300176B98 /* wasp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = wasp.wav; path = Sounds/wasp.wav; sourceTree = "<group>"; };
 		7BFF7D161DC195AC00176B98 /* Wasp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wasp.swift; sourceTree = "<group>"; };
 		7BFF7D181DC1965600176B98 /* LevelEightScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelEightScene.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				7BFF7D181DC1965600176B98 /* LevelEightScene.swift */,
 				7BFF7D1A1DC2ACDE00176B98 /* LevelNineScene.swift */,
 				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
+				7BF0E17B1E1C66BB00880213 /* EndlessScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,
 				7BFF7D1B1DC2ACDE00176B98 /* LevelNineScene.swift in Sources */,
 				7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */,
+				7BF0E17C1E1C66BB00880213 /* EndlessScene.swift in Sources */,
 				7B4F85FA1DB45DE300748F0E /* LevelFiveScene.swift in Sources */,
 				66B106641DA5CE43006F314A /* TitleScreenViewController.swift in Sources */,
 				7B5DE78A1DAF128800BA7226 /* CustomLevelCell.swift in Sources */,

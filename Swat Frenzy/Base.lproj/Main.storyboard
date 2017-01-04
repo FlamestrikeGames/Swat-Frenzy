@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-9P-Gpj">
-                                <rect key="frame" x="226" y="297" width="215" height="40"/>
+                                <rect key="frame" x="226" y="287" width="215" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="zq7-O9-t2n"/>
                                 </constraints>
@@ -36,13 +36,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swat Frenzy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFu-Sk-jpw">
-                                <rect key="frame" x="150" y="37.5" width="366.5" height="76.5"/>
+                                <rect key="frame" x="150" y="47.5" width="366.5" height="76.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="70"/>
                                 <color key="textColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFK-XJ-v7U">
-                                <rect key="frame" x="233" y="231" width="200" height="56"/>
+                                <rect key="frame" x="233" y="226" width="200" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1po-O4-ZfT"/>
                                 </constraints>
@@ -72,13 +72,12 @@
                         <constraints>
                             <constraint firstItem="RFK-XJ-v7U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3wb-EH-yfd"/>
                             <constraint firstItem="KFu-Sk-jpw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5N1-op-pr3"/>
-                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="top" secondItem="RFK-XJ-v7U" secondAttribute="bottom" constant="10" id="M83-JS-IhS"/>
+                            <constraint firstItem="HFa-9P-Gpj" firstAttribute="top" secondItem="RFK-XJ-v7U" secondAttribute="bottom" constant="5" id="M83-JS-IhS"/>
                             <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QnF-A3-Dqn"/>
                             <constraint firstItem="g2p-Dh-9hX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bA8-mt-tBC"/>
                             <constraint firstItem="HFa-9P-Gpj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s5N-zD-Mh2"/>
-                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="40" id="tSa-Jy-u0S"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HFa-9P-Gpj" secondAttribute="bottom" constant="38" id="thN-wG-cyP"/>
-                            <constraint firstItem="RFK-XJ-v7U" firstAttribute="top" secondItem="g2p-Dh-9hX" secondAttribute="bottom" constant="10" id="y7d-nz-Sh9"/>
+                            <constraint firstItem="g2p-Dh-9hX" firstAttribute="top" secondItem="KFu-Sk-jpw" secondAttribute="bottom" constant="30" id="tSa-Jy-u0S"/>
+                            <constraint firstItem="RFK-XJ-v7U" firstAttribute="top" secondItem="g2p-Dh-9hX" secondAttribute="bottom" constant="5" id="y7d-nz-Sh9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -151,7 +150,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial1" translatesAutoresizingMaskIntoConstraints="NO" id="Lm9-VD-uCy">
-                                        <rect key="frame" x="155" y="168" width="117" height="57"/>
+                                        <rect key="frame" x="164" y="168" width="117" height="57"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -211,7 +210,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial2" translatesAutoresizingMaskIntoConstraints="NO" id="UwV-WT-39r">
-                                        <rect key="frame" x="339" y="168" width="105" height="55"/>
+                                        <rect key="frame" x="328" y="169" width="105" height="55"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -230,6 +229,7 @@
                                 <constraints>
                                     <constraint firstItem="sM5-j9-gC6" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="70" id="9nT-ia-UrT"/>
                                     <constraint firstItem="VcS-Ui-0Zy" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="17.5" id="AdL-2O-sQg"/>
+                                    <constraint firstItem="UwV-WT-39r" firstAttribute="leading" secondItem="Amu-zw-ECM" secondAttribute="trailing" constant="5" id="BP7-fV-RA5"/>
                                     <constraint firstItem="sM5-j9-gC6" firstAttribute="centerY" secondItem="gFf-OB-g7c" secondAttribute="centerY" id="C6Z-i9-PMr"/>
                                     <constraint firstItem="ZIZ-Gc-Eud" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="F71-Eq-p0e"/>
                                     <constraint firstItem="Zyk-XP-nD5" firstAttribute="leading" secondItem="Amu-zw-ECM" secondAttribute="trailing" constant="50" id="Lf1-1X-U0b"/>
@@ -237,11 +237,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Hsf-Fh-Hfj" secondAttribute="trailing" constant="8" id="Q4e-ER-gLm"/>
                                     <constraint firstItem="UwV-WT-39r" firstAttribute="top" secondItem="sM5-j9-gC6" secondAttribute="bottom" constant="10" id="RD5-4B-UmS"/>
                                     <constraint firstItem="Hsf-Fh-Hfj" firstAttribute="leading" secondItem="gFf-OB-g7c" secondAttribute="leading" constant="8" id="Uf7-XM-4tm"/>
-                                    <constraint firstItem="Lm9-VD-uCy" firstAttribute="leading" secondItem="gFf-OB-g7c" secondAttribute="leading" constant="155" id="Wjf-1S-qDa"/>
                                     <constraint firstItem="sM5-j9-gC6" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" id="X3K-rc-0ac"/>
                                     <constraint firstAttribute="trailing" secondItem="O6O-ja-Z9g" secondAttribute="trailing" constant="20" id="adb-Cx-i36"/>
-                                    <constraint firstAttribute="trailing" secondItem="UwV-WT-39r" secondAttribute="trailing" constant="163" id="c9u-i5-1w2"/>
                                     <constraint firstItem="Amu-zw-ECM" firstAttribute="leading" secondItem="VcS-Ui-0Zy" secondAttribute="trailing" constant="50" id="cjx-Zn-nbf"/>
+                                    <constraint firstItem="Amu-zw-ECM" firstAttribute="leading" secondItem="Lm9-VD-uCy" secondAttribute="trailing" constant="5" id="dti-8f-2gv"/>
                                     <constraint firstItem="Amu-zw-ECM" firstAttribute="centerX" secondItem="gFf-OB-g7c" secondAttribute="centerX" constant="1" id="jnI-Zj-P3f"/>
                                     <constraint firstItem="Zyk-XP-nD5" firstAttribute="top" secondItem="Hsf-Fh-Hfj" secondAttribute="bottom" constant="17.5" id="oaI-uS-cuW"/>
                                     <constraint firstItem="ZIZ-Gc-Eud" firstAttribute="top" secondItem="sM5-j9-gC6" secondAttribute="bottom" constant="80" id="pOA-3a-a10"/>
@@ -315,11 +314,23 @@
                                         <action selector="statsButtonTouch:" destination="zrY-EM-e5f" eventType="touchUpInside" id="hRJ-7v-69o"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huE-ot-P0k">
+                                    <rect key="frame" x="30" y="70" width="64" height="64"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                    <state key="normal" title="Endless">
+                                        <color key="titleColor" red="0.4324987394" green="0.75248579550000005" blue="0.51696666520000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="endlessMode:" destination="zrY-EM-e5f" eventType="touchUpInside" id="SDw-2J-otx"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="oPV-gV-2NY" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="30" id="8a0-ib-TM0"/>
-                                <constraint firstItem="oPV-gV-2NY" firstAttribute="top" secondItem="p1S-ZM-JIV" secondAttribute="bottom" constant="33" id="9Q8-IU-MoW"/>
+                                <constraint firstItem="huE-ot-P0k" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="30" id="98Q-c7-Nmv"/>
+                                <constraint firstItem="oPV-gV-2NY" firstAttribute="top" secondItem="p1S-ZM-JIV" secondAttribute="bottom" constant="35" id="9Q8-IU-MoW"/>
+                                <constraint firstItem="p1S-ZM-JIV" firstAttribute="top" secondItem="huE-ot-P0k" secondAttribute="bottom" constant="35" id="RoO-NR-kF1"/>
                                 <constraint firstItem="p1S-ZM-JIV" firstAttribute="leading" secondItem="yIY-IS-qmr" secondAttribute="leading" constant="30" id="fLS-Pm-xza"/>
                                 <constraint firstItem="p1S-ZM-JIV" firstAttribute="centerY" secondItem="yIY-IS-qmr" secondAttribute="centerY" id="n4P-47-QXX"/>
                             </constraints>

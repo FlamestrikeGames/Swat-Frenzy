@@ -52,7 +52,7 @@ class GameOverScene: SKScene {
             }
         }
         
-        if(level != 9 && won) {
+        if(level < 9 && won) {
             let nextLevelButton = SKLabelNode(fontNamed: "Helvetica Neue Bold")
             nextLevelButton.text = "Next Level"
             nextLevelButton.fontColor = SKColor.blue

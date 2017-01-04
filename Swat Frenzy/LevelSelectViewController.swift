@@ -63,6 +63,16 @@ class LevelSelectViewController: UICollectionViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func endlessMode(_ sender: Any) {
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        viewController.level = 10
+        viewController.player = player
+        
+        backgroundSoundFX.stop()
+        
+        present(viewController, animated: true, completion: nil)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return maxLevels
     }

@@ -67,7 +67,7 @@ class StatsViewController: UIViewController {
     }
     
     func initializeValues() {
-        //player.goldAmount = 10000
+      //  player.goldAmount = 1000000
         playerGold.text = String(player.goldAmount)
         costToIncHealth.text = String(player.maxHealth - 49)
         costToIncPower.text = String(player.power)
@@ -94,13 +94,15 @@ class StatsViewController: UIViewController {
             addHealthButton.isUserInteractionEnabled = false
             addHealthButton.alpha = 0.2
         } else {
-            if player.goldAmount < Int(costToIncHealth.text!)! {
-                costToIncHealth.textColor = UIColor.red
-                addHealthButton.isUserInteractionEnabled = false
-                addHealthButton.alpha = 0.2
-                timer?.invalidate()
-            } else {
-                costToIncHealth.textColor = UIColor.green
+            if costToIncHealth.text != "MAX" {
+                if player.goldAmount < Int(costToIncHealth.text!)! {
+                    costToIncHealth.textColor = UIColor.red
+                    addHealthButton.isUserInteractionEnabled = false
+                    addHealthButton.alpha = 0.2
+                    timer?.invalidate()
+                } else {
+                    costToIncHealth.textColor = UIColor.green
+                }
             }
         }
         if (player.power >= 100 && costToIncPower.text != "MAX") {
@@ -113,14 +115,16 @@ class StatsViewController: UIViewController {
             addPowerButton.alpha = 0.2
             timer?.invalidate()
         } else {
-            if player.goldAmount < Int(costToIncPower.text!)! {
-                costToIncPower.textColor = UIColor.red
-                addPowerButton.isUserInteractionEnabled = false
-                addPowerButton.alpha = 0.2
-                timer?.invalidate()
-
-            } else {
-                costToIncPower.textColor = UIColor.green
+            if costToIncPower.text != "MAX" {
+                if player.goldAmount < Int(costToIncPower.text!)! {
+                    costToIncPower.textColor = UIColor.red
+                    addPowerButton.isUserInteractionEnabled = false
+                    addPowerButton.alpha = 0.2
+                    timer?.invalidate()
+                    
+                } else {
+                    costToIncPower.textColor = UIColor.green
+                }
             }
         }
     }
