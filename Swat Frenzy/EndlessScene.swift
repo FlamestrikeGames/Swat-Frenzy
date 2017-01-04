@@ -11,8 +11,8 @@ import SpriteKit
 class EndlessScene: BaseScene {
     
     var timer: Timer?
+    var boardTimer: Timer?
     var scoreTime: Int = 0
-
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -26,8 +26,11 @@ class EndlessScene: BaseScene {
         enemySprite?.alpha = 0
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
-            // Spawn enemies
+            // Start timer
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(EndlessScene.increaseTimer), userInfo: nil, repeats: true)
+            self.boardTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(EndlessScene.spawnSpinningBoard), userInfo: nil, repeats: true)
+            // Spawn enemies
+            
             self.gameLayer.run(SKAction.repeatForever(
                 
                 SKAction.sequence([
@@ -68,6 +71,35 @@ class EndlessScene: BaseScene {
         self.spawnEnemy(enemy: enemy)
     }
     
+    func spawnSpinningBoard() {
+        // spawn new board
+        let randWidth = random(min: self.frame.size.width / 5, max: self.frame.size.width / 2)
+        let randLength = random(min: self.frame.size.width / 30, max: self.frame.size.width / 10)
+        
+        let randX = random(min: randWidth / 2, max: self.frame.size.width - randWidth / 2)
+        let randY = random(min: randWidth / 2, max: self.frame.size.height - self.uiBackground!.frame.size.height - randWidth / 2)
+        initializeBoard(location: CGPoint(x: randX, y: randY), randW: randWidth, randL: randLength)
+    }
+    
+    func initializeBoard(location: CGPoint, randW: CGFloat, randL: CGFloat) {
+        let board = SKSpriteNode(imageNamed: "woodenBoard")
+        board.size = CGSize(width: randW, height: randL)
+        board.position = location
+        board.zPosition = -9
+        gameLayer.addChild(board)
+        
+        board.physicsBody = SKPhysicsBody(rectangleOf: board.frame.size)
+        board.physicsBody?.isDynamic = true
+        board.physicsBody?.categoryBitMask = PhysicsCategory.Board
+        board.physicsBody?.contactTestBitMask = PhysicsCategory.Weapon
+        board.physicsBody?.collisionBitMask = PhysicsCategory.None
+        board.physicsBody?.affectedByGravity = false
+        board.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI_4), duration: 0.75)))
+        board.run(SKAction.wait(forDuration: 4.0), completion: {
+            board.removeFromParent()
+        })
+    }
+    
     override func killEnemy(enemy: SKSpriteNode) {
         enemy.removeAllActions()
         enemy.removeAllChildren()
@@ -77,11 +109,15 @@ class EndlessScene: BaseScene {
     override func showPauseMenu() {
         super.showPauseMenu()
         timer?.invalidate()
+        boardTimer?.invalidate()
     }
     
     override func removePauseMenu() {
         super.removePauseMenu()
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(EndlessScene.increaseTimer), userInfo: nil, repeats: true)
+        self.boardTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(EndlessScene.spawnSpinningBoard), userInfo: nil, repeats: true)
 
     }
+    
+    
 }
