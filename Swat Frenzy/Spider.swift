@@ -23,12 +23,12 @@ class Spider: Enemy {
         goldValue = 8
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     override func getSpawnPosition(vcFrameSize: CGSize, uiHeight: CGFloat) -> CGPoint {
-        var x = (vcFrameSize.width - (size.width * 3/2)) * BaseScene.sharedInstance().random(min: 0, max: 1)
+        var x = (vcFrameSize.width - (size.width * 3/2)) * Helper.random(min: 0, max: 1)
         let y = (vcFrameSize.height - (size.height * 3/2) - uiHeight)
         
         if x < (size.width * 3/2) {
@@ -38,8 +38,8 @@ class Spider: Enemy {
     }
     
     override func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
-        let moveX = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
-        let moveY = BaseScene.sharedInstance().random(min: size.height * 2,
+        let moveX = Helper.random(min: size.width, max: vcFrameSize.width - size.width)
+        let moveY = Helper.random(min: size.height * 2,
                                                       max: vcFrameSize.height - (size.height * 4) - uiHeight)
         let moveDuration = 0.5 + ((abs(self.position.x - moveX) + abs(self.position.y - moveY)) / 1000)
         run(SKAction.move(to: CGPoint(x: moveX,y: moveY), duration: TimeInterval(moveDuration)),

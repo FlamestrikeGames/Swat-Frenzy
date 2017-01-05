@@ -26,7 +26,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-//  Eddie Chou made some revisions to update code to Swift 3: 10/06/2016.
+//  Jonathan Chou made some revisions to update code to Swift 3: 10/06/2016.
 
 import UIKit
 import SpriteKit

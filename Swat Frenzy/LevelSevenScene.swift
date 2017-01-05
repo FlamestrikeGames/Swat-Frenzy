@@ -42,7 +42,7 @@ class LevelSevenScene: BaseScene {
                     }),
                     SKAction.wait(forDuration: 0.5),
                     SKAction.run {
-                        let spawnChance = self.random(min: 1, max: 10)
+                        let spawnChance = Helper.random(min: 1, max: 10)
                         if spawnChance == 1 {
                             let enemy = Butterfly()
                             enemy.playEnemySound()

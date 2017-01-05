@@ -85,9 +85,9 @@ class LevelNineScene: BaseScene {
             SKAction.sequence([
                 SKAction.run({
                     self.boss.run(
-                        SKAction.move(to: CGPoint(x: self.random(min: bossWidth / 2,
+                        SKAction.move(to: CGPoint(x: Helper.random(min: bossWidth / 2,
                                                                  max: self.frame.size.width - bossWidth / 2),
-                                                  y: self.random(min: bossHeight / 2,
+                                                  y: Helper.random(min: bossHeight / 2,
                                                                  max: self.frame.size.height - (bossHeight / 2) - 50)),
                                       duration: 0.75)
                     )
@@ -199,7 +199,7 @@ class LevelNineScene: BaseScene {
             boss.takeDamage(amount: player.power)
             resizeEnemyHealthBar()
             
-            let heartDrop = random(min: 1, max: 100)
+            let heartDrop = Helper.random(min: 1, max: 100)
             if (player.currentHealth < player.maxHealth && heartDrop <= 10) {
                 boss.dropHeart()
                 // Gain health

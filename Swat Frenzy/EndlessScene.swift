@@ -76,11 +76,11 @@ class EndlessScene: BaseScene {
     
     func spawnSpinningBoard() {
         // spawn new board
-        let randWidth = random(min: self.frame.size.width / 5, max: self.frame.size.width / 2)
-        let randLength = random(min: self.frame.size.width / 30, max: self.frame.size.width / 10)
+        let randWidth = Helper.random(min: self.frame.size.width / 5, max: self.frame.size.width / 2)
+        let randLength = Helper.random(min: self.frame.size.width / 30, max: self.frame.size.width / 10)
         
-        let randX = random(min: randWidth / 2, max: self.frame.size.width - randWidth / 2)
-        let randY = random(min: randWidth / 2, max: self.frame.size.height - self.uiBackground!.frame.size.height - randWidth / 2)
+        let randX = Helper.random(min: randWidth / 2, max: self.frame.size.width - randWidth / 2)
+        let randY = Helper.random(min: randWidth / 2, max: self.frame.size.height - self.uiBackground!.frame.size.height - randWidth / 2)
         initializeBoard(location: CGPoint(x: randX, y: randY), randW: randWidth, randL: randLength)
     }
     

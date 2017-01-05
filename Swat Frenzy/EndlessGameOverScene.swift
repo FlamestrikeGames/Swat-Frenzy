@@ -60,8 +60,8 @@ class EndlessGameOverScene: SKScene {
         playBackgroundMusic(fileName: "lose.wav", volume: 1.0)
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

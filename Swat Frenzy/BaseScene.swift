@@ -2,7 +2,7 @@
 //  BaseScene.swift
 //  Swat Frenzy
 //
-//  Created by Eddie Chou on 10/5/16.
+//  Created by Jonathan Chou on 10/5/16.
 //  Copyright © 2016 FlamestrikeGames. All rights reserved.
 //
 
@@ -327,8 +327,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Check if it drops a coin
-        let coinDrop = random(min: 1, max: 100)
-        let heartDrop = random(min: 1, max: 100)
+        let coinDrop = Helper.random(min: 1, max: 100)
+        let heartDrop = Helper.random(min: 1, max: 100)
         if coinDrop <= 80 {
             // Drop coin
             enemy.dropCoin()
@@ -586,22 +586,5 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         player.currentHealth = player.maxHealth
         scene?.player = player
         self.view?.presentScene(scene!, transition:reveal)
-    }
-    
-    // MARK: - Helper Functions
-    
-    func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    func random(min: CGFloat, max: CGFloat) -> CGFloat {
-        return random() * (max - min) + min
-    }
-    
-    class func sharedInstance() -> BaseScene {
-        struct Singleton {
-            static var sharedInstance = BaseScene()
-        }
-        return Singleton.sharedInstance
     }
 }

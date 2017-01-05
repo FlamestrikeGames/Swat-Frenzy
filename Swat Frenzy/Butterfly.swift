@@ -23,19 +23,20 @@ class Butterfly: Enemy {
         goldValue = 0
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
         var x: CGFloat = 0
         var y: CGFloat = 0
+        
         run(
             SKAction.repeat(
                 SKAction.sequence([
                     SKAction.run {
-                        x = BaseScene.sharedInstance().random(min: self.size.width, max: vcFrameSize.width - self.size.width)
-                        y = BaseScene.sharedInstance().random(min: self.size.height * 2,
+                        x = Helper.random(min: self.size.width, max: vcFrameSize.width - self.size.width)
+                        y = Helper.random(min: self.size.height * 2,
                                                               max: vcFrameSize.height - (self.size.height * 2) - uiHeight)
                         // change direction if moving left
                         if x < self.position.x && self.xScale > 0 || x > self.position.x && self.xScale < 0 {

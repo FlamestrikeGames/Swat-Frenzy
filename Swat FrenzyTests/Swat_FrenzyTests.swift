@@ -2,12 +2,12 @@
 //  Swat_FrenzyTests.swift
 //  Swat FrenzyTests
 //
-//  Created by Eddie Chou on 10/5/16.
+//  Created by Jonathan Chou on 10/5/16.
 //  Copyright © 2016 FlamestrikeGames. All rights reserved.
 //
 
 import XCTest
-@testable import Swat_Frenzy
+//@testable import Swat_Frenzy
 
 class Swat_FrenzyTests: XCTestCase {
     
