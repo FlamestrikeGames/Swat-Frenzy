@@ -30,7 +30,16 @@ class LevelTwoScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 1.0),
+                    SKAction.run {
+                        let spawnChance = self.random(min: 1, max: 10)
+                        if spawnChance == 1 {
+                            let enemy = Butterfly()
+                            enemy.playEnemySound()
+                            self.spawnEnemy(enemy: enemy)
+                        }
+                    },
+                    SKAction.wait(forDuration: 5.0)
                     ])
                 )
             )

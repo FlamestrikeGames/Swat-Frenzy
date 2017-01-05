@@ -31,17 +31,20 @@ class EndlessScene: BaseScene {
             self.boardTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(EndlessScene.spawnSpinningBoard), userInfo: nil, repeats: true)
             // Spawn enemies
             
+            let spawnSequence = SKAction.sequence([
+                SKAction.run{
+                self.spawnRandomEnemy()
+                }, SKAction.wait(forDuration: 1.0)])
+            
             self.gameLayer.run(SKAction.repeatForever(
                 
                 SKAction.sequence([
-                    SKAction.run({
-                        self.spawnRandomEnemy()
-                    }),
-                    SKAction.wait(forDuration: 1.0),
-                    SKAction.run({
-                        self.spawnRandomEnemy()
-                    }),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.repeat(spawnSequence, count: 9),
+                    SKAction.run {
+                        let enemy = Butterfly()
+                        enemy.playEnemySound()
+                        self.spawnEnemy(enemy: enemy)
+                    }
                     ])
                 )
             )

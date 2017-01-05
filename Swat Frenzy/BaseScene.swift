@@ -153,21 +153,29 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         enemy.createCircleTimer()
         
         // Enemy flies toward player
-        enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
-            // Despawn enemy and take damage if action completes
-            if(enemy.position.x <= 0 || enemy.position.y <= 0 || enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height - self.uiBackground!.frame.height) {
-                self.killEnemy(enemy: enemy)
-            } else {
+        if(enemy.name != "butterfly") {
+            enemy.run(SKAction.scale(by: 2, duration: enemy.aliveDuration), completion: {
+                // Despawn enemy and take damage if action completes
+                if(enemy.position.x <= 0 || enemy.position.y <= 0 || enemy.position.x >= self.frame.size.width || enemy.position.y >= self.frame.size.height - self.uiBackground!.frame.height) {
+                    self.killEnemy(enemy: enemy)
+                } else {
+                    self.removeEnemyAndTakeDamage(enemy: enemy)
+                }
+            })
+        } else {
+            // butterfly
+            enemy.run(SKAction.scale(by: 1.5, duration: enemy.aliveDuration), completion: {
+                // if it's still alive, gain health and despawn butterfly
+                enemy.dropHeart()
+                self.player.gainHealth(amount: 5)
+                self.resizeHealthBar()
+                enemy.removeAllActions()
                 enemy.removeAllChildren()
                 enemy.removeFromParent()
-                self.player.takeDamage(amount: Int(enemy.damage))
-                // Play whack sound
-                self.run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
-                self.resizeHealthBar()
+                
+            })
+        }
 
-                self.takeHit()
-            }
-        })
         
         enemy.beginMovement(vcFrameSize: frame.size, uiHeight: uiBackground!.frame.height)
         enemy.animateEnemy()
@@ -184,6 +192,17 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             self.gameOver(won: true)
         }
 
+    }
+    
+    func removeEnemyAndTakeDamage(enemy: Enemy) {
+        enemy.removeAllActions()
+        enemy.removeAllChildren()
+        enemy.removeFromParent()
+        self.player.takeDamage(amount: Int(enemy.damage))
+        // Play whack sound
+        self.run(SKAction.playSoundFileNamed("whack.wav", waitForCompletion: false))
+        self.takeHit()
+        self.resizeHealthBar()
     }
     
     func takeHit() {
@@ -293,11 +312,19 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func weaponDidCollideWithEnemy(weapon:SWBlade, enemy: Enemy) {
         // Remove move action from enemy
-        enemy.removeAction(forKey: "move")
+        enemy.removeAction(forKey: "singleMove")
+        enemy.removeAction(forKey: "repeatMove")
         
         // Play slap sound and release particles
         run(SKAction.playSoundFileNamed("slap.wav", waitForCompletion: false))
         enemy.releaseHitParticles()
+        
+        // If enemy is a butterfly, take damage immediately, remove butterfly from parent, return
+        if(enemy.name == "butterfly") {
+            removeEnemyAndTakeDamage(enemy: enemy)
+            removeWeapon()
+            return
+        }
         
         // Check if it drops a coin
         let coinDrop = random(min: 1, max: 100)

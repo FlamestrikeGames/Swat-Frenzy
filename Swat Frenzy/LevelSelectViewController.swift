@@ -47,7 +47,7 @@ class LevelSelectViewController: UICollectionViewController {
             currentLevel = 1
             userDef.set(1, forKey: "currentLevel")
         }
-        
+        currentLevel = 9 // DELETE: used for testing purposes unlocks all levels
         collectionView?.reloadData()
         playBackgroundMusic(fileName: "introMusic.wav", volume: 0.5)
         player.currentHealth = player.maxHealth

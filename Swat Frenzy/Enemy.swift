@@ -24,7 +24,7 @@ class Enemy: SKSpriteNode {
         static let All       : UInt32 = UInt32.max
         static let Enemy     : UInt32 = 0b1       // 1
         static let Weapon    : UInt32 = 0b10      // 2
-        static let Board     : UInt32 = 0b100     // 3
+        static let Board     : UInt32 = 0b100     // 4
     }
     
     init(image: String) {
@@ -101,6 +101,33 @@ class Enemy: SKSpriteNode {
     }
     
     func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        run(
+            SKAction.repeat(
+                SKAction.sequence([
+                    SKAction.run {
+                        x = BaseScene.sharedInstance().random(min: self.size.width, max: vcFrameSize.width - self.size.width)
+                        y = BaseScene.sharedInstance().random(min: self.size.height * 2,
+                                                              max: vcFrameSize.height - (self.size.height * 2) - uiHeight)
+                        // change direction if moving left
+                        if x < self.position.x && self.xScale > 0 || x > self.position.x && self.xScale < 0 {
+                            self.xScale *= -1
+                        }
+                    },
+                    SKAction.run ({
+                        self.run(SKAction.move(to: CGPoint(x: x, y: y), duration: 2.0),
+                                 withKey: "singleMove"
+                        )
+                    }),
+                    SKAction.wait(forDuration: 2.0)
+                    ]), count: 3
+            ),
+            withKey: "repeatMove"
+        )
+    }
+ /*
+    func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
         let x = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
         let y = BaseScene.sharedInstance().random(min: size.height * 2,
                                                   max: vcFrameSize.height - (size.height * 2) - uiHeight)
@@ -113,9 +140,10 @@ class Enemy: SKSpriteNode {
             SKAction.move(to: CGPoint(x: x, y: y),
                           duration: TimeInterval(BaseScene.sharedInstance().random(min: 1, max: 3))),
             withKey: "move"
+
         )
     }
-    
+  */
     func animateEnemy() {
         run(SKAction.repeatForever(SKAction.animate(with: enemyAnimationFrames, timePerFrame: 0.25, resize: false, restore: true)), withKey: "animateEnemy")
     }
