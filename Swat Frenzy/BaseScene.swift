@@ -586,7 +586,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         player.currentHealth = player.maxHealth
         scene?.player = player
         self.view?.presentScene(scene!, transition:reveal)
-        
     }
     
     // MARK: - Helper Functions

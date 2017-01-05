@@ -22,7 +22,7 @@ class LevelSevenScene: BaseScene {
         enemySprite2?.texture = SKTexture(imageNamed: "bee")
         enemySprite2?.alpha = 1
         
-        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 3.75))
+        initializeBoard(location: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 3.5))
 
         
         gameLayer.run(SKAction.wait(forDuration: 3.0), completion: {
@@ -40,7 +40,16 @@ class LevelSevenScene: BaseScene {
                         enemy.playEnemySound()
                         self.spawnEnemy(enemy: enemy)
                     }),
-                    SKAction.wait(forDuration: 0.5)
+                    SKAction.wait(forDuration: 0.5),
+                    SKAction.run {
+                        let spawnChance = self.random(min: 1, max: 10)
+                        if spawnChance == 1 {
+                            let enemy = Butterfly()
+                            enemy.playEnemySound()
+                            self.spawnEnemy(enemy: enemy)
+                        }
+                    },
+                    SKAction.wait(forDuration: 0.25)
                     ])
                 )
             )
@@ -49,7 +58,7 @@ class LevelSevenScene: BaseScene {
     
     func initializeBoard(location: CGPoint) {
         let board = SKSpriteNode(imageNamed: "woodenBoard")
-        board.size = CGSize(width: self.frame.size.width * 0.9, height: self.frame.size.height / 15)
+        board.size = CGSize(width: self.frame.size.width * 0.9, height: self.frame.size.height / 10)
         board.position = location
         board.zPosition = -100
         gameLayer.addChild(board)

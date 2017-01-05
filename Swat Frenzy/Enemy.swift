@@ -107,9 +107,9 @@ class Enemy: SKSpriteNode {
             SKAction.repeat(
                 SKAction.sequence([
                     SKAction.run {
-                        x = BaseScene.sharedInstance().random(min: self.size.width, max: vcFrameSize.width - self.size.width)
-                        y = BaseScene.sharedInstance().random(min: self.size.height * 2,
-                                                              max: vcFrameSize.height - (self.size.height * 2) - uiHeight)
+                        x = BaseScene.sharedInstance().random(min: self.size.width / 2, max: vcFrameSize.width - self.size.width / 2)
+                        y = BaseScene.sharedInstance().random(min: self.size.height / 2,
+                                                              max: vcFrameSize.height - (self.size.height / 2) - uiHeight)
                         // change direction if moving left
                         if x < self.position.x && self.xScale > 0 || x > self.position.x && self.xScale < 0 {
                             self.xScale *= -1
@@ -126,24 +126,7 @@ class Enemy: SKSpriteNode {
             withKey: "repeatMove"
         )
     }
- /*
-    func beginMovement(vcFrameSize: CGSize, uiHeight: CGFloat) {
-        let x = BaseScene.sharedInstance().random(min: size.width, max: vcFrameSize.width - size.width)
-        let y = BaseScene.sharedInstance().random(min: size.height * 2,
-                                                  max: vcFrameSize.height - (size.height * 2) - uiHeight)
-        
-        // change direction if moving left
-        if x < self.position.x {
-            self.xScale *= -1
-        }
-        run(
-            SKAction.move(to: CGPoint(x: x, y: y),
-                          duration: TimeInterval(BaseScene.sharedInstance().random(min: 1, max: 3))),
-            withKey: "move"
 
-        )
-    }
-  */
     func animateEnemy() {
         run(SKAction.repeatForever(SKAction.animate(with: enemyAnimationFrames, timePerFrame: 0.25, resize: false, restore: true)), withKey: "animateEnemy")
     }

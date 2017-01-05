@@ -53,4 +53,11 @@ class Butterfly: Enemy {
         )
     }
     
+    override func createCircleTimer() {
+        let circle = SKShapeNode(circleOfRadius: size.width / 2)
+        circle.fillColor = .clear
+        circle.strokeColor = .magenta
+        addChild(circle)
+    }
+    
 }

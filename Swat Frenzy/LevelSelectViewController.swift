@@ -17,7 +17,7 @@ class LevelSelectViewController: UICollectionViewController {
 
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var endlessModeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,16 @@ class LevelSelectViewController: UICollectionViewController {
             currentLevel = 1
             userDef.set(1, forKey: "currentLevel")
         }
-        currentLevel = 9 // DELETE: used for testing purposes unlocks all levels
+        currentLevel = 8 // DELETE: used for testing purposes unlocks all levels
+        
+        if currentLevel < 10 {
+            endlessModeButton.isUserInteractionEnabled = false
+            endlessModeButton.isHidden = true
+        } else {
+            endlessModeButton.isUserInteractionEnabled = true
+            endlessModeButton.isHidden = false
+        }
+        
         collectionView?.reloadData()
         playBackgroundMusic(fileName: "introMusic.wav", volume: 0.5)
         player.currentHealth = player.maxHealth
@@ -63,7 +72,7 @@ class LevelSelectViewController: UICollectionViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func endlessMode(_ sender: Any) {
+    @IBAction func endlessMode(_ sender: UIButton) {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         viewController.level = 10
         viewController.player = player
