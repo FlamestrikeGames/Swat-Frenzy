@@ -53,6 +53,7 @@
 		7B678A961DA849B20097E9E1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B678A951DA849B20097E9E1 /* GameOverScene.swift */; };
 		7B84E0711DDC409400159506 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B84E0701DDC409400159506 /* Colors.swift */; };
 		7B8B2EA01DBAAD3A000B6B28 /* Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */; };
+		7B971C8A1E1E2288003B7D4E /* EndlessGameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B971C891E1E2288003B7D4E /* EndlessGameOverScene.swift */; };
 		7BA229621DC418C800C6EEC3 /* introMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BA229611DC418C800C6EEC3 /* introMusic.wav */; };
 		7BA229641DC6978000C6EEC3 /* arcadeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BA229631DC6978000C6EEC3 /* arcadeMusic.wav */; };
 		7BBCEC871DD2813B00015BF1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCEC861DD2813B00015BF1 /* StatsViewController.swift */; };
@@ -144,6 +145,7 @@
 		7B678A951DA849B20097E9E1 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		7B84E0701DDC409400159506 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7B8B2E9F1DBAAD3A000B6B28 /* Mosquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mosquito.swift; sourceTree = "<group>"; };
+		7B971C891E1E2288003B7D4E /* EndlessGameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndlessGameOverScene.swift; sourceTree = "<group>"; };
 		7BA229611DC418C800C6EEC3 /* introMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = introMusic.wav; path = Sounds/introMusic.wav; sourceTree = "<group>"; };
 		7BA229631DC6978000C6EEC3 /* arcadeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = arcadeMusic.wav; path = Sounds/arcadeMusic.wav; sourceTree = "<group>"; };
 		7BBCEC861DD2813B00015BF1 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				7BFF7D1A1DC2ACDE00176B98 /* LevelNineScene.swift */,
 				7B678A951DA849B20097E9E1 /* GameOverScene.swift */,
 				7BF0E17B1E1C66BB00880213 /* EndlessScene.swift */,
+				7B971C891E1E2288003B7D4E /* EndlessGameOverScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				66B106991DA5DEC2006F314A /* GameViewController.swift in Sources */,
 				7BBF4D731DC0105700A4FA77 /* LevelSevenScene.swift in Sources */,
 				7B5DE7881DAF112700BA7226 /* LevelSelectViewController.swift in Sources */,
+				7B971C8A1E1E2288003B7D4E /* EndlessGameOverScene.swift in Sources */,
 				7BFF7D191DC1965600176B98 /* LevelEightScene.swift in Sources */,
 				7B36D7621DB301F50035D6D6 /* LevelThreeScene.swift in Sources */,
 				66B1066A1DA5CE43006F314A /* Swat_Frenzy.xcdatamodeld in Sources */,

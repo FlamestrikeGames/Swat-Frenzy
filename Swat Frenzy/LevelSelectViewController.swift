@@ -15,7 +15,6 @@ class LevelSelectViewController: UICollectionViewController {
     var backgroundSoundFX: AVAudioPlayer!
     var player: Player!
 
-    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var endlessModeButton: UIButton!
     
@@ -47,7 +46,7 @@ class LevelSelectViewController: UICollectionViewController {
             currentLevel = 1
             userDef.set(1, forKey: "currentLevel")
         }
-        currentLevel = 8 // DELETE: used for testing purposes unlocks all levels
+        currentLevel = 10 // DELETE: used for testing purposes unlocks all levels
         
         if currentLevel < 10 {
             endlessModeButton.isUserInteractionEnabled = false

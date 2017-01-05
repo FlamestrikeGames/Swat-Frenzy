@@ -109,6 +109,17 @@ class EndlessScene: BaseScene {
         enemy.removeFromParent()
     }
     
+    override func gameOver(won: Bool) {
+        let userDef = UserDefaults.standard
+        player.goldAmount += goldGained
+        userDef.set(player.goldAmount, forKey: "goldAmount")
+        
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameOverScene = EndlessGameOverScene(size: self.size, score: scoreTime)
+        gameOverScene.player = player
+        self.view?.presentScene(gameOverScene, transition: reveal)
+    }
+    
     override func showPauseMenu() {
         super.showPauseMenu()
         timer?.invalidate()
